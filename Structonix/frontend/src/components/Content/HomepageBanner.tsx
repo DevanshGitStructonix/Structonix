@@ -22,7 +22,7 @@ const slides = [
     },
     {
         id: 2,
-        image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2031&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1662218934109-eba4e22a6f3f?q=80&w=1031&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         title: 'Innovative engineering solutions ',
         highlight: 'for future',
         titleEnd: ' development projects',
@@ -178,7 +178,7 @@ export function HomepageBanner() {
             </Slider>
 
             {/* Bottom Right Info Box */}
-            <div className="absolute bottom-0 right-0 bg-dark-navy/90 text-white p-6 md:p-10 hidden md:block z-20 max-w-xs">
+            <div className="absolute bottom-0 right-0 bg-dark-navy/100 text-white p-6 md:px-10 md:py-6 hidden md:block z-20 max-w-xs">
                 <p className="text-xs text-gray-400 font-bold tracking-widest uppercase mb-1">CALL US:</p>
                 <p className="text-xl font-secondary">+1 800 638 975</p>
             </div>

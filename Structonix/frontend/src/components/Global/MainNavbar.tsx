@@ -36,63 +36,66 @@ export function MainNavbar() {
 
     return (
         <>
-            <nav className={`bg-white sticky top-0 z-40 transition-shadow duration-300 ${isScrolled ? 'shadow-md' : 'shadow-sm'}`}>
-                <div className="container mx-auto px-4">
-                    <div className="flex items-center justify-between h-20">
-                        {/* Left: Menu Icon (Desktop) & Logo */}
-                        <div className="flex items-center gap-6">
-                            <button
-                                onClick={() => setIsSideMenuOpen(true)}
-                                className="hidden lg:flex items-center justify-center w-10 h-10 text-dark-slate hover:text-primary transition-colors"
-                                aria-label="Open side menu"
-                            >
-                                <LayoutPanelLeftIcon className="w-6 h-6" />
-                            </button>
-
-                            <Link href="/" className="flex items-center gap-2 group">
-                                <div className="relative w-8 h-8 flex items-center justify-center bg-primary overflow-hidden transition-transform group-hover:scale-105">
-                                    <span className="text-white font-bold text-lg relative z-10">S</span>
-                                    <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                                </div>
-                                <span className="text-xl font-bold text-dark-slate tracking-tight group-hover:text-primary transition-colors">Structonix</span>
-                            </Link>
-                        </div>
-
-                        {/* Center: Navigation Links */}
-                        <div className="hidden lg:flex items-center gap-8">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    href={link.href}
-                                    className="relative text-dark-slate font-medium text-[14px] hover:text-primary transition-colors py-2 uppercase tracking-wide group"
+            {/* Start Placeholder to prevent layout shift */}
+            <div className="h-20 relative">
+                <nav className={`bg-white z-40 transition-all duration-300 ${isScrolled ? 'fixed top-0 left-0 w-full shadow-md animate-slide-down' : 'absolute top-0 left-0 w-full shadow-sm'}`}>
+                    <div className="container mx-auto px-4">
+                        <div className="flex items-center justify-between h-20">
+                            {/* Left: Menu Icon (Desktop) & Logo */}
+                            <div className="flex items-center gap-6">
+                                <button
+                                    onClick={() => setIsSideMenuOpen(true)}
+                                    className="hidden lg:flex items-center justify-center w-10 h-10 text-dark-slate hover:text-primary transition-colors"
+                                    aria-label="Open side menu"
                                 >
-                                    {link.name}
-                                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                                </Link>
-                            ))}
-                        </div>
+                                    <LayoutPanelLeftIcon className="w-6 h-6" />
+                                </button>
 
-                        {/* Right: Search & CTA */}
-                        <div className="flex items-center gap-4">
-                            <Link
-                                href="/contact"
-                                className="hidden lg:flex items-center justify-center bg-primary hover:bg-[#d68515] text-white px-6 h-full py-0 font-bold uppercase text-xs tracking-widest transition-all duration-300"
-                                style={{ height: '80px', marginTop: '-10px', marginBottom: '-10px' }} // Adjusted for smaller height
-                            >
-                                Get In Touch
-                            </Link>
-                            {/* Mobile Menu Toggle */}
-                            <button
-                                onClick={() => setIsSideMenuOpen(true)}
-                                className="lg:hidden p-2 text-dark-slate hover:text-primary transition-colors"
-                                aria-label="Open menu"
-                            >
-                                <Menu className="w-7 h-7" />
-                            </button>
+                                <Link href="/" className="flex items-center gap-2 group">
+                                    <div className="relative w-8 h-8 flex items-center justify-center bg-primary overflow-hidden transition-transform group-hover:scale-105">
+                                        <span className="text-white font-bold text-lg relative z-10">S</span>
+                                        <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                                    </div>
+                                    <span className="text-xl font-bold text-dark-slate tracking-tight group-hover:text-primary transition-colors">Structonix</span>
+                                </Link>
+                            </div>
+
+                            {/* Center: Navigation Links */}
+                            <div className="hidden lg:flex items-center gap-8">
+                                {navLinks.map((link) => (
+                                    <Link
+                                        key={link.name}
+                                        href={link.href}
+                                        className="relative text-dark-slate font-medium text-[14px] hover:text-primary transition-colors py-2 uppercase tracking-wide group"
+                                    >
+                                        {link.name}
+                                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                                    </Link>
+                                ))}
+                            </div>
+
+                            {/* Right: Search & CTA */}
+                            <div className="flex items-center gap-4">
+                                <Link
+                                    href="/contact"
+                                    className="hidden lg:flex items-center justify-center bg-primary hover:bg-[#d68515] text-white px-6 h-full py-0 font-bold uppercase text-xs tracking-widest transition-all duration-300"
+                                    style={{ height: '80px', marginTop: '-10px', marginBottom: '-10px' }} // Adjusted for smaller height
+                                >
+                                    Get In Touch
+                                </Link>
+                                {/* Mobile Menu Toggle */}
+                                <button
+                                    onClick={() => setIsSideMenuOpen(true)}
+                                    className="lg:hidden p-2 text-dark-slate hover:text-primary transition-colors"
+                                    aria-label="Open menu"
+                                >
+                                    <Menu className="w-7 h-7" />
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
+            </div>
 
             {/* Side Menu Overlay */}
             {/* Backdrop */}
