@@ -1,6 +1,7 @@
 import { HomepageBanner } from "@/components/Content/HomepageBanner";
 import { HomepageServices } from "@/components/Content/HomepageServices";
 import { HomepageAboutUs } from "@/components/Content/HomepageAboutUs";
+import { HomepageProjects } from "@/components/Content/HomepageProjects";
 import { HomepagePartners } from "@/components/Content/HomepagePartners";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <HomepageBanner />
       <HomepageServices />
       <HomepageAboutUs />
+      <HomepageProjects />
       <HomepagePartners />
       {/*
         Add other sections here later (About, Services, etc.)

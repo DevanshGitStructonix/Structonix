@@ -48,7 +48,7 @@ export function HomepagePartners() {
     };
 
     return (
-        <section className="py-24 px-20 bg-white relative overflow-hidden">
+        <section className="py-12 px-4 md:px-20 bg-[#F5F7FA] relative overflow-hidden">
             <div className="container mx-auto px-4">
                 <div className="mb-12">
                     <div className="flex items-center gap-2 mb-4">
