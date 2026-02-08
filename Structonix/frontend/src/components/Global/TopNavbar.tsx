@@ -5,7 +5,7 @@ import { Phone, Mail } from 'lucide-react';
 
 export function TopNavbar() {
     return (
-        <div className="bg-dark-navy text-light-gray py-3 px-4 border-b border-white/10">
+        <div className="bg-dark-navy text-light-gray py-3 px-4 border-b border-white/10 font-secondary">
             <div className="container mx-auto flex justify-between items-center text-sm">
                 {/* Left side - Secondary Navigation Links */}
                 <div className="hidden md:flex items-center gap-1">
