@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope, Work_Sans } from "next/font/google"; // Changed Raleway to Manrope
 import "./globals.css";
-import { TopNavbar } from "@/components/TopNavbar";
-import { MainNavbar } from "@/components/MainNavbar";
+import { MainLayout } from "@/components/Global/MainLayout";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Primary Font
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Secondary Font
+const workSans = Work_Sans({
+  variable: "--font-work-sans",
   subsets: ["latin"],
 });
 
@@ -27,11 +28,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}
+        className={`${manrope.variable} ${workSans.variable} antialiased bg-white`} // Updated variable
       >
-        <TopNavbar />
-        <MainNavbar />
-        {children}
+        <MainLayout>
+          {children}
+        </MainLayout>
       </body>
     </html>
   );
