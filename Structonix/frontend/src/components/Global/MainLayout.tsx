@@ -3,6 +3,7 @@
 import { TopNavbar } from './TopNavbar';
 import { MainNavbar } from './MainNavbar';
 import { Footer } from './Footer';
+import { ScrollToTopButton } from './ScrollToTopButton';
 
 interface MainLayoutProps {
     children: React.ReactNode;
@@ -26,6 +27,8 @@ export function MainLayout({ children }: MainLayoutProps) {
             <div className="flex-none">
                 <Footer />
             </div>
+
+            <ScrollToTopButton />
         </div>
     );
 }
