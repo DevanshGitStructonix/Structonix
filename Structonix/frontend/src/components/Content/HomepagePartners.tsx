@@ -9,11 +9,13 @@ import { motion } from 'framer-motion';
 // Ideally would use SVGs or images. Using placeholder text/shapes for structure.
 const partners = [
     { id: 1, name: 'Tata Group', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Tata_logo.svg/512px-Tata_logo.svg.png' },
-    { id: 2, name: 'Aditya Birla Group', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Aditya_Birla_Group_Logo.svg/512px-Aditya_Birla_Group_Logo.svg.png' },
-    { id: 3, name: 'Adani Group', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Adani_Group_logo.svg/512px-Adani_Group_logo.svg.png' },
-    { id: 4, name: 'Reliance Industries', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/9/99/Reliance_Industries_Logo.svg/512px-Reliance_Industries_Logo.svg.png' },
-    { id: 5, name: 'Mahindra Group', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Mahindra_Rise_New_Logo.svg/512px-Mahindra_Rise_New_Logo.svg.png' },
-    { id: 6, name: 'Larsen & Toubro', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/L%26T.svg/512px-L%26T.svg.png' },
+    { id: 2, name: 'Aditya Birla Group', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/75/Aditya_Birla_Group_Logo.svg/500px-Aditya_Birla_Group_Logo.svg.png' },
+    { id: 3, name: 'Adani Group', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Adani_logo_2012.svg/500px-Adani_logo_2012.svg.png' },
+    { id: 4, name: 'Reliance Industries', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/0/0e/Reliance_Industries.svg/500px-Reliance_Industries.svg.png' },
+    { id: 5, name: 'Mahindra Group', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Mahindra_logo.svg/500px-Mahindra_logo.svg.png' },
+    { id: 6, name: 'Larsen & Toubro', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a1/Larsen%26Toubro_logo.svg/330px-Larsen%26Toubro_logo.svg.png' },
+    { id: 7, name: 'JSW Group', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/JSW_Group_logo.svg/500px-JSW_Group_logo.svg.png' },
+    { id: 8, name: 'Godrej Group', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/1/1d/Godrej_Enterprises_Group.svg/500px-Godrej_Enterprises_Group.svg.png' },
 ];
 
 export function HomepagePartners() {

@@ -79,3 +79,8 @@ body {
   scrollbar-width: none;
   /* Firefox */
 }
+
+/* Handwriting Font for Signatures */
+.font-handwriting {
+  font-family: 'Brush Script MT', 'Dancing Script', cursive;
+}
