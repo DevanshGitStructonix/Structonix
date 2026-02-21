@@ -165,7 +165,8 @@ export function HomepageServices() {
                             <button
                                 key={service.id}
                                 onClick={() => setActiveTab(service.id)}
-                                className={`flex items-center justify-between p-4 text-left font-bold text-lg transition-all duration-300 border-l-4 ${activeTab === service.id
+                                onMouseEnter={() => setActiveTab(service.id)}
+                                className={`flex items-center justify-between p-4 text-left font-bold text-lg transition-all duration-300 border-l-4 cursor-pointer ${activeTab === service.id
                                     ? 'bg-primary text-white border-primary shadow-lg' // Active State
                                     : 'bg-white text-gray-500 border-transparent hover:bg-gray-100 hover:text-dark-slate' // Inactive State
                                     }`}

@@ -2,11 +2,16 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Search, LayoutPanelLeftIcon, Phone, MapPin, Mail } from 'lucide-react';
+import { Menu, X, Search, LayoutPanelLeftIcon, Phone, MapPin, Mail, ChevronDown, ArrowRight } from 'lucide-react';
 
 export function MainNavbar() {
     const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [openMobileMenu, setOpenMobileMenu] = useState<string | null>(null);
+
+    const toggleMobileMenu = (name: string) => {
+        setOpenMobileMenu(openMobileMenu === name ? null : name);
+    };
 
     // Handle scroll effect for sticky navbar
     useEffect(() => {
@@ -19,8 +24,23 @@ export function MainNavbar() {
 
     const navLinks = [
         { name: 'Home', href: '/' },
-        { name: 'About Us', href: '/about' },
+        { name: 'About', href: '/about' },
         { name: 'Projects', href: '/projects' },
+        {
+            name: 'Products & Services',
+            href: '/products-and-services',
+            subItems: [
+                { name: 'Pre Engineered Building Systems', href: '/services/peb-systems' },
+                { name: 'Prefabricated Steel Structures', href: '/services/prefab-steel' },
+                { name: 'Heavy Structural Fabrication', href: '/services/heavy-structural' },
+                { name: 'Turnkey Contractors for PEB', href: '/services/turnkey' },
+                { name: 'Multi Storey Steel Buildings', href: '/services/multi-storey' },
+                { name: 'Industrial Buildings', href: '/services/industrial-buildings' },
+                { name: 'Standing Seam Roofing Systems', href: '/services/roofing' },
+                { name: 'PUF & Rockwool Panels', href: '/services/panels' },
+                { name: 'PEB Building Accessories', href: '/services/accessories' }
+            ]
+        },
         { name: 'Contact Us', href: '/contact' },
     ];
 
@@ -60,16 +80,64 @@ export function MainNavbar() {
                             </div>
 
                             {/* Center: Navigation Links */}
-                            <div className="hidden lg:flex items-center gap-8">
+                            <div className="hidden lg:flex items-center gap-6">
                                 {navLinks.map((link) => (
-                                    <Link
-                                        key={link.name}
-                                        href={link.href}
-                                        className="relative text-dark-slate font-medium text-[14px] hover:text-primary transition-colors py-2 uppercase tracking-wide group"
-                                    >
-                                        {link.name}
-                                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                                    </Link>
+                                    <div key={link.name} className="group">
+                                        <Link
+                                            href={link.href}
+                                            className="relative text-dark-slate font-medium text-[12px] hover:text-primary transition-colors py-[30px] uppercase tracking-wide flex items-center gap-1 group/link"
+                                        >
+                                            {link.name}
+                                            {link.subItems && (
+                                                <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
+                                            )}
+                                            <span className="absolute bottom-[28px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover/link:w-full"></span>
+                                        </Link>
+
+                                        {/* Dropdown Menu (Mega Menu) */}
+                                        {link.subItems && (
+                                            <div className="absolute top-[80px] left-0 w-full bg-white shadow-xl border-t border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                                <div className="container mx-auto px-4 flex">
+                                                    {/* Left: Title & Desc (30%) */}
+                                                    <div className="w-[30%] py-12 pr-12 border-r border-gray-100">
+                                                        <h3 className="text-xl font-bold text-[#1a1b3c] mb-4">{link.name}</h3>
+                                                        <p className="text-sm text-dark-slate/80 leading-relaxed font-medium">
+                                                            Discover our wide range of innovative and durable PEB products, from prefabricated structures to turnkey solutions
+                                                        </p>
+                                                    </div>
+
+                                                    {/* Middle: Links Grid (45%) */}
+                                                    <div className="w-[45%] py-12 px-12">
+                                                        <div className="grid grid-cols-2 gap-y-8 gap-x-8">
+                                                            {link.subItems.map((subItem) => (
+                                                                <Link
+                                                                    key={subItem.name}
+                                                                    href={subItem.href}
+                                                                    className="flex items-center gap-3 group/sublink"
+                                                                >
+                                                                    <ArrowRight className="w-4 h-4 text-gray-500 group-hover/sublink:text-primary shrink-0 transition-colors" />
+                                                                    <span className="text-sm font-medium text-[#1a1b3c] group-hover/sublink:text-primary transition-colors leading-tight">
+                                                                        {subItem.name}
+                                                                    </span>
+                                                                </Link>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+
+                                                    {/* Right: Featured Image (25%) */}
+                                                    <div className="w-[25%] py-8 pl-8 flex items-center justify-center">
+                                                        <div className="w-full h-full min-h-[220px] rounded overflow-hidden relative shadow-sm">
+                                                            <img
+                                                                src="https://images.pexels.com/photos/33421999/pexels-photo-33421999.jpeg"
+                                                                alt="Featured Service"
+                                                                className="w-full h-full absolute inset-0 object-cover hover:scale-105 transition-transform duration-700"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
                                 ))}
                             </div>
 
@@ -123,6 +191,51 @@ export function MainNavbar() {
                         </div>
                         <span className="text-3xl font-bold text-white">Structonix</span>
                     </div>
+                    {/* Mobile Only: Navigation Links in Side Panel */}
+                    <div className="lg:hidden pt-8 border-t border-white/10 pb-10">
+                        <div className="flex flex-col gap-5">
+                            {navLinks.map((link) => (
+                                <div key={link.name} className="flex flex-col">
+                                    <div className="flex items-center justify-between">
+                                        <Link
+                                            href={link.href}
+                                            className="text-xl font-medium text-white hover:text-primary transition-colors py-1 flex-1"
+                                            onClick={() => setIsSideMenuOpen(false)}
+                                        >
+                                            {link.name}
+                                        </Link>
+                                        {link.subItems && (
+                                            <button
+                                                onClick={() => toggleMobileMenu(link.name)}
+                                                className="p-2 text-gray-400 hover:text-white transition-colors"
+                                                aria-label={`Toggle ${link.name} menu`}
+                                            >
+                                                <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${openMobileMenu === link.name ? 'rotate-180 text-primary' : ''}`} />
+                                            </button>
+                                        )}
+                                    </div>
+
+                                    {link.subItems && (
+                                        <div className={`overflow-hidden transition-all duration-300 ${openMobileMenu === link.name ? 'max-h-[800px] opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
+                                            <div className="pl-4 flex flex-col gap-3 border-l-2 border-white/10 ml-2">
+                                                {link.subItems.map(sub => (
+                                                    <Link
+                                                        key={sub.name}
+                                                        href={sub.href}
+                                                        className="text-base text-gray-400 hover:text-primary transition-colors py-1 flex items-center gap-2"
+                                                        onClick={() => setIsSideMenuOpen(false)}
+                                                    >
+                                                        <span className="w-1.5 h-1.5 rounded-full bg-primary/50"></span>
+                                                        {sub.name}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
 
                     {/* About Text */}
                     <div className="space-y-4">
@@ -167,21 +280,7 @@ export function MainNavbar() {
                         </div>
                     </div>
 
-                    {/* Mobile Only: Navigation Links in Side Panel */}
-                    <div className="lg:hidden pt-8 border-t border-white/10">
-                        <div className="flex flex-col gap-4">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    href={link.href}
-                                    className="text-xl font-medium text-white hover:text-primary transition-colors"
-                                    onClick={() => setIsSideMenuOpen(false)}
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </>

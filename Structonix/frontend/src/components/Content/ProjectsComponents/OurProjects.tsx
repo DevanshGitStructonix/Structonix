@@ -2,55 +2,61 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronRight, MapPin } from 'lucide-react';
 
 const projects = [
     {
         id: 1,
         number: '01',
-        title: 'Best innovations in metallurgy',
+        title: 'United Packaging Solutions Ind Pvt Ltd',
+        location: 'Vemgal, Kolar',
         description: 'Consectetur ipiscing elit tellus ullam corper mattis',
-        image: 'https://images.unsplash.com/photo-1581093588401-209af31f0036?q=80&w=2070&auto=format&fit=crop', // Welding/Metallurgy
-        slug: '/projects/metallurgy-innovations'
+        image: 'https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg', // Welding/Metallurgy
+        slug: '/projects/united-packaging'
     },
     {
         id: 2,
         number: '02',
-        title: 'Fuel & Gas management',
+        title: 'Shangrila Industris',
+        location: 'Vasanthanarasapura Industrial Area, Tumkur',
         description: 'Consectetur ipiscing elit tellus ullam corper mattis',
-        image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop', // Refinery pipes
-        slug: '/projects/fuel-gas-management'
+        image: 'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg',
+        slug: '/projects/shangrila-industries'
     },
     {
         id: 3,
         number: '03',
-        title: 'Manufacturer of tin lead and lead',
+        title: 'Sri Ranganath Enterprises',
+        location: 'Dabaspet',
         description: 'Consectetur ipiscing elit tellus ullam corper mattis',
-        image: 'https://images.unsplash.com/photo-1533038590840-1cde6e668a91?q=80&w=2070&auto=format&fit=crop', // Industrial pipes
-        slug: '/projects/tin-lead-manufacturing'
+        image: 'https://serbianbuildfund.com/wp-content/uploads/2023/07/Advantages-of-Industrial-Buildings-1.jpg',
+        slug: '/projects/sri-ranganath'
     },
     {
         id: 4,
         number: '04',
         title: 'Manufacturing Solutions',
+        location: 'Peenya Industrial Estate, Bangalore',
         description: 'Consectetur ipiscing elit tellus ullam corper mattis',
-        image: 'https://images.unsplash.com/photo-1565439398835-7b567dc8524a?q=80&w=2070&auto=format&fit=crop', // Factory floor
+        image: 'https://images.pexels.com/photos/110813/pexels-photo-110813.jpeg',
         slug: '/projects/manufacturing-solutions'
     },
     {
         id: 5,
         number: '05',
         title: 'State of the art for high control in',
+        location: 'Bommasandra Industrial Area',
         description: 'Consectetur ipiscing elit tellus ullam corper mattis',
-        image: 'https://images.unsplash.com/photo-1574359411659-15573a21bc2c?q=80&w=2070&auto=format&fit=crop', // Machinery/Control
+        image: 'https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg',
         slug: '/projects/high-control'
     },
     {
         id: 6,
         number: '06',
         title: 'Oil construction and gas production',
+        location: 'Hosur Tech Park',
         description: 'Consectetur ipiscing elit tellus ullam corper mattis',
-        image: 'https://images.unsplash.com/photo-1444530495635-029990f77d8b?q=80&w=2070&auto=format&fit=crop', // Automation/Rig
+        image: 'https://images.pexels.com/photos/33421999/pexels-photo-33421999.jpeg',
         slug: '/projects/oil-gas-construction'
     }
 ];
@@ -78,63 +84,43 @@ export function OurProjects() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {projects.map((project, index) => (
-                        <Link href={project.slug} key={project.id} className="block h-full">
+                        <Link href={project.slug} key={project.id} className="block group">
                             <motion.div
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: index * 0.1, duration: 0.5 }}
-                                className="group relative bg-[#FAFAFA] hover:bg-dark-navy transition-colors duration-300 overflow-hidden cursor-pointer h-full flex flex-col shadow-sm hover:shadow-xl rounded-sm"
+                                transition={{ delay: index * 0.1, duration: 0.6 }}
+                                className="flex flex-col h-[420px] bg-[#0e1027] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300"
                             >
-                                {/* Image Container */}
-                                <div className="h-64 overflow-hidden flex-shrink-0 relative">
+                                {/* Top Image Half */}
+                                <div className="h-[240px] relative overflow-hidden shrink-0">
                                     <img
                                         src={project.image}
                                         alt={project.title}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                     />
-                                    <div className="absolute inset-0 bg-dark-navy/20 group-hover:bg-transparent transition-colors duration-300"></div>
+                                    {/* Subtle Image Overlay */}
+                                    <div className="absolute inset-0 bg-transparent group-hover:bg-black/10 transition-colors duration-300"></div>
                                 </div>
 
-                                {/* Content */}
-                                <div className="p-8 flex-1 flex flex-col relative z-10">
-                                    <h3 className="text-xl md:text-2xl font-bold text-dark-slate group-hover:text-primary mb-4 transition-colors duration-300 leading-tight font-secondary">
-                                        {project.title}
-                                    </h3>
-
-                                    <p className="text-gray-500 group-hover:text-gray-300 mb-8 transition-colors duration-300 text-sm leading-relaxed flex-1">
-                                        {project.description}
-                                    </p>
-
-                                    {/* Footer: Number and Button */}
-                                    <div className="flex justify-between items-center border-t border-gray-200 group-hover:border-gray-700 pt-6 transition-colors duration-300 relative mt-auto">
-
-                                        {/* Large Number - Improved Visibility */}
-                                        <span
-                                            className="text-5xl md:text-6xl font-bold text-gray-200 group-hover:text-white/10 transition-colors duration-300 absolute -top-8 left-0 select-none pointer-events-none"
-                                            style={{
-                                                WebkitTextStroke: '1px transparent',
-                                            }}
-                                        >
-                                            {project.number}
-                                        </span>
-                                        {/* Outline number for hover state to make it pop slightly more elegantly */}
-                                        <span
-                                            className="text-5xl md:text-6xl font-bold text-transparent group-hover:text-transparent transition-opacity duration-300 absolute -top-8 left-0 select-none pointer-events-none opacity-0 group-hover:opacity-100"
-                                            style={{
-                                                WebkitTextStroke: '1px rgba(255,255,255,0.15)',
-                                            }}
-                                        >
-                                            {project.number}
-                                        </span>
-
-                                        <span className="text-sm font-bold tracking-wider uppercase text-dark-slate group-hover:text-white transition-colors duration-300 relative z-10 pl-2">
-                                            View Details
-                                        </span>
-
-                                        <div className="w-10 h-10 bg-gray-200 group-hover:bg-primary rounded-sm flex items-center justify-center transition-colors duration-300 transform group-hover:translate-x-1">
-                                            <ArrowRight className="w-4 h-4 text-dark-slate group-hover:text-white transition-colors duration-300" />
+                                {/* Bottom Content Half */}
+                                <div className="p-6 md:p-8 flex flex-col flex-1 relative justify-between">
+                                    <div className="flex flex-col items-start gap-4">
+                                        {/* Location Tag */}
+                                        <div className="inline-flex items-center gap-2 border border-white/20 px-3 py-1.5 max-w-full">
+                                            <MapPin className="w-3.5 h-3.5 text-white shrink-0" />
+                                            <span className="text-white text-xs md:text-sm font-medium truncate">{project.location}</span>
                                         </div>
+
+                                        {/* Title */}
+                                        <h3 className="text-white text-lg md:text-[22px] font-semibold leading-snug group-hover:text-primary transition-colors duration-300 pr-10">
+                                            {project.title}
+                                        </h3>
+                                    </div>
+
+                                    {/* Hover Arrow Icon */}
+                                    <div className="absolute bottom-6 right-6 w-8 h-8 rounded-full bg-white flex items-center justify-center transform group-hover:translate-x-1 group-hover:scale-110 transition-all duration-300 shadow-md">
+                                        <ChevronRight className="w-5 h-5 text-[#0e1027] ml-0.5" />
                                     </div>
                                 </div>
                             </motion.div>
