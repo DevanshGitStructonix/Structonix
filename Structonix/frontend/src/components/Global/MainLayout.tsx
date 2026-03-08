@@ -14,7 +14,6 @@ export function MainLayout({ children }: MainLayoutProps) {
         <div className="flex flex-col min-h-screen">
             {/* Global Header Section */}
             <header className="flex-none z-50">
-                <TopNavbar />
                 <MainNavbar />
             </header>
 
@@ -27,7 +26,6 @@ export function MainLayout({ children }: MainLayoutProps) {
             <div className="flex-none">
                 <Footer />
             </div>
-
             <ScrollToTopButton />
         </div>
     );

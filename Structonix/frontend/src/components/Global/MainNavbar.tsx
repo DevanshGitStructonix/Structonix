@@ -40,8 +40,7 @@ export function MainNavbar() {
                 { name: 'PUF & Rockwool Panels', href: '/services/panels' },
                 { name: 'PEB Building Accessories', href: '/services/accessories' }
             ]
-        },
-        { name: 'Contact Us', href: '/contact' },
+        }
     ];
 
     const galleryImages = [
@@ -56,10 +55,10 @@ export function MainNavbar() {
     return (
         <>
             {/* Start Placeholder to prevent layout shift */}
-            <div className="h-20 relative">
+            <div className="h-24 relative">
                 <nav className={`bg-white z-40 transition-all duration-300 ${isScrolled ? 'fixed top-0 left-0 w-full shadow-md animate-slide-down' : 'absolute top-0 left-0 w-full shadow-sm'}`}>
                     <div className="container mx-auto px-4">
-                        <div className="flex items-center justify-between h-20">
+                        <div className="flex items-center justify-between h-24">
                             {/* Left: Menu Icon (Desktop) & Logo */}
                             <div className="flex items-center gap-6">
                                 <button
@@ -85,7 +84,7 @@ export function MainNavbar() {
                                     <div key={link.name} className="group">
                                         <Link
                                             href={link.href}
-                                            className="relative text-dark-slate font-medium text-[12px] hover:text-primary transition-colors py-[30px] uppercase tracking-wide flex items-center gap-1 group/link"
+                                            className="relative text-dark-slate font-bold text-[14px] hover:text-primary transition-colors py-[30px] uppercase tracking-wide flex items-center gap-1 group/link"
                                         >
                                             {link.name}
                                             {link.subItems && (
@@ -96,7 +95,7 @@ export function MainNavbar() {
 
                                         {/* Dropdown Menu (Mega Menu) */}
                                         {link.subItems && (
-                                            <div className="absolute top-[80px] left-0 w-full bg-white shadow-xl border-t border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                            <div className="absolute top-[96px] left-0 w-full bg-white shadow-xl border-t border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                                                 <div className="container mx-auto px-4 flex">
                                                     {/* Left: Title & Desc (30%) */}
                                                     <div className="w-[30%] py-12 pr-12 border-r border-gray-100">
@@ -139,26 +138,27 @@ export function MainNavbar() {
                                         )}
                                     </div>
                                 ))}
+                                {/* Right: Search & CTA */}
+                                <div className="flex items-center gap-4">
+                                    <Link
+                                        href="/contact"
+                                        className="hidden lg:flex items-center justify-center bg-primary hover:bg-[#d68515] text-white px-6 h-full py-0 font-bold uppercase text-xs tracking-widest transition-all duration-300"
+                                        style={{ height: '96px', marginTop: '-10px', marginBottom: '-10px' }} // Adjusted for smaller height
+                                    >
+                                        Get In Touch
+                                    </Link>
+                                    {/* Mobile Menu Toggle */}
+                                    <button
+                                        onClick={() => setIsSideMenuOpen(true)}
+                                        className="lg:hidden p-2 text-dark-slate hover:text-primary transition-colors"
+                                        aria-label="Open menu"
+                                    >
+                                        <Menu className="w-7 h-7" />
+                                    </button>
+                                </div>
                             </div>
 
-                            {/* Right: Search & CTA */}
-                            <div className="flex items-center gap-4">
-                                <Link
-                                    href="/contact"
-                                    className="hidden lg:flex items-center justify-center bg-primary hover:bg-[#d68515] text-white px-6 h-full py-0 font-bold uppercase text-xs tracking-widest transition-all duration-300"
-                                    style={{ height: '80px', marginTop: '-10px', marginBottom: '-10px' }} // Adjusted for smaller height
-                                >
-                                    Get In Touch
-                                </Link>
-                                {/* Mobile Menu Toggle */}
-                                <button
-                                    onClick={() => setIsSideMenuOpen(true)}
-                                    className="lg:hidden p-2 text-dark-slate hover:text-primary transition-colors"
-                                    aria-label="Open menu"
-                                >
-                                    <Menu className="w-7 h-7" />
-                                </button>
-                            </div>
+
                         </div>
                     </div>
                 </nav>

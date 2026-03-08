@@ -54,7 +54,7 @@ const projects = [
 export function HomepageProjects() {
     return (
         <section className="py-20 md:py-32 bg-[#f4f4f4] relative">
-            <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+            <div className="px-4 lg:px-8">
                 <div className="flex items-start gap-2 mb-6">
                     <span className="text-primary font-bold text-lg leading-none mt-[2px]">»</span>
                     <span className="text-primary font-bold tracking-widest text-sm md:text-base uppercase">OUR PROJECTS</span>
