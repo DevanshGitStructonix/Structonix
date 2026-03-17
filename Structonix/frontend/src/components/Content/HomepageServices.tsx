@@ -239,26 +239,28 @@ export function HomepageServices() {
                         <h2 className="text-3xl md:text-4xl font-bold text-dark-slate">Simple 3-Step Process</h2>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 relative z-10">
                         {/* Connector Line (Desktop) */}
                         <div className="hidden md:block absolute top-[45px] left-[16%] right-[16%] h-[2px] border-t-2 border-dashed border-gray-200 -z-10"></div>
+                        {/* Connector Line (Mobile) */}
+                        <div className="block md:hidden absolute top-[40px] bottom-[40px] left-1/2 -translate-x-1/2 w-[2px] border-l-2 border-dashed border-gray-200 -z-10"></div>
 
                         {workProcess.map((step, index) => (
                             <div key={step.id} className="relative group">
                                 {/* Number Badge */}
-                                <div className="w-24 h-24 mx-auto bg-white border-4 border-[#F8F9FA] rounded-full flex items-center justify-center text-2xl font-bold text-dark-slate shadow-sm group-hover:border-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 mb-8 relative z-10">
+                                <div className="w-20 h-20 md:w-24 md:h-24 mx-auto bg-white border-4 border-[#F8F9FA] rounded-full flex items-center justify-center text-xl md:text-2xl font-bold text-dark-slate shadow-sm group-hover:border-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 mb-6 md:mb-8 relative z-10">
                                     {step.id}
                                 </div>
 
                                 {/* Content Card */}
-                                <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 group-hover:shadow-xl group-hover:-translate-y-2 transition-all duration-300 text-center h-full flex flex-col items-center">
-                                    <div className="mb-6 p-4 rounded-full bg-orange-50 group-hover:scale-110 transition-transform duration-300 text-primary">
+                                <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 group-hover:shadow-xl group-hover:-translate-y-2 transition-all duration-300 text-center h-full flex flex-col items-center">
+                                    <div className="mb-4 md:mb-6 p-3 md:p-4 rounded-full bg-orange-50 group-hover:scale-110 transition-transform duration-300 text-primary">
                                         {step.icon}
                                     </div>
-                                    <h4 className="text-xl font-bold text-dark-slate mb-4">
+                                    <h4 className="text-lg md:text-xl font-bold text-dark-slate mb-3 md:mb-4">
                                         {step.title}
                                     </h4>
-                                    <p className="text-gray-600 text-sm leading-relaxed">
+                                    <p className="text-gray-600 text-sm md:text-base leading-relaxed">
                                         {step.description}
                                     </p>
                                 </div>

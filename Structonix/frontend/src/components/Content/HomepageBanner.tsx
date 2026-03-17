@@ -166,7 +166,7 @@ export function HomepageBanner() {
                                 </div>
 
                                 {/* Play Button Area - Thinner, more elegant */}
-                                <div className="w-full lg:w-4/12 flex items-center justify-center lg:justify-end">
+                                <div className="w-full lg:w-4/12 flex items-center justify-start lg:justify-end">
                                     <AnimatePresence mode="wait">
                                         {index === currentSlide && (
                                             <motion.button

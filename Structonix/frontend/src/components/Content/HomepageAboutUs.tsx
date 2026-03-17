@@ -87,7 +87,7 @@ export function HomepageAboutUs() {
                         </div>
 
                         {/* Experience Badge */}
-                        <div className="absolute bottom-0 left-0 bg-white p-8 md:p-10 shadow-2xl z-20 max-w-[280px]">
+                        <div className="absolute bottom-0 left-0 bg-white p-8 md:p-10 shadow-2xl z-20 max-w-[200px] md:max-w-[280px]">
                             <div className="flex flex-col gap-2">
                                 <span className="text-6xl md:text-7xl font-extrabold text-primary leading-none">35+</span>
                                 <span className="text-dark-slate font-bold uppercase tracking-wider text-sm md:text-base leading-snug">

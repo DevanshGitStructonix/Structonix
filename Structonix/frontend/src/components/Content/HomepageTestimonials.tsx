@@ -84,7 +84,7 @@ export const HomepageTestimonials = () => {
                             <span>Testimonials</span>
                         </div>
                         <h2 className="text-4xl md:text-5xl font-bold text-dark-slate leading-tight">
-                            What people say about <br /> Industrie company
+                            What people say about <br /> <p className="text-primary text-5xl md:text-6xl font-extrabold">Structonix</p>
                         </h2>
                     </div>
 
@@ -116,7 +116,7 @@ export const HomepageTestimonials = () => {
                     {testimonials.map((testimonial) => (
                         <div
                             key={testimonial.id}
-                            className="bg-white p-10  shadow-sm hover:shadow-xl transition-all duration-300 w-[400px] md:w-[500px] flex-shrink-0 border border-gray-100 group snap-start"
+                            className="bg-white p-10  shadow-sm hover:shadow-xl transition-all duration-300 w-[350px] md:w-[400px] md:w-[500px] flex-shrink-0 border border-gray-100 group snap-start"
                         >
                             {/* Header: User & Logo */}
                             <div className="flex justify-between items-start mb-8">
@@ -140,7 +140,7 @@ export const HomepageTestimonials = () => {
 
                             {/* Content */}
                             <p className="text-gray-600 text-lg mb-10 leading-relaxed min-h-[90px]">
-                                "{testimonial.content}"
+                                &quot;{testimonial.content}&quot;
                             </p>
 
                             {/* Footer: Rating & Quote */}
