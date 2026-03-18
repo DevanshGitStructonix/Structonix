@@ -30,15 +30,15 @@ export function MainNavbar() {
             name: 'Products & Services',
             href: '/products-and-services',
             subItems: [
-                { name: 'Pre Engineered Building Systems', href: '/services/peb-systems' },
-                { name: 'Prefabricated Steel Structures', href: '/services/prefab-steel' },
-                { name: 'Heavy Structural Fabrication', href: '/services/heavy-structural' },
-                { name: 'Turnkey Contractors for PEB', href: '/services/turnkey' },
-                { name: 'Multi Storey Steel Buildings', href: '/services/multi-storey' },
-                { name: 'Industrial Buildings', href: '/services/industrial-buildings' },
-                { name: 'Standing Seam Roofing Systems', href: '/services/roofing' },
-                { name: 'PUF & Rockwool Panels', href: '/services/panels' },
-                { name: 'PEB Building Accessories', href: '/services/accessories' }
+                { name: 'Pre Engineered Building Systems', href: '/products-and-services/pre-engineered-building-systems' },
+                { name: 'Prefabricated Steel Structures', href: '/products-and-services/prefabricated-steel-structures' },
+                { name: 'Heavy Structural Fabrication', href: '/products-and-services/heavy-structural-fabrication' },
+                { name: 'Turnkey Contractors for PEB', href: '/products-and-services/turnkey-contractors-for-peb' },
+                { name: 'Multi Storey Steel Buildings', href: '/products-and-services/multi-storey-steel-buildings' },
+                { name: 'Industrial Buildings', href: '/products-and-services/industrial-buildings' },
+                { name: 'Standing Seam Roofing Systems', href: '/products-and-services/standing-seam-roofing-systems' },
+                { name: 'PUF & Rockwool Panels', href: '/products-and-services/puf-rockwool-panels' },
+                { name: 'PEB Building Accessories', href: '/products-and-services/peb-building-accessories' }
             ]
         }
     ];
