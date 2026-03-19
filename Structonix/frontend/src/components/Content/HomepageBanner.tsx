@@ -13,7 +13,7 @@ import 'slick-carousel/slick/slick-theme.css';
 const slides = [
     {
         id: 1,
-        image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop',
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1773749195/big-storehouse-with-construction-materials-inside-wholesale_1_itctad.webp',
         subtitle: 'Production & Logistics',
         title: 'Special Industrial',
         highlight: 'Production',
@@ -65,10 +65,10 @@ export function HomepageBanner() {
     };
 
     return (
-        <section className="relative w-full h-[90vh] min-h-[650px] overflow-hidden bg-[#0A0A0A] group/banner">
+        <section className="relative w-full h-[calc(100vh-8rem)] min-h-[650px] overflow-hidden bg-[#0A0A0A] group/banner">
             <Slider ref={sliderRef} {...settings} className="h-full banner-slider">
                 {slides.map((slide, index) => (
-                    <div key={slide.id} className="relative w-full h-[90vh] min-h-[650px] outline-none">
+                    <div key={slide.id} className="relative w-full h-[calc(100vh-8rem)] min-h-[650px] outline-none">
                         {/* Background Image */}
                         <div
                             className="absolute inset-0 bg-cover bg-center transition-transform duration-[8000ms] ease-out"

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Search, LayoutPanelLeftIcon, Phone, MapPin, Mail, ChevronDown, ArrowRight } from 'lucide-react';
+import { Menu, X, Search, LayoutPanelLeftIcon, Phone, MapPin, Mail, ChevronDown, ArrowRight, PhoneCall } from 'lucide-react';
 
 export function MainNavbar() {
     const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
@@ -55,12 +55,12 @@ export function MainNavbar() {
     return (
         <>
             {/* Start Placeholder to prevent layout shift */}
-            <div className="h-24 relative">
+            <div className="h-32 relative">
                 <nav className={`bg-white z-40 transition-all duration-300 ${isScrolled ? 'fixed top-0 left-0 w-full shadow-md animate-slide-down' : 'absolute top-0 left-0 w-full shadow-sm'}`}>
                     <div className="container mx-auto px-4">
-                        <div className="flex items-center justify-between h-24">
+                        <div className="flex items-center justify-between h-32">
                             {/* Left: Menu Icon (Desktop) & Logo */}
-                            <div className="flex items-center gap-6">
+                            <div className="flex items-center gap-2">
                                 <button
                                     onClick={() => setIsSideMenuOpen(true)}
                                     className="hidden lg:flex items-center justify-center w-10 h-10 text-dark-slate hover:text-primary transition-colors"
@@ -70,11 +70,7 @@ export function MainNavbar() {
                                 </button>
 
                                 <Link href="/" className="flex items-center gap-2 group">
-                                    <div className="relative w-8 h-8 flex items-center justify-center bg-primary overflow-hidden transition-transform group-hover:scale-105">
-                                        <span className="text-white font-bold text-lg relative z-10">S</span>
-                                        <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                                    </div>
-                                    <span className="text-xl font-bold text-dark-slate tracking-tight group-hover:text-primary transition-colors">Structonix</span>
+                                    <img src="/images/structonix-logo.png" alt="Structonix Logo" className="h-36" />
                                 </Link>
                             </div>
 
@@ -84,7 +80,7 @@ export function MainNavbar() {
                                     <div key={link.name} className="group">
                                         <Link
                                             href={link.href}
-                                            className="relative text-dark-slate font-bold text-[14px] hover:text-primary transition-colors py-[30px] uppercase tracking-wide flex items-center gap-1 group/link"
+                                            className="relative text-dark-slate font-extrabold text-[16px] hover:text-primary transition-colors py-[30px] uppercase tracking-wide flex items-center gap-1 group/link"
                                         >
                                             {link.name}
                                             {link.subItems && (
@@ -95,7 +91,7 @@ export function MainNavbar() {
 
                                         {/* Dropdown Menu (Mega Menu) */}
                                         {link.subItems && (
-                                            <div className="absolute top-[96px] left-0 w-full bg-white shadow-xl border-t border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                            <div className="absolute top-[124px] left-0 w-full bg-white shadow-xl border-t border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                                                 <div className="container mx-auto px-4 flex">
                                                     {/* Left: Title & Desc (30%) */}
                                                     <div className="w-[30%] py-12 pr-12 border-r border-gray-100">
@@ -145,7 +141,7 @@ export function MainNavbar() {
                                         className="hidden lg:flex items-center justify-center bg-primary hover:bg-[#d68515] text-white px-6 h-full py-0 font-bold uppercase text-xs tracking-widest transition-all duration-300"
                                         style={{ height: '96px', marginTop: '-10px', marginBottom: '-10px' }} // Adjusted for smaller height
                                     >
-                                        Get In Touch
+                                        <PhoneCall className="w-4 h-4 mr-2" /> Get In Touch
                                     </Link>
                                     {/* Mobile Menu Toggle */}
                                     <button

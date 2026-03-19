@@ -41,10 +41,7 @@ export function Footer() {
                     {/* Col 1: Brand */}
                     <div className="space-y-5">
                         <div className="flex items-center gap-3">
-                            <div className="w-6 h-6 bg-[#F4991A] flex items-center justify-center rounded-sm">
-                                <span className="text-white font-bold text-sm">S</span>
-                            </div>
-                            <span className="text-lg font-bold tracking-tight">Structonix</span>
+                            <img src="/images/structonix-logo.png" alt="Structonix Logo" className="h-36" />
                         </div>
 
                         {/* "since 1980" - Smaller Outline Text Style */}
