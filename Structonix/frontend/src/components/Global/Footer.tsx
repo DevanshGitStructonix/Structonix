@@ -42,8 +42,12 @@ export function Footer() {
                     {/* Col 1: Brand */}
                     <div className="space-y-5">
                         <div className="flex items-center gap-3 relative h-36 w-[250px]">
-                            <Image src="/images/structonix-logo.png" alt="Structonix Logo" fill className="object-contain object-left" />
+                            <Image src="/images/structonix-logo-white.png" alt="Structonix Logo" fill className="object-contain object-left" />
                         </div>
+
+                        <p className="text-white/60 font-semibold tracking-wider text-xs uppercase max-w-xs font-secondary">
+                            Engineering tomorrow’s <span className="text-primary">Horizon</span>
+                        </p>
 
                         {/* "since 1980" - Smaller Outline Text Style */}
                         <h3
