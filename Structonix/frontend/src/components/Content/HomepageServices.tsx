@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, CheckCircle2, ChevronRight, ChevronsRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
+import { ArrowRight, CheckCircle2, ChevronsRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const services = [
     {
@@ -172,7 +173,7 @@ export function HomepageServices() {
                                     }`}
                             >
                                 {service.label}
-                                {activeTab === service.id && <ArrowRight className="w-5 h-5" />}
+                                {activeTab === service.id ? <ArrowRight className="w-5 h-5" /> : null}
                             </button>
                         ))}
                     </div>
@@ -189,10 +190,12 @@ export function HomepageServices() {
                             className="w-full md:w-1/2 h-[300px] md:h-[450px] relative rounded-sm overflow-hidden"
                         >
                             <div className="absolute top-0 right-0 w-24 h-24 bg-primary transform translate-x-12 -translate-y-12 rotate-45 z-10 hidden md:block"></div>
-                            <img
+                            <Image
                                 src={activeService.image}
                                 alt={activeService.title}
-                                className="w-full h-full object-cover"
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 768px) 100vw, 50vw"
                             />
                         </motion.div>
 
@@ -245,7 +248,7 @@ export function HomepageServices() {
                         {/* Connector Line (Mobile) */}
                         <div className="block md:hidden absolute top-[40px] bottom-[40px] left-1/2 -translate-x-1/2 w-[2px] border-l-2 border-dashed border-gray-200 -z-10"></div>
 
-                        {workProcess.map((step, index) => (
+                        {workProcess.map((step) => (
                             <div key={step.id} className="relative group">
                                 {/* Number Badge */}
                                 <div className="w-20 h-20 md:w-24 md:h-24 mx-auto bg-white border-4 border-[#F8F9FA] rounded-full flex items-center justify-center text-xl md:text-2xl font-bold text-dark-slate shadow-sm group-hover:border-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 mb-6 md:mb-8 relative z-10">

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
 const projects = [
@@ -167,10 +168,12 @@ export function HomepageProjects() {
                             {/* Right Side: Image */}
                             <div className="w-full h-[30%] md:w-[65%] md:h-full overflow-hidden relative">
                                 <div className="absolute inset-0 bg-dark-navy/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
-                                <img
+                                <Image
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
+                                    fill
+                                    className="object-cover transition-transform duration-1000 hover:scale-105"
+                                    sizes="(max-width: 768px) 100vw, 65vw"
                                 />
                             </div>
                         </motion.div>

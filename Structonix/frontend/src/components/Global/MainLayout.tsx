@@ -1,6 +1,5 @@
 'use client';
 
-import { TopNavbar } from './TopNavbar';
 import { MainNavbar } from './MainNavbar';
 import { Footer } from './Footer';
 import { ScrollToTopButton } from './ScrollToTopButton';

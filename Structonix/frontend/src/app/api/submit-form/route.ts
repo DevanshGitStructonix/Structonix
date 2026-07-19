@@ -61,7 +61,8 @@ export async function POST(req: NextRequest) {
         try {
             await base(tableName).create(records);
             return NextResponse.json({ success: true, message: 'Form submitted successfully' });
-        } catch (airtableError: any) {
+        } catch (error) {
+            const airtableError = error as { error?: string, message?: string };
             console.error('Airtable Error:', airtableError);
             // Check for common errors
             if (airtableError.error === 'NOT_FOUND') {

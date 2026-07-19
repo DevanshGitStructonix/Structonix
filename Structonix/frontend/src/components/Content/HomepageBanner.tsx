@@ -87,7 +87,7 @@ export function HomepageBanner() {
                                 {/* Main Text Content */}
                                 <div className="w-full lg:w-8/12 flex flex-col justify-center text-white pt-10">
                                     <AnimatePresence mode="wait">
-                                        {index === currentSlide && (
+                                        {index === currentSlide ? (
                                             <motion.div
                                                 key={`content-${index}`}
                                                 initial="hidden"
@@ -161,14 +161,14 @@ export function HomepageBanner() {
                                                     </Link>
                                                 </motion.div>
                                             </motion.div>
-                                        )}
+                                        ) : null}
                                     </AnimatePresence>
                                 </div>
 
                                 {/* Play Button Area - Thinner, more elegant */}
                                 <div className="w-full lg:w-4/12 flex items-center justify-start lg:justify-end">
                                     <AnimatePresence mode="wait">
-                                        {index === currentSlide && (
+                                        {index === currentSlide ? (
                                             <motion.button
                                                 key={`play-${index}`}
                                                 initial={{ opacity: 0, scale: 0.8 }}
@@ -182,7 +182,7 @@ export function HomepageBanner() {
                                                 <div className="absolute inset-0 rounded-full bg-white/5 backdrop-blur-sm group-hover:bg-white/10 transition-colors duration-500"></div>
                                                 <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-transparent stroke-[1] ml-1 group-hover:scale-110 transition-transform duration-500 relative z-10" />
                                             </motion.button>
-                                        )}
+                                        ) : null}
                                     </AnimatePresence>
                                 </div>
                             </div>

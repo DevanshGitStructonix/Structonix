@@ -1,5 +1,6 @@
-import { QuoteForm } from "@/components/Forms/QuoteForm";
+import dynamic from 'next/dynamic';
 
+const QuoteForm = dynamic(() => import("@/components/Forms/QuoteForm").then(mod => mod.QuoteForm));
 export default function QuotePage() {
     return (
         <div className="min-h-screen bg-gray-50 pt-32 pb-24">

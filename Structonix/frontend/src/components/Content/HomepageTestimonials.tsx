@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+import Image from "next/image";
 import { Quote, Star, ArrowLeft, ArrowRight, ChevronsRight } from "lucide-react";
 
 interface Testimonial {
@@ -121,11 +122,13 @@ export const HomepageTestimonials = () => {
                             {/* Header: User & Logo */}
                             <div className="flex justify-between items-start mb-8">
                                 <div className="flex gap-5">
-                                    <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-primary/20">
-                                        <img
+                                    <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-primary/20 relative">
+                                        <Image
                                             src={testimonial.image}
                                             alt={testimonial.name}
-                                            className="w-full h-full object-cover"
+                                            fill
+                                            className="object-cover"
+                                            sizes="64px"
                                         />
                                     </div>
                                     <div>

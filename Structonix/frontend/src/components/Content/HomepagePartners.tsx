@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 // Expanded mock data for the grid
 const partners = [
@@ -50,7 +51,7 @@ export function HomepagePartners() {
 
                             <div className="bg-white p-6 md:p-8 border-l-4 border-primary shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative">
                                 {/* Decorative quote mark */}
-                                <span className="absolute -top-2 right-6 text-6xl text-gray-100 font-serif leading-none opacity-50">"</span>
+                                <span className="absolute -top-2 right-6 text-6xl text-gray-100 font-serif leading-none opacity-50">&quot;</span>
                                 <p className="text-dark-slate font-semibold text-lg md:text-xl mb-3 relative z-10">Building lasting relationships.</p>
                                 <p className="text-gray-500 text-sm md:text-base leading-relaxed relative z-10">
                                     Our network of partners ensures we have the best resources, materials, and expertise to meet even the most demanding project requirements.
@@ -97,12 +98,14 @@ export function HomepagePartners() {
                     {partners.map((partner) => (
                         <div
                             key={partner.id}
-                            className="bg-white border-r border-b border-gray-200 aspect-[3/2] flex items-center justify-center p-6 md:p-8 group cursor-pointer transition-all duration-300 hover:bg-white hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] relative z-0 hover:z-10"
+                            className="bg-white border-r border-b border-gray-200 aspect-[3/2] flex items-center justify-center p-6 md:p-8 group cursor-pointer transition-all duration-300 hover:bg-white hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] relative z-0 hover:z-10 overflow-hidden"
                         >
-                            <img
+                            <Image
                                 src={partner.logo}
                                 alt={partner.name}
-                                className="max-h-12 md:max-h-16 w-auto max-w-full object-contain transition-transform duration-500 ease-out group-hover:scale-110"
+                                fill
+                                className="object-contain transition-transform duration-500 ease-out group-hover:scale-110 p-4 md:p-6"
+                                sizes="(max-width: 768px) 50vw, 20vw"
                             />
                         </div>
                     ))}

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { servicesData } from "@/data/servicesData";
 import { CheckCircle2, ChevronRight, PhoneCall } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -110,11 +111,12 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             {/* Main Article */}
             <article className="lg:col-span-2 order-1 lg:order-2 bg-white p-6 md:p-10 shadow-sm border border-gray-100">
               {/* Featured Image */}
-              <div className="overflow-hidden mb-10 w-full">
-                <img 
+              <div className="overflow-hidden mb-10 w-full relative h-[300px] md:h-[450px]">
+                <Image 
                   src={service.image} 
                   alt={service.title} 
-                  className="w-full h-[300px] md:h-[450px] object-cover hover:scale-105 transition-transform duration-1000 origin-center" 
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-1000 origin-center" 
                 />
               </div>
 

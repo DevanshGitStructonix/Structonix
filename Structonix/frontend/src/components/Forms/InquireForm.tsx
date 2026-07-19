@@ -60,11 +60,11 @@ export function InquireForm({ variant = 'dark', hideTitle = false }: InquireForm
 
     return (
         <form onSubmit={handleSubmit} className={containerClass}>
-            {!hideTitle && (
+            {!hideTitle ? (
                 <h3 className={`text-xl font-bold mb-4 ${isLight ? 'text-dark-slate' : 'text-white'}`}>
                     Quick Inquiry
                 </h3>
-            )}
+            ) : null}
 
             <div>
                 <input type="text" name="name" required className={inputClass} placeholder="Full Name" />
@@ -76,7 +76,7 @@ export function InquireForm({ variant = 'dark', hideTitle = false }: InquireForm
 
             <div>
                 <select name="interest" defaultValue="" className={selectClass}>
-                    <option value="" disabled className="text-gray-500">I'm interested in...</option>
+                    <option value="" disabled className="text-gray-500">I&apos;m interested in...</option>
                     <option value="Construction" className="text-black">Construction</option>
                     <option value="Renovation" className="text-black">Renovation</option>
                     <option value="Design" className="text-black">Design</option>
@@ -96,8 +96,8 @@ export function InquireForm({ variant = 'dark', hideTitle = false }: InquireForm
                 {isLoading ? <Loader2 className="animate-spin w-4 h-4" /> : <>{isLight ? "Send Message" : "Submit Inquiry"} <ArrowRight className="w-4 h-4" /></>}
             </button>
 
-            {status === 'success' && <p className={`text-green-500 text-xs mt-2 ${!isLight && 'text-center'}`}>Inquiry sent successfully!</p>}
-            {status === 'error' && <p className={`text-red-500 text-xs mt-2 ${!isLight && 'text-center'}`}>Error sending. Please try again.</p>}
+            {status === 'success' ? <p className={`text-green-500 text-xs mt-2 ${!isLight ? 'text-center' : ''}`}>Inquiry sent successfully!</p> : null}
+            {status === 'error' ? <p className={`text-red-500 text-xs mt-2 ${!isLight ? 'text-center' : ''}`}>Error sending. Please try again.</p> : null}
         </form>
     );
 }

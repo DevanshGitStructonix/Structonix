@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import { useRef } from 'react';
 
@@ -82,12 +83,14 @@ export function WhoWeAre() {
                             transition={{ duration: 0.8 }}
                             className="relative z-10"
                         >
-                            {/* Using a high quality industrial welding image */}
-                            <img
-                                src="https://images.pexels.com/photos/34287570/pexels-photo-34287570.jpeg"
-                                alt="Industrial Worker Welding"
-                                className="w-full h-[300px] md:h-[700px] object-cover shadow-2xl"
-                            />
+                            <div className="w-full h-[300px] md:h-[700px] relative">
+                                <Image
+                                    src="https://images.pexels.com/photos/34287570/pexels-photo-34287570.jpeg"
+                                    alt="Industrial Worker Welding"
+                                    fill
+                                    className="object-cover shadow-2xl"
+                                />
+                            </div>
 
                             {/* Decorative White Square (Top Right) */}
                             <div className="absolute -top-10 -right-10 w-32 h-32 bg-dark-gray z-20 hidden md:block" />

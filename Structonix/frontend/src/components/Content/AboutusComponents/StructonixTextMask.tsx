@@ -28,7 +28,7 @@ export function StructonixTextMask() {
                         style={{
                             backgroundImage: `url('https://images.pexels.com/photos/16045267/pexels-photo-16045267.jpeg')`, // Industrial structure image
                             backgroundSize: 'cover',
-                            backgroundPosition: backgroundPosition as any, // Type assertion needed for motion style
+                            backgroundPosition: backgroundPosition as unknown as string, // Type assertion needed for motion style
                             WebkitBackgroundClip: 'text',
                             backgroundClip: 'text',
                             color: 'transparent',

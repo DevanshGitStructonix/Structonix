@@ -1,0 +1,74 @@
+
+> frontend@0.1.0 lint
+> eslint
+
+
+/Users/smitmehta/workspace/Structonix-Main/Structonix/Structonix/frontend/src/app/api/submit-form/route.ts
+  64:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/smitmehta/workspace/Structonix-Main/Structonix/Structonix/frontend/src/app/contact/page.tsx
+  2:10  warning  'ContactForm' is defined but never used  @typescript-eslint/no-unused-vars
+  3:10  warning  'Facebook' is defined but never used     @typescript-eslint/no-unused-vars
+  3:20  warning  'Instagram' is defined but never used    @typescript-eslint/no-unused-vars
+  3:31  warning  'Linkedin' is defined but never used     @typescript-eslint/no-unused-vars
+  3:41  warning  'Twitter' is defined but never used      @typescript-eslint/no-unused-vars
+
+/Users/smitmehta/workspace/Structonix-Main/Structonix/Structonix/frontend/src/app/products-and-services/[slug]/page.tsx
+  114:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/smitmehta/workspace/Structonix-Main/Structonix/Structonix/frontend/src/components/Content/AboutusComponents/StructonixTextMask.tsx
+  31:71  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/smitmehta/workspace/Structonix-Main/Structonix/Structonix/frontend/src/components/Content/AboutusComponents/WhoWeAre.tsx
+  86:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/smitmehta/workspace/Structonix-Main/Structonix/Structonix/frontend/src/components/Content/HomepageAboutUs.tsx
+  82:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/smitmehta/workspace/Structonix-Main/Structonix/Structonix/frontend/src/components/Content/HomepagePartners.tsx
+   53:133  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  102:29   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/smitmehta/workspace/Structonix-Main/Structonix/Structonix/frontend/src/components/Content/HomepageProjects.tsx
+  170:33  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/smitmehta/workspace/Structonix-Main/Structonix/Structonix/frontend/src/components/Content/HomepageServices.tsx
+    5:36  warning  'ChevronRight' is defined but never used                                                                                                                                                                                                                                                 @typescript-eslint/no-unused-vars
+    6:18  warning  'AnimatePresence' is defined but never used                                                                                                                                                                                                                                              @typescript-eslint/no-unused-vars
+  192:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  248:49  warning  'index' is defined but never used                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+
+/Users/smitmehta/workspace/Structonix-Main/Structonix/Structonix/frontend/src/components/Content/HomepageTestimonials.tsx
+  125:41  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/smitmehta/workspace/Structonix-Main/Structonix/Structonix/frontend/src/components/Content/ProjectsComponents/OurProjects.tsx
+   5:10  warning  'ArrowRight' is defined but never used                                                                                                                                                                                                                                                   @typescript-eslint/no-unused-vars
+  97:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/smitmehta/workspace/Structonix-Main/Structonix/Structonix/frontend/src/components/Content/ServicesComponents/OurServices.tsx
+  102:41  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/smitmehta/workspace/Structonix-Main/Structonix/Structonix/frontend/src/components/Forms/ContactForm.tsx
+  4:19  warning  'Send' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/smitmehta/workspace/Structonix-Main/Structonix/Structonix/frontend/src/components/Global/Footer.tsx
+  44:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/smitmehta/workspace/Structonix-Main/Structonix/Structonix/frontend/src/components/Global/MainLayout.tsx
+  3:10  warning  'TopNavbar' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/smitmehta/workspace/Structonix-Main/Structonix/Structonix/frontend/src/components/Global/MainNavbar.tsx
+    5:19  warning  'Search' is defined but never used                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+    5:48  warning  'Phone' is defined but never used                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+    5:55  warning  'MapPin' is defined but never used                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+    5:63  warning  'Mail' is defined but never used                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+   73:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  125:61  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  247:33  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/smitmehta/workspace/Structonix-Main/Structonix/Structonix/frontend/src/components/Global/PageTransition.tsx
+   5:8  warning  'Image' is defined but never used                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+  34:9  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+✖ 33 problems (3 errors, 30 warnings)
+

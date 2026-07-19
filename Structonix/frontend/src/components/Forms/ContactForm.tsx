@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Loader2, Send, ArrowUpRight } from 'lucide-react';
+import { Loader2, ArrowUpRight } from 'lucide-react';
 
 export function ContactForm() {
     const [isLoading, setIsLoading] = useState(false);
@@ -112,7 +112,7 @@ export function ContactForm() {
                             className={`w-full bg-transparent border-b pb-3 text-white placeholder-gray-500 focus:outline-none transition-colors ${errors.name ? 'border-red-500' : 'border-gray-700 focus:border-[#F4991A]'}`}
                             placeholder="Full name"
                         />
-                        {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                        {errors.name ? <p className="text-red-500 text-xs mt-1">{errors.name}</p> : null}
                     </div>
                     <div>
                         <input
@@ -122,7 +122,7 @@ export function ContactForm() {
                             className={`w-full bg-transparent border-b pb-3 text-white placeholder-gray-500 focus:outline-none transition-colors ${errors.email ? 'border-red-500' : 'border-gray-700 focus:border-[#F4991A]'}`}
                             placeholder="Email"
                         />
-                        {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+                        {errors.email ? <p className="text-red-500 text-xs mt-1">{errors.email}</p> : null}
                     </div>
 
                     {/* Phone Input with +91 Prefix */}
@@ -155,12 +155,12 @@ export function ContactForm() {
 
                 {/* Status Messages */}
                 <div className="h-6">
-                    {status === 'success' && (
+                    {status === 'success' ? (
                         <p className="text-green-500 font-medium text-sm animate-pulse">Message sent successfully!</p>
-                    )}
-                    {status === 'error' && (
+                    ) : null}
+                    {status === 'error' ? (
                         <p className="text-red-500 font-medium text-sm">Something went wrong.</p>
-                    )}
+                    ) : null}
                 </div>
             </div>
 

@@ -31,14 +31,12 @@ export function PageTransition() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="w-48 h-auto md:w-64"
       >
-        <img
+        <Image
           src="/images/structonix-logo.png"
           alt="Structonix Logo"
+          width={300}
+          height={150}
           className="w-full h-auto object-contain drop-shadow-md"
-          onError={(e) => {
-            // Fallback if they haven't saved it as logo.png yet
-            e.currentTarget.style.display = 'none';
-          }}
         />
       </motion.div>
     </motion.div>

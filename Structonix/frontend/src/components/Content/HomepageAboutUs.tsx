@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { ArrowUpRight, ChevronsRight } from 'lucide-react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export function HomepageAboutUs() {
@@ -78,11 +79,12 @@ export function HomepageAboutUs() {
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
                         className="relative w-full h-[300px] md:h-[500px] lg:h-[600px] rounded-sm group"
                     >
-                        <div className="absolute inset-0 overflow-hidden rounded-sm">
-                            <img
+                        <div className="absolute inset-0 overflow-hidden rounded-sm relative w-full h-full">
+                            <Image
                                 src="https://images.pexels.com/photos/2391/dirty-industry-stack-factory.jpg"
                                 alt="Industrial worker welding"
-                                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-105"
+                                fill
+                                className="object-cover grayscale hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-105"
                             />
                         </div>
 

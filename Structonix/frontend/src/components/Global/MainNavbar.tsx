@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Search, LayoutPanelLeftIcon, Phone, MapPin, Mail, ChevronDown, ArrowRight, PhoneCall } from 'lucide-react';
+import Image from 'next/image';
+import { Menu, X, LayoutPanelLeftIcon, ChevronDown, ArrowRight, PhoneCall } from 'lucide-react';
 
 export function MainNavbar() {
     const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
@@ -69,8 +70,8 @@ export function MainNavbar() {
                                     <LayoutPanelLeftIcon className="w-6 h-6" />
                                 </button>
 
-                                <Link href="/" className="flex items-center gap-2 group">
-                                    <img src="/images/structonix-logo.png" alt="Structonix Logo" className="h-36" />
+                                <Link href="/" className="flex items-center gap-2 group relative w-48 h-36">
+                                    <Image src="/images/structonix-logo.png" alt="Structonix Logo" fill className="object-contain" />
                                 </Link>
                             </div>
 
@@ -83,14 +84,14 @@ export function MainNavbar() {
                                             className="relative text-dark-slate font-extrabold text-[16px] hover:text-primary transition-colors py-[30px] uppercase tracking-wide flex items-center gap-1 group/link"
                                         >
                                             {link.name}
-                                            {link.subItems && (
+                                            {link.subItems ? (
                                                 <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
-                                            )}
+                                            ) : null}
                                             <span className="absolute bottom-[28px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover/link:w-full"></span>
                                         </Link>
 
                                         {/* Dropdown Menu (Mega Menu) */}
-                                        {link.subItems && (
+                                        {link.subItems ? (
                                             <div className="absolute top-[124px] left-0 w-full bg-white shadow-xl border-t border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                                                 <div className="container mx-auto px-4 flex">
                                                     {/* Left: Title & Desc (30%) */}
@@ -122,16 +123,18 @@ export function MainNavbar() {
                                                     {/* Right: Featured Image (25%) */}
                                                     <div className="w-[25%] py-8 pl-8 flex items-center justify-center">
                                                         <div className="w-full h-full min-h-[220px] rounded overflow-hidden relative shadow-sm">
-                                                            <img
+                                                            <Image
                                                                 src="https://images.pexels.com/photos/33421999/pexels-photo-33421999.jpeg"
                                                                 alt="Featured Service"
-                                                                className="w-full h-full absolute inset-0 object-cover hover:scale-105 transition-transform duration-700"
+                                                                fill
+                                                                className="absolute inset-0 object-cover hover:scale-105 transition-transform duration-700"
+                                                                sizes="(max-width: 768px) 100vw, 25vw"
                                                             />
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        )}
+                                        ) : null}
                                     </div>
                                 ))}
                                 {/* Right: Search & CTA */}
@@ -200,7 +203,7 @@ export function MainNavbar() {
                                         >
                                             {link.name}
                                         </Link>
-                                        {link.subItems && (
+                                        {link.subItems ? (
                                             <button
                                                 onClick={() => toggleMobileMenu(link.name)}
                                                 className="p-2 text-gray-400 hover:text-white transition-colors"
@@ -208,10 +211,10 @@ export function MainNavbar() {
                                             >
                                                 <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${openMobileMenu === link.name ? 'rotate-180 text-primary' : ''}`} />
                                             </button>
-                                        )}
+                                        ) : null}
                                     </div>
 
-                                    {link.subItems && (
+                                    {link.subItems ? (
                                         <div className={`overflow-hidden transition-all duration-300 ${openMobileMenu === link.name ? 'max-h-[800px] opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
                                             <div className="pl-4 flex flex-col gap-3 border-l-2 border-white/10 ml-2">
                                                 {link.subItems.map(sub => (
@@ -227,7 +230,7 @@ export function MainNavbar() {
                                                 ))}
                                             </div>
                                         </div>
-                                    )}
+                                    ) : null}
                                 </div>
                             ))}
                         </div>
@@ -236,7 +239,7 @@ export function MainNavbar() {
                     {/* About Text */}
                     <div className="space-y-4">
                         <p className="text-gray-400 text-lg leading-relaxed">
-                            Wrasse climbing gourami amur pike Arctic char, steelhead sprat sea lamprey grunion. Walleye pollock, "sokeye salmon."
+                            Wrasse climbing gourami amur pike Arctic char, steelhead sprat sea lamprey grunion. Walleye pollock, &quot;sokeye salmon.&quot;
                         </p>
                     </div>
 
@@ -244,10 +247,12 @@ export function MainNavbar() {
                     <div className="grid grid-cols-3 gap-2">
                         {galleryImages.map((src, index) => (
                             <div key={index} className="aspect-square relative overflow-hidden group">
-                                <img
+                                <Image
                                     src={src}
                                     alt={`Gallery image ${index + 1}`}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    fill
+                                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                    sizes="(max-width: 768px) 33vw, 20vw"
                                 />
                                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </div>

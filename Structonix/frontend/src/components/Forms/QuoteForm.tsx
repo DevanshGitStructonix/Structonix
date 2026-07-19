@@ -117,16 +117,16 @@ export function QuoteForm() {
                 {isLoading ? <Loader2 className="animate-spin w-6 h-6" /> : <><Calculator className="w-6 h-6" /> Get My Estimation</>}
             </button>
 
-            {status === 'success' && (
+            {status === 'success' ? (
                 <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg text-center">
                     Quote request received! We will analyze your requirements and get back to you shortly.
                 </div>
-            )}
-            {status === 'error' && (
+            ) : null}
+            {status === 'error' ? (
                 <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-center">
                     Submission failed. Please check your connection and try again.
                 </div>
-            )}
+            ) : null}
         </form>
     );
 }

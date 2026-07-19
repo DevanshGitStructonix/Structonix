@@ -30,7 +30,7 @@ export function ScrollToTopButton() {
 
     return (
         <AnimatePresence>
-            {isVisible && (
+            {isVisible ? (
                 <motion.button
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -41,7 +41,7 @@ export function ScrollToTopButton() {
                 >
                     <ArrowUp className="w-6 h-6 group-hover:-translate-y-1 transition-transform duration-300" />
                 </motion.button>
-            )}
+            ) : null}
         </AnimatePresence>
     );
 }

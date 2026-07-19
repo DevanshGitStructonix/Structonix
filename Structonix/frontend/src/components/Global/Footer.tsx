@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Facebook, Twitter, Instagram, Linkedin, ArrowRight } from 'lucide-react';
 
 export function Footer() {
@@ -40,8 +41,8 @@ export function Footer() {
 
                     {/* Col 1: Brand */}
                     <div className="space-y-5">
-                        <div className="flex items-center gap-3">
-                            <img src="/images/structonix-logo.png" alt="Structonix Logo" className="h-36" />
+                        <div className="flex items-center gap-3 relative h-36 w-[250px]">
+                            <Image src="/images/structonix-logo.png" alt="Structonix Logo" fill className="object-contain object-left" />
                         </div>
 
                         {/* "since 1980" - Smaller Outline Text Style */}

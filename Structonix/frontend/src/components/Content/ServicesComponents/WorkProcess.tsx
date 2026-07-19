@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { InquireForm } from '@/components/Forms/InquireForm';
+import dynamic from 'next/dynamic';
+
+const InquireForm = dynamic(() => import('@/components/Forms/InquireForm').then(mod => mod.InquireForm));
 
 const steps = [
     {
