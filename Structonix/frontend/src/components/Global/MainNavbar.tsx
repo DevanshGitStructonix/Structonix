@@ -141,7 +141,7 @@ export function MainNavbar() {
                                 <div className="flex items-center gap-4">
                                     <Link
                                         href="/contact"
-                                        className="hidden lg:flex items-center justify-center bg-primary hover:bg-[#d68515] text-white px-6 h-full py-0 font-bold uppercase text-xs tracking-widest transition-all duration-300"
+                                        className="hidden lg:flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 h-full py-0 font-bold uppercase text-xs tracking-widest transition-all duration-300"
                                         style={{ height: '96px', marginTop: '-10px', marginBottom: '-10px' }} // Adjusted for smaller height
                                     >
                                         <PhoneCall className="w-4 h-4 mr-2" /> Get In Touch
@@ -171,7 +171,7 @@ export function MainNavbar() {
             />
 
             {/* Side Panel */}
-            <div className={`fixed top-0 left-0 h-full w-full md:w-[450px] bg-[#121C22] z-[60] text-white p-10 transform transition-transform duration-500 ease-out overflow-y-auto ${isSideMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+            <div className={`fixed top-0 left-0 h-full w-full md:w-[450px] bg-dark-navy z-[60] text-white p-10 transform transition-transform duration-500 ease-out overflow-y-auto ${isSideMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
 
                 {/* Close Button */}
                 <button

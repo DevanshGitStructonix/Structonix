@@ -3,7 +3,7 @@ import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 
 export const ContactUsSection = () => {
     return (
-        <section className="bg-white min-h-[90vh] text-[#121C22] py-12 lg:py-16 relative overflow-hidden flex items-center">
+        <section className="bg-white min-h-[90vh] text-dark-navy py-12 lg:py-16 relative overflow-hidden flex items-center">
 
             {/* World Map Background */}
             <div className="absolute inset-0 z-0 opacity-10 pointer-events-none"
@@ -73,7 +73,7 @@ export const ContactUsSection = () => {
                         <div className="pt-8">
                             <span className="text-5xl md:text-7xl font-bold text-transparent opacity-30 select-none"
                                 style={{
-                                    WebkitTextStroke: '1px #F4991A'
+                                    WebkitTextStroke: '1px var(--color-primary)'
                                 }}
                             >
                                 since 1980

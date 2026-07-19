@@ -32,7 +32,7 @@ export function StructonixTextMask() {
                             WebkitBackgroundClip: 'text',
                             backgroundClip: 'text',
                             color: 'transparent',
-                            WebkitTextStroke: '1px #F4991A', // Using primary color for stroke
+                            WebkitTextStroke: '1px var(--color-primary)', // Using primary color for stroke
                         }}
                     >
                         Structonix

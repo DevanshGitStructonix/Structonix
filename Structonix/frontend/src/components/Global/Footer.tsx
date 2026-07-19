@@ -6,9 +6,9 @@ import { Facebook, Twitter, Instagram, Linkedin, ArrowRight } from 'lucide-react
 
 export function Footer() {
     return (
-        <footer className="bg-[#121C22] text-white overflow-hidden relative font-secondary">
+        <footer className="bg-dark-navy text-white overflow-hidden relative font-secondary">
             {/* Top Orange Accent */}
-            <div className="absolute top-0 left-0 md:left-24 w-16 h-16 bg-[#F4991A] z-10" />
+            <div className="absolute top-0 left-0 md:left-24 w-16 h-16 bg-primary z-10" />
 
             {/* Increased padding to move content "inside" */}
             <div className="container mx-auto px-8 md:px-24 pt-20 pb-12 relative z-0">
@@ -23,10 +23,10 @@ export function Footer() {
                         </h2>
                     </div>
 
-                    <Link href="/contact" className="group flex items-center gap-3 text-[#F4991A] hover:text-[#d88410] transition-colors duration-300 mt-6 md:mt-0 relative pb-1">
+                    <Link href="/contact" className="group flex items-center gap-3 text-primary hover:text-primary/90 transition-colors duration-300 mt-6 md:mt-0 relative pb-1">
                         <span className="text-sm font-bold uppercase tracking-widest relative">
                             Contact Us
-                            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#F4991A] group-hover:w-full transition-all duration-300 ease-out" />
+                            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300 ease-out" />
                         </span>
                         <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-300 ease-out" />
                     </Link>
@@ -48,7 +48,7 @@ export function Footer() {
                         {/* "since 1980" - Smaller Outline Text Style */}
                         <h3
                             className="text-3xl font-bold text-transparent"
-                            style={{ WebkitTextStroke: '1px #F4991A' }}
+                            style={{ WebkitTextStroke: '1px var(--color-primary)' }}
                         >
                             since 1980
                         </h3>
@@ -84,7 +84,7 @@ export function Footer() {
                         <div>
                             <h4 className="text-white font-bold text-base mb-3">Phone</h4>
                             <div className="text-gray-400 text-xs space-y-1">
-                                <p className="text-[#F4991A]">+1 234 719 8948</p>
+                                <p className="text-primary">+1 234 719 8948</p>
                                 <p>+1 987 654 3210</p>
                             </div>
                         </div>
@@ -92,7 +92,7 @@ export function Footer() {
                         <div>
                             <h4 className="text-white font-bold text-base mb-3">Email</h4>
                             <p className="text-gray-400 text-xs mb-1">Interested in working with us?</p>
-                            <a href="mailto:info@structonix.com" className="text-[#F4991A] text-xs hover:underline">
+                            <a href="mailto:info@structonix.com" className="text-primary text-xs hover:underline">
                                 info@structonix.com
                             </a>
                         </div>
@@ -128,7 +128,7 @@ function SocialIcon({ icon, href }: { icon: React.ReactNode, href: string }) {
     return (
         <a
             href={href}
-            className="w-8 h-8 border border-white/10 flex items-center justify-center text-white hover:bg-[#F4991A] hover:border-[#F4991A] transition-all duration-300"
+            className="w-8 h-8 border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all duration-300"
         >
             {icon}
         </a>
@@ -137,7 +137,7 @@ function SocialIcon({ icon, href }: { icon: React.ReactNode, href: string }) {
 
 function FooterLink({ href, children }: { href: string, children: React.ReactNode }) {
     return (
-        <Link href={href} className="text-gray-400 text-xs hover:text-[#F4991A] transition-colors duration-200 block">
+        <Link href={href} className="text-gray-400 text-xs hover:text-primary transition-colors duration-200 block">
             {children}
         </Link>
     )

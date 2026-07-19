@@ -93,7 +93,7 @@ export function ContactForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} noValidate className="relative bg-[#0F172A] p-6 md:p-16 text-white shadow-2xl overflow-hidden min-h-[500px] flex flex-col justify-between">
+        <form onSubmit={handleSubmit} noValidate className="relative bg-dark-navy p-6 md:p-16 text-white shadow-2xl overflow-hidden min-h-[500px] flex flex-col justify-between">
             {/* Main Content */}
             <div className="space-y-6 relative z-10">
                 <div>
@@ -109,7 +109,7 @@ export function ContactForm() {
                             type="text"
                             id="name"
                             name="name"
-                            className={`w-full bg-transparent border-b pb-3 text-white placeholder-gray-500 focus:outline-none transition-colors ${errors.name ? 'border-red-500' : 'border-gray-700 focus:border-[#F4991A]'}`}
+                            className={`w-full bg-transparent border-b pb-3 text-white placeholder-gray-500 focus:outline-none transition-colors ${errors.name ? 'border-red-500' : 'border-gray-700 focus:border-primary'}`}
                             placeholder="Full name"
                         />
                         {errors.name ? <p className="text-red-500 text-xs mt-1">{errors.name}</p> : null}
@@ -119,14 +119,14 @@ export function ContactForm() {
                             type="email"
                             id="email"
                             name="email"
-                            className={`w-full bg-transparent border-b pb-3 text-white placeholder-gray-500 focus:outline-none transition-colors ${errors.email ? 'border-red-500' : 'border-gray-700 focus:border-[#F4991A]'}`}
+                            className={`w-full bg-transparent border-b pb-3 text-white placeholder-gray-500 focus:outline-none transition-colors ${errors.email ? 'border-red-500' : 'border-gray-700 focus:border-primary'}`}
                             placeholder="Email"
                         />
                         {errors.email ? <p className="text-red-500 text-xs mt-1">{errors.email}</p> : null}
                     </div>
 
                     {/* Phone Input with +91 Prefix */}
-                    <div className="flex items-center border-b border-gray-700 pb-3 focus-within:border-[#F4991A] transition-colors">
+                    <div className="flex items-center border-b border-gray-700 pb-3 focus-within:border-primary transition-colors">
                         <span className="text-gray-400 mr-2 select-none">+91</span>
                         <input
                             type="tel"
@@ -147,7 +147,7 @@ export function ContactForm() {
                             id="message"
                             name="message"
                             rows={3}
-                            className="w-full bg-transparent border-b border-gray-700 pb-3 text-white placeholder-gray-500 focus:border-[#F4991A] focus:outline-none transition-colors resize-none"
+                            className="w-full bg-transparent border-b border-gray-700 pb-3 text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-colors resize-none"
                             placeholder="Message"
                         ></textarea>
                     </div>
@@ -169,7 +169,7 @@ export function ContactForm() {
                 <button
                     type="submit"
                     disabled={isLoading}
-                    className="group flex items-center gap-2 text-[#F4991A] font-bold text-sm tracking-widest uppercase hover:text-dark-gray transition-colors disabled:opacity-50 bg-white p-4 rounded-sm"
+                    className="group flex items-center gap-2 text-primary font-bold text-sm tracking-widest uppercase hover:text-dark-gray transition-colors disabled:opacity-50 bg-white p-4 rounded-sm"
                 >
                     {isLoading ? <Loader2 className="animate-spin w-4 h-4" /> : 'Send a Message'}
                     <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />

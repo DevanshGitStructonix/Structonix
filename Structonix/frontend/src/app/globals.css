@@ -12,16 +12,16 @@
   --font-secondary: var(--font-work-sans);
 
   /* Structonix Brand Colors */
-  --color-primary: #F4991A;
-  --color-secondary: #BFC9D1;
+  --color-primary: #FE7F2D;
+  --color-secondary: #eaecf0;
   --color-white: #FFFFFF;
   --color-black: #000000;
-  --color-dark-gray: #121C22;
+  --color-dark-gray: #233D4D;
 
   /* Additional UI Colors (from Industrium reference) */
-  --color-dark-navy: #121C22;
-  --color-dark-slate: #1F2531;
-  --color-light-gray: #E0E1E4;
+  --color-dark-navy: #233D4D;
+  --color-dark-slate: #233D4D;
+  --color-light-gray: #eaecf0;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -111,7 +111,7 @@ export function WhoWeAre() {
                 >
                     <span
                         className="text-[5rem] md:text-[8rem] font-extrabold text-transparent leading-none"
-                        style={{ WebkitTextStroke: '3px #f4800bff' }}
+                        style={{ WebkitTextStroke: '3px #FE7F2D' }}
                     >
                         since 1980
                     </span>

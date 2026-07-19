@@ -54,20 +54,20 @@ export function QuoteForm() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Personal Details */}
                 <div className="space-y-6">
-                    <h4 className="text-lg font-bold text-[#F4991A] uppercase tracking-wider border-b pb-2">01. Contact Info</h4>
+                    <h4 className="text-lg font-bold text-primary uppercase tracking-wider border-b pb-2">01. Contact Info</h4>
                     <div className="space-y-4">
-                        <input type="text" name="name" required className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#F4991A] outline-none transition-all" placeholder="Your Name" />
-                        <input type="text" name="company" className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#F4991A] outline-none transition-all" placeholder="Company Name (Optional)" />
-                        <input type="email" name="email" required className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#F4991A] outline-none transition-all" placeholder="Email Address" />
-                        <input type="tel" name="phone" required className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#F4991A] outline-none transition-all" placeholder="Phone Number" />
+                        <input type="text" name="name" required className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="Your Name" />
+                        <input type="text" name="company" className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="Company Name (Optional)" />
+                        <input type="email" name="email" required className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="Email Address" />
+                        <input type="tel" name="phone" required className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="Phone Number" />
                     </div>
                 </div>
 
                 {/* Project Details */}
                 <div className="space-y-6">
-                    <h4 className="text-lg font-bold text-[#F4991A] uppercase tracking-wider border-b pb-2">02. Project Specs</h4>
+                    <h4 className="text-lg font-bold text-primary uppercase tracking-wider border-b pb-2">02. Project Specs</h4>
                     <div className="space-y-4">
-                        <select name="projectType" required className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#F4991A] outline-none transition-all appearance-none cursor-pointer">
+                        <select name="projectType" required className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all appearance-none cursor-pointer">
                             <option value="" disabled selected>Select Project Type</option>
                             <option value="Factory">Industrial Factory</option>
                             <option value="Warehouse">Warehouse / Logistics</option>
@@ -76,7 +76,7 @@ export function QuoteForm() {
                         </select>
 
                         <div>
-                            <label className="block text-sm font-medium text-gray-600 mb-2">Estimated Area: <span className="text-[#F4991A] font-bold">{areaValue.toLocaleString()} sq. ft.</span></label>
+                            <label className="block text-sm font-medium text-gray-600 mb-2">Estimated Area: <span className="text-primary font-bold">{areaValue.toLocaleString()} sq. ft.</span></label>
                             <input
                                 type="range"
                                 name="area"
@@ -85,7 +85,7 @@ export function QuoteForm() {
                                 step="1000"
                                 value={areaValue}
                                 onChange={(e) => setAreaValue(Number(e.target.value))}
-                                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#F4991A]"
+                                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
                             />
                             <div className="flex justify-between text-xs text-gray-400 mt-1">
                                 <span>1k sq.ft.</span>
@@ -93,7 +93,7 @@ export function QuoteForm() {
                             </div>
                         </div>
 
-                        <select name="budget" required className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#F4991A] outline-none transition-all appearance-none cursor-pointer">
+                        <select name="budget" required className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all appearance-none cursor-pointer">
                             <option value="" disabled selected>Estimated Budget Range</option>
                             <option value="<50L">Less than ₹50 Lakhs</option>
                             <option value="50L-1Cr">₹50 Lakh - ₹1 Cr</option>
@@ -106,13 +106,13 @@ export function QuoteForm() {
 
             <div className="pt-4">
                 <label className="block text-sm font-medium text-gray-600 mb-2">Additional Details</label>
-                <textarea name="message" rows={4} className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#F4991A] outline-none transition-all resize-none" placeholder="Is there anything specific we should know?"></textarea>
+                <textarea name="message" rows={4} className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary outline-none transition-all resize-none" placeholder="Is there anything specific we should know?"></textarea>
             </div>
 
             <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-[#121C22] text-white font-bold py-5 rounded-xl hover:bg-black transition-all transform hover:-translate-y-1 shadow-lg flex items-center justify-center gap-3 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-dark-navy text-white font-bold py-5 rounded-xl hover:bg-dark-navy/90 transition-all transform hover:-translate-y-1 shadow-lg flex items-center justify-center gap-3 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
                 {isLoading ? <Loader2 className="animate-spin w-6 h-6" /> : <><Calculator className="w-6 h-6" /> Get My Estimation</>}
             </button>

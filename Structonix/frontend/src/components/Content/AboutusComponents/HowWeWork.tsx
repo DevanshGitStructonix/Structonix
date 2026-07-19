@@ -56,15 +56,15 @@ export function HowWeWork() {
 
     if (isMobile) {
         return (
-            <section className="py-16 bg-[#EBECEE] overflow-hidden">
+            <section className="py-16 bg-light-gray overflow-hidden">
                 <div className="container mx-auto px-4">
                     {/* Top Section: Heading */}
                     <div className="w-full text-center mb-10">
                         <div className="max-w-4xl mx-auto">
-                            <span className="text-[#F4991A] text-sm font-semibold tracking-widest uppercase mb-2 block">
+                            <span className="text-primary text-sm font-semibold tracking-widest uppercase mb-2 block">
                                 How we work
                             </span>
-                            <h2 className="text-xl font-bold font-secondary text-[#121C22] leading-[1.1] mb-6">
+                            <h2 className="text-xl font-bold font-secondary text-dark-navy leading-[1.1] mb-6">
                                 Description of our steps in cooperation and achievement of your goals in business
                             </h2>
                         </div>
@@ -79,7 +79,7 @@ export function HowWeWork() {
                                     className="snap-center relative flex-shrink-0 w-[280px] p-6 bg-white border border-dark-gray shadow-lg"
                                 >
                                     <div className="mb-4 flex justify-between items-start">
-                                        <span className={`text-5xl font-bold font-secondary leading-none ${step.active ? 'text-[#F4991A]' : 'text-[#F4991A] [-webkit-text-stroke:1px_#F4991A]'}`}>
+                                        <span className={`text-5xl font-bold font-secondary leading-none ${step.active ? 'text-primary' : 'text-primary [-webkit-text-stroke:1px_#FE7F2D]'}`}>
                                             {step.id}
                                         </span>
                                         <span className="text-[10px] text-primary uppercase tracking-widest mt-2">
@@ -87,7 +87,7 @@ export function HowWeWork() {
                                         </span>
                                     </div>
 
-                                    <h3 className="text-lg font-bold font-secondary text-[#121C22] mb-3 leading-tight">
+                                    <h3 className="text-lg font-bold font-secondary text-dark-navy mb-3 leading-tight">
                                         {step.title}
                                     </h3>
 
@@ -105,7 +105,7 @@ export function HowWeWork() {
 
     // Desktop Implementation (Scrollytelling)
     return (
-        <section ref={targetRef} className="relative h-[400vh] bg-[#EBECEE]">
+        <section ref={targetRef} className="relative h-[400vh] bg-light-gray">
             {/* Sticky container */}
             <div className="sticky top-0 flex items-center h-screen overflow-hidden">
                 <div className="container mx-auto px-4 md:px-16 flex flex-col justify-center h-full relative">
@@ -118,10 +118,10 @@ export function HowWeWork() {
                             viewport={{ once: true }}
                             className="max-w-4xl mx-auto"
                         >
-                            <span className="text-[#F4991A] text-sm font-semibold tracking-widest uppercase mb-2 block">
+                            <span className="text-primary text-sm font-semibold tracking-widest uppercase mb-2 block">
                                 How we work
                             </span>
-                            <h2 className="text-2xl md:text-xl font-bold font-secondary text-[#121C22] leading-[1.1] mb-6">
+                            <h2 className="text-2xl md:text-xl font-bold font-secondary text-dark-navy leading-[1.1] mb-6">
                                 Description of our steps in cooperation and achievement of your goals in business
                             </h2>
 
@@ -129,7 +129,7 @@ export function HowWeWork() {
                             <div className="mx-auto w-full max-w-[200px] h-[2px] bg-gray-300 rounded-full overflow-hidden mt-2">
                                 <motion.div
                                     style={{ width: progressWidth }}
-                                    className="h-full bg-[#F4991A]"
+                                    className="h-full bg-primary"
                                 />
                             </div>
                         </motion.div>
@@ -144,7 +144,7 @@ export function HowWeWork() {
                                     className="relative flex-shrink-0 w-[280px] md:w-[320px] p-6 bg-white border border-dark-gray shadow-lg"
                                 >
                                     <div className="mb-4 flex justify-between items-start">
-                                        <span className={`text-6xl font-bold font-secondary leading-none ${step.active ? 'text-[#F4991A]' : 'text-[#F4991A] [-webkit-text-stroke:1px_#F4991A]'}`}>
+                                        <span className={`text-6xl font-bold font-secondary leading-none ${step.active ? 'text-primary' : 'text-primary [-webkit-text-stroke:1px_#FE7F2D]'}`}>
                                             {step.id}
                                         </span>
                                         <span className="text-[10px] text-primary uppercase tracking-widest mt-2">
@@ -152,7 +152,7 @@ export function HowWeWork() {
                                         </span>
                                     </div>
 
-                                    <h3 className="text-lg font-bold font-secondary text-[#121C22] mb-3 leading-tight">
+                                    <h3 className="text-lg font-bold font-secondary text-dark-navy mb-3 leading-tight">
                                         {step.title}
                                     </h3>
 
