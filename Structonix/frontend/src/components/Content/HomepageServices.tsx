@@ -8,120 +8,127 @@ import { motion } from 'framer-motion';
 
 const services = [
     {
-        id: 'industrial',
-        label: 'Industrial Construction',
-        title: 'We solve worldwide industrial every problem',
-        description: "The industry's standard dummy text ever since the 1500s, when an unknown printer took a galley.",
+        id: 'design-engineering',
+        label: 'Design & Engineering',
+        title: 'Premium Structural Engineering & Detailing',
+        description: 'Complete design solutions using state-of-the-art modeling software. We construct high-accuracy blueprints, structural analysis, and detailing before fabrication.',
         points: [
-            'Manufacturing Solutions',
-            'Research and Development',
-            'Vehicle manufacturing'
+            '3D CAD & Tekla Modeling',
+            'Structural Optimization',
+            'Engineering Feasibility Studies'
         ],
-        image: 'https://images.pexels.com/photos/236698/pexels-photo-236698.jpeg',
-        link: '/services/industrial'
+        image: 'https://images.pexels.com/photos/3183186/pexels-photo-3183186.jpeg',
+        link: '/products-and-services#design-engineering'
     },
     {
-        id: 'regulation',
-        label: 'High regulation industry',
-        title: 'Compliance & Safety First',
-        description: "Ensuring your operations meet the strictest international standards for safety and environmental impact.",
+        id: 'primary-steel',
+        label: 'Primary Steel Structure',
+        title: 'Heavy Industrial Primary Frame Fabrication',
+        description: 'Precision manufacturing of built-up sections, columns, and rafter systems engineered to support high-tensile forces and primary structural loads.',
         points: [
-            'ISO Certification Support',
-            'Environmental Audits',
-            'Safety Training'
+            'Heavy Built-up Sections',
+            'Rafters & Columns Fabrication',
+            'High-Tensile Load Durability'
         ],
-        image: 'https://images.pexels.com/photos/675987/machine-mill-industry-steam-675987.jpeg',
-        link: '/services/regulation'
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704882/Primary-Steel-Structure_xa68xr.gif',
+        link: '/products-and-services#primary-steel'
     },
     {
-        id: 'bridge',
-        label: 'Bridge Construction',
-        title: 'Connecting Communities',
-        description: "Advanced engineering solutions for long-span and complex bridge infrastructure projects.",
+        id: 'secondary-steel',
+        label: 'Secondary Steel Structure',
+        title: 'Framing Supports & Secondary Members',
+        description: 'Manufacturing and detailing of structural secondary elements like purlins, girts, eave struts, and bracings critical for layout integrity.',
         points: [
-            'Structural Analysis',
-            'Maintenance & Repair',
-            'Capital Projects'
+            'Eave Struts & Side Girts',
+            'Bracing Systems & Gusses',
+            'Precision Pre-Punched Holes'
         ],
-        image: 'https://images.pexels.com/photos/11701519/pexels-photo-11701519.jpeg',
-        link: '/services/bridge'
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp',
+        link: '/products-and-services#secondary-steel'
     },
     {
-        id: 'oilgas',
-        label: 'Oil & Gas Energy',
-        title: 'Powering the Future',
-        description: "Comprehensive services for the upstream, midstream, and downstream oil and gas sectors.",
+        id: 'warehousing',
+        label: 'Warehousing',
+        title: 'Turnkey Warehouse Construction Solutions',
+        description: 'Creating large-span industrial warehouse buildings engineered for heavy storage, automated inventory logistics, and commercial distribution.',
         points: [
-            'Pipeline Construction',
-            'Refinery Maintenance',
-            'Exploration Support'
+            'Large Clear Span Design',
+            'High-Load Ground Panels',
+            'Insulated Storage Configurations'
         ],
-        image: 'https://images.pexels.com/photos/10407684/pexels-photo-10407684.jpeg',
-        link: '/services/oilgas'
+        image: 'https://images.pexels.com/photos/906494/pexels-photo-906494.jpeg',
+        link: '/products-and-services#warehousing'
     },
     {
-        id: 'mechanical',
-        label: 'Mechanical Engineering',
-        title: 'Precision Engineering',
-        description: "Custom mechanical design and fabrication for specialized industrial applications.",
+        id: 'roofing-cladding',
+        label: 'Roofing & Cladding Systems',
+        title: 'Weatherproof Protective Insulated Shells',
+        description: 'Premium single-skin profile sheets and sandwich panels offering ultimate thermal insulation, leakproof joints, and modern facade finishes.',
         points: [
-            'CAD Design',
-            'Prototyping',
-            'Mass Production'
+            'Insulated Sandwich Panels',
+            'Standing Seam Roof Sheets',
+            'Corrosion-Resistant Coatings'
         ],
-        image: 'https://images.pexels.com/photos/19233057/pexels-photo-19233057.jpeg',
-        link: '/services/mechanical'
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704406/images_utytsf.webp',
+        link: '/products-and-services#roofing-cladding'
     },
     {
-        id: 'automation',
-        label: 'Automation Industry',
-        title: 'Smart Factory Solutions',
-        description: "Integrating robotics and AI to streamline production lines and increase efficiency.",
+        id: 'purlins-downspouts',
+        label: 'C/Z Purlin & Downspouts',
+        title: 'Cold-Formed Sections & Water Drainage',
+        description: 'Cold-roll formed C & Z purlins providing lightweight yet heavy-duty support for roof cladding, complemented by rain downspout drainage pipes.',
         points: [
-            'Robotic Integration',
-            'Process Automation',
-            'IoT Implementation'
+            'Roll-Formed C & Z Sections',
+            'Galvanized Corrosion Resistance',
+            'Rainwater Downspouts & Gutters'
         ],
-        image: 'https://images.pexels.com/photos/11951215/pexels-photo-11951215.jpeg',
-        link: '/services/automation'
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704405/images_1_vzi3kh.webp',
+        link: '/products-and-services#purlins-downspouts'
+    },
+    {
+        id: 'turnkey-projects',
+        label: 'Turnkey Industrial Projects',
+        title: 'Full-Scale End-to-End Industrial Execution',
+        description: 'Comprehensive project management covering design, raw material manufacturing, delivery logistics, and safe, fast-track on-site erection.',
+        points: [
+            'Concept-to-Execution Ownership',
+            'Rigorous Site Safety Protocols',
+            'On-Schedule Turnkey Delivery'
+        ],
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785699772/DJI_0532_fvkw9a.webp',
+        link: '/products-and-services#turnkey-projects'
     }
 ];
 
 const workProcess = [
     {
         id: '01',
-        title: "Analysis of the client's objectives & needs",
-        description: "Our approach to project management is grounded in practical experience and prioritizes open communication.",
+        title: "Planning & Engineering",
+        description: "We understand the client’s requirements, develop optimized structural designs, prepare detailed drawings, and finalize the project scope with complete technical clarity.",
         icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
-                <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
-                <path d="M22 12A10 10 0 0 0 12 2v10z" />
-            </svg>
-        )
-    },
-    {
-        id: '02',
-        title: "Engineering project study & solution design",
-        description: "Together, we identify the industrial data automation project's general scope and the components needed to produce.",
-        icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
             </svg>
         )
     },
     {
-        id: '03',
-        title: "Solution execution phase and installation done",
-        description: "We collaborate closely on with you and examine the strategy and install and integrate the mechanical.",
+        id: '02',
+        title: "Precision Manufacturing & Dispatch",
+        description: "Using advanced manufacturing processes and strict quality control, we fabricate primary and secondary structures with a strong focus on accuracy, durability, and timely delivery.",
         icon: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
-                <rect width="18" height="18" x="3" y="3" rx="2" />
-                <path d="M7 7h3" />
-                <path d="M7 12h3" />
-                <path d="M7 17h3" />
-                <path d="M17 7h-2" />
-                <path d="M17 12h-2" />
-                <path d="M17 17h-2" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="3" />
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+            </svg>
+        )
+    },
+    {
+        id: '03',
+        title: "Erection & Project Handover",
+        description: "Our execution team ensures smooth on-site erection, safe installation, and timely completion, delivering a fully functional structure ready for operations.",
+        icon: (
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 22h18M5 22V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v18M9 18h6M9 14h6M9 10h6M9 6h6" />
             </svg>
         )
     }
@@ -143,12 +150,12 @@ export function HomepageServices() {
                             <span>Services</span>
                         </div>
                         <h2 className="text-4xl md:text-5xl font-bold text-dark-slate leading-tight">
-                            Creative features from <br /> production industry
+                            Comprehensive Turnkey <br /> Construction Solutions
                         </h2>
                     </div>
                     <div>
                         <Link
-                            href="/services"
+                            href="/products-and-services"
                             className="inline-flex items-center gap-2 border border-gray-300 px-6 py-3 text-dark-slate font-bold uppercase text-sm hover:bg-dark-slate hover:text-white transition-colors duration-300"
                         >
                             View All Solutions
@@ -237,9 +244,9 @@ export function HomepageServices() {
 
                 {/* --- WORK PROCESS SECTION --- */}
                 <div className="relative pt-0 pb-20">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
+                    <div className="text-center max-w-3xl mx-auto mb-20">
                         <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">How We Work</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-dark-slate">Simple 3-Step Process</h2>
+                        <h2 className="text-3xl md:text-5xl font-extrabold text-dark-slate tracking-tight">Our 3-Step Execution Workflow</h2>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 relative z-10">
@@ -251,21 +258,24 @@ export function HomepageServices() {
                         {workProcess.map((step) => (
                             <div key={step.id} className="relative group">
                                 {/* Number Badge */}
-                                <div className="w-20 h-20 md:w-24 md:h-24 mx-auto bg-white border-4 border-[#F8F9FA] rounded-full flex items-center justify-center text-xl md:text-2xl font-bold text-dark-slate shadow-sm group-hover:border-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 mb-6 md:mb-8 relative z-10">
+                                <div className="w-20 h-20 md:w-24 md:h-24 mx-auto bg-white border-4 border-[#F8F9FA] rounded-full flex items-center justify-center text-xl md:text-2xl font-bold text-dark-slate shadow-sm group-hover:border-primary group-hover:bg-primary group-hover:text-white group-hover:shadow-[0_0_20px_rgba(254,127,45,0.4)] transition-all duration-500 mb-6 md:mb-8 relative z-10">
                                     {step.id}
-                                </div>
+                               </div>
 
                                 {/* Content Card */}
-                                <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100 group-hover:shadow-xl group-hover:-translate-y-2 transition-all duration-300 text-center h-full flex flex-col items-center">
-                                    <div className="mb-4 md:mb-6 p-3 md:p-4 rounded-full bg-orange-50 group-hover:scale-110 transition-transform duration-300 text-primary">
+                                <div className="bg-white p-6 md:p-8 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.03)] border border-gray-100/80 group-hover:border-primary/20 group-hover:shadow-[0_20px_50px_rgba(254,127,45,0.12)] group-hover:-translate-y-2 transition-all duration-500 text-center h-full flex flex-col items-center">
+                                    <div className="mb-4 p-3.5 rounded-full bg-orange-50/80 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500">
                                         {step.icon}
                                     </div>
-                                    <h4 className="text-lg md:text-xl font-bold text-dark-slate mb-3 md:mb-4">
+                                    <h4 className="text-lg md:text-xl font-bold text-dark-slate mb-3">
                                         {step.title}
                                     </h4>
-                                    <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                                    <p className="text-gray-600 text-sm leading-relaxed font-light">
                                         {step.description}
                                     </p>
+                                    
+                                    {/* Interactive expanding line */}
+                                    <div className="w-8 h-[2px] bg-gray-200 group-hover:w-16 group-hover:bg-primary transition-all duration-500 mt-5" />
                                 </div>
                             </div>
                         ))}

@@ -34,7 +34,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
                                 scale: [0.92, 1, 1, 0.96]
                             }}
                             transition={{ duration: 1.0, ease: 'easeInOut' }}
-                            className="relative w-64 h-16 md:w-80 md:h-48"
+                            className="relative w-44 h-16 md:w-52 md:h-32"
                         >
                             <Image
                                 src="/images/structonix-logo-white.png"
@@ -48,7 +48,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
                         {/* Subtle Horizontal Horizon Line */}
                         <motion.div
                             initial={{ width: 0 }}
-                            animate={{ width: "120px" }}
+                            animate={{ width: "300px" }}
                             transition={{ duration: 0.4, ease: 'easeOut', delay: 0.15 }}
                             className="h-[2px] bg-primary mt-2 mb-3 rounded-full"
                         />

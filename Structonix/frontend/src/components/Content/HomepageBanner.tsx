@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import Slider from 'react-slick';
 import Link from 'next/link';
-import { ArrowRight, Play, ArrowLeft } from 'lucide-react';
+import { ArrowRight, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import css files for slick-carousel
@@ -13,7 +13,7 @@ import 'slick-carousel/slick/slick-theme.css';
 const slides = [
     {
         id: 1,
-        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1773749195/big-storehouse-with-construction-materials-inside-wholesale_1_itctad.webp',
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785699707/DJI_0516_ckoi6s.webp',
         subtitle: 'Production & Logistics',
         title: 'Special Industrial',
         highlight: 'Production',
@@ -24,7 +24,7 @@ const slides = [
     },
     {
         id: 2,
-        image: 'https://images.unsplash.com/photo-1662218934109-eba4e22a6f3f?q=80&w=1031&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785699778/DJI_0534_lejaf3.webp',
         subtitle: 'Engineering Excellence',
         title: 'Innovative Engineering',
         highlight: 'Solutions',
@@ -35,7 +35,7 @@ const slides = [
     },
     {
         id: 3,
-        image: 'https://images.unsplash.com/photo-1722842895153-ba7bf9d53dfb?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785699777/DJI_0542_psoyfg.webp',
         subtitle: 'Modern Industry',
         title: 'Sustainable',
         highlight: 'Manufacturing',
@@ -43,6 +43,17 @@ const slides = [
         description: 'State-of-the-art facilities and sustainable practices building the next generation of industrial infrastructure for a greener tomorrow.',
         cta: 'Contact Us',
         link: '/contact'
+    },
+    {
+        id: 4,
+        image: 'https://res.cloudinary.com/dpctlwaam/video/upload/v1785701188/NAIK7897_1_tqkjnv.mp4',
+        subtitle: 'Comprehensive Services',
+        title: 'Engineering & Manufacturing',
+        highlight: 'Synergy',
+        titleEnd: ' in Every Project',
+        description: 'Integrated design, fabrication, and execution services for complex industrial needs. From concept to completion, we deliver excellence.',
+        cta: 'Explore Services',
+        link: '/products-and-services'
     }
 ];
 
@@ -85,7 +96,7 @@ export function HomepageBanner() {
             <Slider ref={sliderRef} {...settings} className="h-full banner-slider">
                 {slides.map((slide, index) => (
                     <div key={slide.id} className="relative w-full h-screen min-h-[650px] outline-none">
-                        {/* Background Image Container with Cursor Parallax */}
+                        {/* Background Container with Cursor Parallax */}
                         <motion.div
                             animate={{
                                 x: mousePos.x,
@@ -93,20 +104,34 @@ export function HomepageBanner() {
                                 scale: index === currentSlide ? 1.08 : 1
                             }}
                             transition={{ type: "tween", ease: "easeOut", duration: 0.5 }}
-                            className="absolute inset-0 bg-cover bg-center transition-transform duration-[8000ms]"
-                            style={{
-                                backgroundImage: `url(${slide.image})`
-                            }}
+                            className="absolute inset-0 overflow-hidden"
                         >
+                            {slide.image.endsWith('.mp4') || slide.image.includes('/video/') ? (
+                                <video
+                                    src={slide.image}
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                />
+                            ) : (
+                                <div
+                                    className="absolute inset-0 bg-cover bg-center w-full h-full"
+                                    style={{
+                                        backgroundImage: `url(${slide.image})`
+                                    }}
+                                />
+                            )}
                             {/* Refined elegant subtle gradient overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent"></div>
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent z-10"></div>
                         </motion.div>
 
                         {/* Content Container */}
                         <div className="relative z-10 h-full container mx-auto px-6 lg:px-16 flex items-center">
                             <div className="flex flex-col lg:flex-row w-full gap-12 items-center">
                                 {/* Main Text Content */}
-                                <div className="w-full lg:w-8/12 flex flex-col justify-center text-white pt-10">
+                                <div className="w-full lg:w-10/12 flex flex-col justify-center text-white pt-10">
                                     <AnimatePresence mode="wait">
                                         {index === currentSlide ? (
                                             <motion.div
@@ -139,17 +164,17 @@ export function HomepageBanner() {
                                                     </motion.div>
                                                 </div>
 
-                                                {/* Title Mask */}
-                                                <div className="overflow-hidden py-1 mb-8">
+                                                {/* Title Mask - overflow-visible to prevent clipping descenders/ascenders */}
+                                                <div className="overflow-visible py-2 mb-6">
                                                     <motion.h1
                                                         variants={{
-                                                            hidden: { opacity: 0, y: 80 },
+                                                            hidden: { opacity: 0, y: 50 },
                                                             visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
                                                         }}
-                                                        className="text-5xl md:text-8xl lg:text-[76px] font-extrabold leading-[1.05] font-sans tracking-tight"
+                                                        className="text-3xl sm:text-5xl lg:text-[68px] font-extrabold leading-[1.25] font-sans tracking-tight pb-4"
                                                     >
                                                         {slide.title} <br />
-                                                        <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
+                                                        <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 pb-3 pr-2">
                                                             {slide.highlight}
                                                         </span>
                                                         {slide.titleEnd}
@@ -195,26 +220,6 @@ export function HomepageBanner() {
                                         ) : null}
                                     </AnimatePresence>
                                 </div>
-
-                                {/* Video / Audio Play Button Area */}
-                                <div className="w-full lg:w-4/12 flex items-center justify-start lg:justify-end">
-                                    <AnimatePresence mode="wait">
-                                        {index === currentSlide ? (
-                                            <motion.button
-                                                key={`play-${index}`}
-                                                initial={{ opacity: 0, scale: 0.8 }}
-                                                animate={{ opacity: 1, scale: 1, transition: { delay: 0.8, duration: 1, ease: "easeOut" } }}
-                                                exit={{ opacity: 0, transition: { duration: 0.4 } }}
-                                                className="w-24 h-24 md:w-28 md:h-28 rounded-full border-[0.5px] border-white/20 flex items-center justify-center group relative cursor-pointer"
-                                                aria-label="Play Video"
-                                            >
-                                                <div className="absolute inset-0 rounded-full border border-white/10 scale-110 group-hover:scale-125 transition-transform duration-700 opacity-50 group-hover:opacity-0"></div>
-                                                <div className="absolute inset-0 rounded-full bg-white/5 backdrop-blur-sm group-hover:bg-white/10 transition-colors duration-500"></div>
-                                                <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-transparent stroke-[1] ml-1 group-hover:scale-110 transition-transform duration-500 relative z-10" />
-                                            </motion.button>
-                                        ) : null}
-                                    </AnimatePresence>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -232,7 +237,7 @@ export function HomepageBanner() {
 
                 {/* Previous Arrow */}
                 <button
-                    className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center hover:bg-gray-50 transition-colors group border-l border-gray-100 cursor-pointer"
+                    className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center hover:bg-gray-50 transition-all duration-300 group border-l border-gray-100 cursor-pointer active:scale-95"
                     onClick={() => sliderRef.current?.slickPrev()}
                     aria-label="Previous Slide"
                 >
@@ -241,7 +246,7 @@ export function HomepageBanner() {
 
                 {/* Next Arrow */}
                 <button
-                    className="w-16 h-16 md:w-20 md:h-20 bg-primary flex items-center justify-center hover:bg-[#d68515] transition-colors group cursor-pointer"
+                    className="w-16 h-16 md:w-20 md:h-20 bg-primary flex items-center justify-center hover:bg-[#e06a1c] transition-all duration-300 group cursor-pointer active:scale-95"
                     onClick={() => sliderRef.current?.slickNext()}
                     aria-label="Next Slide"
                 >
