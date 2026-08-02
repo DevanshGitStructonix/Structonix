@@ -1,26 +1,86 @@
-"use client";
- 
-import { motion } from "framer-motion";
-import { PageTransition } from "@/components/Global/PageTransition";
-import { useState } from "react";
- 
+'use client';
+
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+
 export default function Template({ children }: { children: React.ReactNode }) {
-  const [isTransitioning, setIsTransitioning] = useState(true);
- 
-  return (
-    <>
-      <PageTransition onComplete={() => setIsTransitioning(false)} />
-      <motion.div
-        initial={{ opacity: 0, scale: 0.98, filter: "blur(5px)" }}
-        animate={isTransitioning 
-          ? { opacity: 0, scale: 0.98, filter: "blur(5px)" } 
-          : { opacity: 1, scale: 1, filter: "blur(0px)" }
+    const [shouldAnimate, setShouldAnimate] = useState(false);
+
+    useEffect(() => {
+        // Read from sessionStorage to check if the preloader has already finished
+        const shown = sessionStorage.getItem('structonix_preloader_shown');
+        if (shown === 'true') {
+            setShouldAnimate(true);
         }
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={isTransitioning ? "pointer-events-none select-none" : ""}
-      >
-        {children}
-      </motion.div>
-    </>
-  );
+    }, []);
+
+    return (
+        <>
+            {/* Brand Logo Page Transition Overlay (disabled during first-load preloader) */}
+            {shouldAnimate && (
+                <motion.div
+                    initial={{ opacity: 1 }}
+                    animate={{ opacity: 0 }}
+                    transition={{ duration: 0.5, ease: 'easeInOut', delay: 0.6 }}
+                    className="fixed inset-0 z-[9999] bg-[#0B192C] flex flex-col items-center justify-center pointer-events-none select-none"
+                >
+                    <div className="flex flex-col items-center">
+                        {/* Centered Brand Logo */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.92 }}
+                            animate={{ 
+                                opacity: [0, 1, 1, 0],
+                                scale: [0.92, 1, 1, 0.96]
+                            }}
+                            transition={{ duration: 1.0, ease: 'easeInOut' }}
+                            className="relative w-64 h-16 md:w-80 md:h-48"
+                        >
+                            <Image
+                                src="/images/structonix-logo-white.png"
+                                alt="Structonix Logo"
+                                fill
+                                className="object-contain"
+                                priority
+                            />
+                        </motion.div>
+                        
+                        {/* Subtle Horizontal Horizon Line */}
+                        <motion.div
+                            initial={{ width: 0 }}
+                            animate={{ width: "120px" }}
+                            transition={{ duration: 0.4, ease: 'easeOut', delay: 0.15 }}
+                            className="h-[2px] bg-primary mt-2 mb-3 rounded-full"
+                        />
+
+                        {/* Brand Tagline */}
+                        <motion.p
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ 
+                                opacity: [0, 1, 1, 0],
+                                y: [10, 0, 0, -5]
+                            }}
+                            transition={{ 
+                                duration: 1.0, 
+                                ease: 'easeInOut',
+                                delay: 0.1
+                            }}
+                            className="text-white/80 text-[11px] md:text-xs font-bold tracking-[0.4em] uppercase text-center select-none"
+                        >
+                            Engineering Tomorrow's <span className="text-primary font-bold">Horizon</span>
+                        </motion.p>
+                    </div>
+                </motion.div>
+            )}
+
+            {/* Page Content Fade-In */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4, delay: shouldAnimate ? 0.35 : 0, ease: 'easeOut' }}
+            >
+                {children}
+            </motion.div>
+        </>
+    );
 }

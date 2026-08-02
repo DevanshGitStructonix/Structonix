@@ -80,11 +80,11 @@ export function HomepageBanner() {
         <section 
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="relative w-full h-[calc(100vh-7rem)] min-h-[650px] overflow-hidden bg-[#0A0A0A] group/banner"
+            className="relative w-full h-screen min-h-[650px] overflow-hidden bg-[#0A0A0A] group/banner"
         >
             <Slider ref={sliderRef} {...settings} className="h-full banner-slider">
                 {slides.map((slide, index) => (
-                    <div key={slide.id} className="relative w-full h-[calc(100vh-7rem)] min-h-[650px] outline-none">
+                    <div key={slide.id} className="relative w-full h-screen min-h-[650px] outline-none">
                         {/* Background Image Container with Cursor Parallax */}
                         <motion.div
                             animate={{

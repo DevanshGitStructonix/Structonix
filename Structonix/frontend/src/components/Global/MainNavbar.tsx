@@ -3,10 +3,14 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, LayoutPanelLeftIcon, ChevronDown, ArrowRight, PhoneCall, Download } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { Menu, X, ChevronDown, ArrowRight, PhoneCall, Download } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export function MainNavbar() {
+    const pathname = usePathname();
+    const isHome = pathname === '/';
+
     const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [openMobileMenu, setOpenMobileMenu] = useState<string | null>(null);
@@ -28,7 +32,17 @@ export function MainNavbar() {
 
     const navLinks = [
         { name: 'Home', href: '/' },
-        { name: 'About', href: '/about' },
+        {
+            name: 'About',
+            href: '/about',
+            subItems: [
+                { name: 'Who We Are', href: '/about#who-we-are' },
+                { name: 'Vision & Mission', href: '/about#vision-mission' },
+                { name: 'How We Work', href: '/about#who-we-are' },
+                { name: 'Our Team', href: '/about#team' },
+                { name: 'Infrastructure & Machines', href: '/machines' }
+            ]
+        },
         { name: 'Projects', href: '/projects' },
         {
             name: 'Products & Services',
@@ -48,25 +62,23 @@ export function MainNavbar() {
     ];
 
     const galleryImages = [
-        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=400&q=80", // Construction
-        "https://images.unsplash.com/photo-1581094794329-cd109c0f8a16?auto=format&fit=crop&w=400&q=80", // Worker
-        "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=400&q=80", // Architecture
-        "https://images.unsplash.com/photo-1535732759880-bbd5c7265e3f?auto=format&fit=crop&w=400&q=80", // Industrial
-        "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=400&q=80", // Building
-        "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=400&q=80"  // Engineering
+        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1581094794329-cd109c0f8a16?auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1535732759880-bbd5c7265e3f?auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=400&q=80"
     ];
 
     return (
         <>
-            {/* Start Placeholder to prevent layout shift */}
-            <div className="h-28 relative">
-                <motion.nav
-                    layout
-                    transition={{ type: 'spring', stiffness: 200, damping: 25 }}
-                    className={`z-40 text-white ${
+            {/* Start Placeholder to prevent layout shift (removed on homepage for full-screen hero) */}
+            <div className={`${isHome ? 'h-0' : 'h-20 lg:h-32'} relative transition-all duration-300`}>
+                <nav
+                    className={`z-40 text-white transition-all duration-300 ${
                         isScrolled
-                            ? 'fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-7xl bg-dark-navy/95 shadow-[0_12px_40px_rgba(0,0,0,0.35)] border border-white/10 backdrop-blur-md h-20 rounded-full px-8'
-                            : 'absolute top-0 left-0 w-full bg-dark-navy border-b border-white/5 h-28 px-6'
+                            ? 'fixed top-0 left-0 w-full bg-dark-navy/95 shadow-[0_12px_40px_rgba(0,0,0,0.35)] border-b border-white/10 backdrop-blur-md h-20 lg:h-32 px-4 md:px-8 rounded-none'
+                            : 'absolute top-0 left-0 w-full bg-dark-navy/80 border-b border-white/10 backdrop-blur-md h-20 lg:h-32 px-4 md:px-6 rounded-none'
                     }`}
                 >
                     <div className="container mx-auto h-full relative">
@@ -78,11 +90,11 @@ export function MainNavbar() {
                                     className="hidden lg:flex items-center justify-center w-10 h-10 text-white/80 hover:text-primary transition-colors"
                                     aria-label="Open side menu"
                                 >
-                                    <LayoutPanelLeftIcon className="w-6 h-6" />
+                                    <Menu className="w-6 h-6" />
                                 </button>
 
-                                <Link href="/" className="flex items-center gap-2 group relative w-56 h-14">
-                                    <Image src="/images/structonix-logo-white.png" alt="Structonix Logo" fill className="object-contain" />
+                                <Link href="/" className="flex items-center gap-2 group relative w-44 h-12 sm:w-52 sm:h-14 md:w-64 md:h-18 lg:w-80 lg:h-32">
+                                    <Image src="/images/structonix-logo-white.png" alt="Structonix Logo" fill className="object-contain object-left" />
                                 </Link>
                             </div>
 
@@ -103,7 +115,7 @@ export function MainNavbar() {
                                         >
                                             {link.name}
                                             {link.subItems ? (
-                                                <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180 text-white/50" />
+                                                <ChevronDown className="w-3.5 h-3.5 transition-all duration-300 group-hover:rotate-180 text-white/50 group-hover/link:text-primary" />
                                             ) : null}
                                             
                                             <AnimatePresence>
@@ -120,61 +132,90 @@ export function MainNavbar() {
                                             </AnimatePresence>
                                         </Link>
 
-                                        {/* Dropdown Menu (Mega Menu) */}
-                                        <AnimatePresence>
-                                            {link.subItems && activeDropdown === link.name && (
-                                                <motion.div
-                                                    initial={{ opacity: 0, y: 15, scale: 0.98 }}
-                                                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                                                    exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                                                    transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                                                    className={`absolute left-1/2 -translate-x-1/2 w-[85vw] max-w-5xl bg-dark-navy/98 shadow-2xl border border-white/10 rounded-2xl z-50 overflow-hidden ${
-                                                        isScrolled ? 'top-[68px]' : 'top-[80px]'
-                                                    }`}
-                                                >
-                                                    <div className="flex">
-                                                        {/* Left: Title & Desc (30%) */}
-                                                        <div className="w-[30%] py-10 px-8 bg-white/5 border-r border-white/10 flex flex-col justify-center">
-                                                            <h3 className="text-lg font-bold text-white mb-3 uppercase tracking-wider">{link.name}</h3>
-                                                            <p className="text-xs text-white/70 leading-relaxed font-medium">
-                                                                Discover our wide range of innovative and durable PEB products, from prefabricated structures to turnkey solutions.
-                                                            </p>
-                                                        </div>
+                                        {/* Dropdown Menus */}
+                                        {/* Mega Menu for Products & Services */}
+                                        {link.subItems && link.name === 'Products & Services' && (
+                                            <AnimatePresence>
+                                                {activeDropdown === link.name && (
+                                                    <motion.div
+                                                        initial={{ opacity: 0, y: 15, scale: 0.98 }}
+                                                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                                                        exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                                                        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                                                        className="absolute left-1/2 -translate-x-1/2 w-[85vw] max-w-5xl bg-white shadow-2xl border border-gray-100 rounded-2xl z-50 overflow-hidden top-full mt-1"
+                                                    >
+                                                        <div className="flex">
+                                                            {/* Left: Title & Desc (30%) */}
+                                                            <div className="w-[30%] py-10 px-8 bg-gray-50/50 border-r border-gray-100 flex flex-col justify-center">
+                                                                <h3 className="text-lg font-bold text-dark-navy mb-3 uppercase tracking-wider">{link.name}</h3>
+                                                                <p className="text-xs text-gray-500 leading-relaxed font-medium">
+                                                                    Discover our wide range of innovative and durable PEB products, from prefabricated structures to turnkey solutions.
+                                                                </p>
+                                                            </div>
 
-                                                        {/* Middle: Links Grid (45%) */}
-                                                        <div className="w-[45%] py-10 px-10">
-                                                            <div className="grid grid-cols-2 gap-y-6 gap-x-6">
-                                                                {link.subItems.map((subItem) => (
-                                                                    <Link
-                                                                        key={subItem.name}
-                                                                        href={subItem.href}
-                                                                        className="flex items-center gap-2 group/sublink"
-                                                                    >
-                                                                        <ArrowRight className="w-3.5 h-3.5 text-white/40 group-hover/sublink:text-primary shrink-0 transition-colors" />
-                                                                        <span className="text-xs font-bold text-white/90 group-hover/sublink:text-primary transition-colors leading-tight uppercase tracking-wider">
-                                                                            {subItem.name}
-                                                                        </span>
-                                                                    </Link>
-                                                                ))}
+                                                            {/* Middle: Links Grid (45%) */}
+                                                            <div className="w-[45%] py-10 px-10">
+                                                                <div className="grid grid-cols-2 gap-y-6 gap-x-6">
+                                                                    {link.subItems.map((subItem) => (
+                                                                        <Link
+                                                                            key={subItem.name}
+                                                                            href={subItem.href}
+                                                                            className="flex items-center gap-2 group/sublink"
+                                                                        >
+                                                                            <ArrowRight className="w-3.5 h-3.5 text-gray-400 group-hover/sublink:text-primary shrink-0 transition-colors" />
+                                                                            <span className="text-xs font-bold text-dark-navy group-hover/sublink:text-primary transition-colors leading-tight uppercase tracking-wider">
+                                                                                {subItem.name}
+                                                                            </span>
+                                                                        </Link>
+                                                                    ))}
+                                                                </div>
+                                                            </div>
+
+                                                            {/* Right: Featured Image (25%) */}
+                                                            <div className="w-[25%] p-6 flex items-center justify-center">
+                                                                <div className="w-full h-full min-h-[160px] rounded-xl overflow-hidden relative shadow-sm">
+                                                                    <Image
+                                                                        src="https://images.pexels.com/photos/33421999/pexels-photo-33421999.jpeg"
+                                                                        alt="Featured Service"
+                                                                        fill
+                                                                        className="absolute inset-0 object-cover hover:scale-105 transition-transform duration-700"
+                                                                        sizes="(max-width: 768px) 100vw, 25vw"
+                                                                    />
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                    </motion.div>
+                                                )}
+                                            </AnimatePresence>
+                                        )}
 
-                                                        {/* Right: Featured Image (25%) */}
-                                                        <div className="w-[25%] p-6 flex items-center justify-center">
-                                                            <div className="w-full h-full min-h-[160px] rounded-xl overflow-hidden relative shadow-sm">
-                                                                <Image
-                                                                    src="https://images.pexels.com/photos/33421999/pexels-photo-33421999.jpeg"
-                                                                    alt="Featured Service"
-                                                                    fill
-                                                                    className="absolute inset-0 object-cover hover:scale-105 transition-transform duration-700"
-                                                                    sizes="(max-width: 768px) 100vw, 25vw"
-                                                                />
-                                                            </div>
+                                        {/* Standard Dropdown for About */}
+                                        {link.subItems && link.name === 'About' && (
+                                            <AnimatePresence>
+                                                {activeDropdown === link.name && (
+                                                    <motion.div
+                                                        initial={{ opacity: 0, y: 15, scale: 0.98 }}
+                                                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                                                        exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                                                        transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                                                        className="absolute left-1/2 -translate-x-1/2 w-64 bg-white shadow-2xl border border-gray-100 rounded-xl z-50 overflow-hidden py-3 top-full mt-1"
+                                                    >
+                                                        <div className="flex flex-col">
+                                                            {link.subItems.map((subItem) => (
+                                                                <Link
+                                                                    key={subItem.name}
+                                                                    href={subItem.href}
+                                                                    className="px-5 py-2.5 text-xs font-bold text-dark-navy hover:text-primary hover:bg-slate-50 transition-all uppercase tracking-wider flex items-center gap-2 group/item"
+                                                                >
+                                                                    <ArrowRight className="w-3 h-3 text-gray-400 group-hover/item:text-primary transition-colors" />
+                                                                    {subItem.name}
+                                                                </Link>
+                                                            ))}
                                                         </div>
-                                                    </div>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
+                                                    </motion.div>
+                                                )}
+                                            </AnimatePresence>
+                                        )}
                                     </div>
                                 ))}
                             </div>
@@ -205,7 +246,7 @@ export function MainNavbar() {
                             </div>
                         </div>
                     </div>
-                </motion.nav>
+                </nav>
             </div>
 
             {/* Side Menu Overlay */}
@@ -299,6 +340,14 @@ export function MainNavbar() {
                                         >
                                             <Download className="w-4 h-4" /> Download Brochure
                                         </a>
+                                        {/* Mobile Only: Get In Touch Button in side menu */}
+                                        <Link
+                                            href="/contact"
+                                            className="flex lg:hidden items-center justify-center border border-primary text-primary hover:bg-primary/90 hover:text-white w-full py-3.5 font-bold uppercase text-sm tracking-wider transition-all duration-300 mt-3 gap-2"
+                                            onClick={() => setIsSideMenuOpen(false)}
+                                        >
+                                            <PhoneCall className="w-4 h-4" /> Get In Touch
+                                        </Link>
                                     </div>
                                 </div>
 
