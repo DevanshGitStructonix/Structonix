@@ -3,12 +3,15 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, LayoutPanelLeftIcon, ChevronDown, ArrowRight, PhoneCall } from 'lucide-react';
+import { Menu, X, LayoutPanelLeftIcon, ChevronDown, ArrowRight, PhoneCall, Download } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export function MainNavbar() {
     const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [openMobileMenu, setOpenMobileMenu] = useState<string | null>(null);
+    const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+    const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
     const toggleMobileMenu = (name: string) => {
         setOpenMobileMenu(openMobileMenu === name ? null : name);
@@ -56,234 +59,298 @@ export function MainNavbar() {
     return (
         <>
             {/* Start Placeholder to prevent layout shift */}
-            <div className="h-32 relative">
-                <nav className={`bg-white z-40 transition-all duration-300 ${isScrolled ? 'fixed top-0 left-0 w-full shadow-md animate-slide-down' : 'absolute top-0 left-0 w-full shadow-sm'}`}>
-                    <div className="container mx-auto px-4">
-                        <div className="flex items-center justify-between h-32">
+            <div className="h-28 relative">
+                <motion.nav
+                    layout
+                    transition={{ type: 'spring', stiffness: 200, damping: 25 }}
+                    className={`z-40 text-white ${
+                        isScrolled
+                            ? 'fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-7xl bg-dark-navy/95 shadow-[0_12px_40px_rgba(0,0,0,0.35)] border border-white/10 backdrop-blur-md h-20 rounded-full px-8'
+                            : 'absolute top-0 left-0 w-full bg-dark-navy border-b border-white/5 h-28 px-6'
+                    }`}
+                >
+                    <div className="container mx-auto h-full relative">
+                        <div className="flex items-center justify-between h-full">
                             {/* Left: Menu Icon (Desktop) & Logo */}
                             <div className="flex items-center gap-2">
                                 <button
                                     onClick={() => setIsSideMenuOpen(true)}
-                                    className="hidden lg:flex items-center justify-center w-10 h-10 text-dark-slate hover:text-primary transition-colors"
+                                    className="hidden lg:flex items-center justify-center w-10 h-10 text-white/80 hover:text-primary transition-colors"
                                     aria-label="Open side menu"
                                 >
                                     <LayoutPanelLeftIcon className="w-6 h-6" />
                                 </button>
 
-                                <Link href="/" className="flex items-center gap-2 group relative w-48 h-36">
-                                    <Image src="/images/structonix-logo.png" alt="Structonix Logo" fill className="object-contain" />
+                                <Link href="/" className="flex items-center gap-2 group relative w-56 h-14">
+                                    <Image src="/images/structonix-logo-white.png" alt="Structonix Logo" fill className="object-contain" />
                                 </Link>
                             </div>
 
                             {/* Center: Navigation Links */}
-                            <div className="hidden lg:flex items-center gap-6">
+                            <div className="hidden lg:flex items-center gap-6 h-full">
                                 {navLinks.map((link) => (
-                                    <div key={link.name} className="group">
+                                    <div
+                                        key={link.name}
+                                        className="group h-full flex items-center relative"
+                                        onMouseEnter={() => setActiveDropdown(link.name)}
+                                        onMouseLeave={() => setActiveDropdown(null)}
+                                    >
                                         <Link
                                             href={link.href}
-                                            className="relative text-dark-slate font-extrabold text-[16px] hover:text-primary transition-colors py-[30px] uppercase tracking-wide flex items-center gap-1 group/link"
+                                            className="relative text-white/90 font-medium text-[15px] hover:text-primary transition-colors py-2 uppercase tracking-wide flex items-center gap-1 group/link"
+                                            onMouseEnter={() => setHoveredLink(link.name)}
+                                            onMouseLeave={() => setHoveredLink(null)}
                                         >
                                             {link.name}
                                             {link.subItems ? (
-                                                <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
+                                                <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180 text-white/50" />
                                             ) : null}
-                                            <span className="absolute bottom-[28px] left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover/link:w-full"></span>
+                                            
+                                            <AnimatePresence>
+                                                {hoveredLink === link.name && (
+                                                    <motion.span
+                                                        layoutId="nav-underline"
+                                                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                                                        initial={{ opacity: 0 }}
+                                                        animate={{ opacity: 1 }}
+                                                        exit={{ opacity: 0 }}
+                                                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                                                    />
+                                                )}
+                                            </AnimatePresence>
                                         </Link>
 
                                         {/* Dropdown Menu (Mega Menu) */}
-                                        {link.subItems ? (
-                                            <div className="absolute top-[124px] left-0 w-full bg-white shadow-xl border-t border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                                                <div className="container mx-auto px-4 flex">
-                                                    {/* Left: Title & Desc (30%) */}
-                                                    <div className="w-[30%] py-12 pr-12 border-r border-gray-100">
-                                                        <h3 className="text-xl font-bold text-[#1a1b3c] mb-4">{link.name}</h3>
-                                                        <p className="text-sm text-dark-slate/80 leading-relaxed font-medium">
-                                                            Discover our wide range of innovative and durable PEB products, from prefabricated structures to turnkey solutions
-                                                        </p>
-                                                    </div>
+                                        <AnimatePresence>
+                                            {link.subItems && activeDropdown === link.name && (
+                                                <motion.div
+                                                    initial={{ opacity: 0, y: 15, scale: 0.98 }}
+                                                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                                                    exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                                                    transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                                                    className={`absolute left-1/2 -translate-x-1/2 w-[85vw] max-w-5xl bg-dark-navy/98 shadow-2xl border border-white/10 rounded-2xl z-50 overflow-hidden ${
+                                                        isScrolled ? 'top-[68px]' : 'top-[80px]'
+                                                    }`}
+                                                >
+                                                    <div className="flex">
+                                                        {/* Left: Title & Desc (30%) */}
+                                                        <div className="w-[30%] py-10 px-8 bg-white/5 border-r border-white/10 flex flex-col justify-center">
+                                                            <h3 className="text-lg font-bold text-white mb-3 uppercase tracking-wider">{link.name}</h3>
+                                                            <p className="text-xs text-white/70 leading-relaxed font-medium">
+                                                                Discover our wide range of innovative and durable PEB products, from prefabricated structures to turnkey solutions.
+                                                            </p>
+                                                        </div>
 
-                                                    {/* Middle: Links Grid (45%) */}
-                                                    <div className="w-[45%] py-12 px-12">
-                                                        <div className="grid grid-cols-2 gap-y-8 gap-x-8">
-                                                            {link.subItems.map((subItem) => (
+                                                        {/* Middle: Links Grid (45%) */}
+                                                        <div className="w-[45%] py-10 px-10">
+                                                            <div className="grid grid-cols-2 gap-y-6 gap-x-6">
+                                                                {link.subItems.map((subItem) => (
+                                                                    <Link
+                                                                        key={subItem.name}
+                                                                        href={subItem.href}
+                                                                        className="flex items-center gap-2 group/sublink"
+                                                                    >
+                                                                        <ArrowRight className="w-3.5 h-3.5 text-white/40 group-hover/sublink:text-primary shrink-0 transition-colors" />
+                                                                        <span className="text-xs font-bold text-white/90 group-hover/sublink:text-primary transition-colors leading-tight uppercase tracking-wider">
+                                                                            {subItem.name}
+                                                                        </span>
+                                                                    </Link>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+
+                                                        {/* Right: Featured Image (25%) */}
+                                                        <div className="w-[25%] p-6 flex items-center justify-center">
+                                                            <div className="w-full h-full min-h-[160px] rounded-xl overflow-hidden relative shadow-sm">
+                                                                <Image
+                                                                    src="https://images.pexels.com/photos/33421999/pexels-photo-33421999.jpeg"
+                                                                    alt="Featured Service"
+                                                                    fill
+                                                                    className="absolute inset-0 object-cover hover:scale-105 transition-transform duration-700"
+                                                                    sizes="(max-width: 768px) 100vw, 25vw"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Right: Actions */}
+                            <div className="flex items-center gap-3">
+                                <a
+                                    href="/structonix-brochure.pdf"
+                                    download
+                                    className="hidden lg:flex items-center justify-center border border-primary text-primary hover:bg-primary hover:text-white px-5 py-2 font-bold uppercase text-xs tracking-widest transition-all duration-300 gap-2 cursor-pointer h-12"
+                                >
+                                    <Download className="w-4 h-4" /> Brochure
+                                </a>
+                                <Link
+                                    href="/contact"
+                                    className="hidden lg:flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-5 py-2 font-bold uppercase text-xs tracking-widest transition-all duration-300 gap-2 cursor-pointer h-12"
+                                >
+                                    <PhoneCall className="w-4 h-4" /> Get In Touch
+                                </Link>
+                                {/* Mobile Menu Toggle */}
+                                <button
+                                    onClick={() => setIsSideMenuOpen(true)}
+                                    className="lg:hidden p-2 text-white hover:text-primary transition-colors"
+                                    aria-label="Open menu"
+                                >
+                                    <Menu className="w-7 h-7" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </motion.nav>
+            </div>
+
+            {/* Side Menu Overlay */}
+            <AnimatePresence>
+                {isSideMenuOpen && (
+                    <>
+                        {/* Backdrop */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 pointer-events-auto"
+                            onClick={() => setIsSideMenuOpen(false)}
+                        />
+
+                        {/* Side Panel */}
+                        <motion.div
+                            initial={{ x: "-100%" }}
+                            animate={{ x: 0 }}
+                            exit={{ x: "-100%" }}
+                            transition={{ type: "spring", damping: 30, stiffness: 200 }}
+                            className="fixed top-0 left-0 h-full w-full md:w-[450px] bg-dark-navy z-[60] text-white p-10 overflow-y-auto pointer-events-auto shadow-2xl"
+                        >
+                            {/* Close Button */}
+                            <button
+                                onClick={() => setIsSideMenuOpen(false)}
+                                className="absolute top-6 right-6 text-white/70 hover:text-primary transition-colors"
+                            >
+                                <X className="w-8 h-8" />
+                            </button>
+
+                            {/* Content */}
+                            <div className="mt-8 flex flex-col gap-10">
+                                {/* Logo Area */}
+                                <div className="flex items-center gap-3">
+                                    <div className="w-12 h-12 bg-primary flex items-center justify-center">
+                                        <span className="text-white font-bold text-2xl">S</span>
+                                    </div>
+                                    <span className="text-3xl font-bold text-white">Structonix</span>
+                                </div>
+                                
+                                {/* Mobile Navigation Links */}
+                                <div className="lg:hidden pt-8 border-t border-white/10 pb-10">
+                                    <div className="flex flex-col gap-5">
+                                        {navLinks.map((link) => (
+                                            <div key={link.name} className="flex flex-col">
+                                                <div className="flex items-center justify-between">
+                                                    <Link
+                                                        href={link.href}
+                                                        className="text-xl font-medium text-white hover:text-primary transition-colors py-1 flex-1"
+                                                        onClick={() => setIsSideMenuOpen(false)}
+                                                    >
+                                                        {link.name}
+                                                    </Link>
+                                                    {link.subItems ? (
+                                                        <button
+                                                            onClick={() => toggleMobileMenu(link.name)}
+                                                            className="p-2 text-gray-400 hover:text-white transition-colors"
+                                                            aria-label={`Toggle ${link.name} menu`}
+                                                        >
+                                                            <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${openMobileMenu === link.name ? 'rotate-180 text-primary' : ''}`} />
+                                                        </button>
+                                                    ) : null}
+                                                </div>
+
+                                                {link.subItems ? (
+                                                    <div className={`overflow-hidden transition-all duration-300 ${openMobileMenu === link.name ? 'max-h-[800px] opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
+                                                        <div className="pl-4 flex flex-col gap-3 border-l-2 border-white/10 ml-2">
+                                                            {link.subItems.map(sub => (
                                                                 <Link
-                                                                    key={subItem.name}
-                                                                    href={subItem.href}
-                                                                    className="flex items-center gap-3 group/sublink"
+                                                                    key={sub.name}
+                                                                    href={sub.href}
+                                                                    className="text-base text-gray-400 hover:text-primary transition-colors py-1 flex items-center gap-2"
+                                                                    onClick={() => setIsSideMenuOpen(false)}
                                                                 >
-                                                                    <ArrowRight className="w-4 h-4 text-gray-500 group-hover/sublink:text-primary shrink-0 transition-colors" />
-                                                                    <span className="text-sm font-medium text-[#1a1b3c] group-hover/sublink:text-primary transition-colors leading-tight">
-                                                                        {subItem.name}
-                                                                    </span>
+                                                                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50"></span>
+                                                                    {sub.name}
                                                                 </Link>
                                                             ))}
                                                         </div>
                                                     </div>
-
-                                                    {/* Right: Featured Image (25%) */}
-                                                    <div className="w-[25%] py-8 pl-8 flex items-center justify-center">
-                                                        <div className="w-full h-full min-h-[220px] rounded overflow-hidden relative shadow-sm">
-                                                            <Image
-                                                                src="https://images.pexels.com/photos/33421999/pexels-photo-33421999.jpeg"
-                                                                alt="Featured Service"
-                                                                fill
-                                                                className="absolute inset-0 object-cover hover:scale-105 transition-transform duration-700"
-                                                                sizes="(max-width: 768px) 100vw, 25vw"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                ) : null}
                                             </div>
-                                        ) : null}
-                                    </div>
-                                ))}
-                                {/* Right: Search & CTA */}
-                                <div className="flex items-center gap-4">
-                                    <Link
-                                        href="/contact"
-                                        className="hidden lg:flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 h-full py-0 font-bold uppercase text-xs tracking-widest transition-all duration-300"
-                                        style={{ height: '96px', marginTop: '-10px', marginBottom: '-10px' }} // Adjusted for smaller height
-                                    >
-                                        <PhoneCall className="w-4 h-4 mr-2" /> Get In Touch
-                                    </Link>
-                                    {/* Mobile Menu Toggle */}
-                                    <button
-                                        onClick={() => setIsSideMenuOpen(true)}
-                                        className="lg:hidden p-2 text-dark-slate hover:text-primary transition-colors"
-                                        aria-label="Open menu"
-                                    >
-                                        <Menu className="w-7 h-7" />
-                                    </button>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </nav>
-            </div>
-
-            {/* Side Menu Overlay */}
-            {/* Backdrop */}
-            <div
-                className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-50 transition-opacity duration-300 ${isSideMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
-                onClick={() => setIsSideMenuOpen(false)}
-            />
-
-            {/* Side Panel */}
-            <div className={`fixed top-0 left-0 h-full w-full md:w-[450px] bg-dark-navy z-[60] text-white p-10 transform transition-transform duration-500 ease-out overflow-y-auto ${isSideMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-
-                {/* Close Button */}
-                <button
-                    onClick={() => setIsSideMenuOpen(false)}
-                    className="absolute top-6 right-6 text-white/70 hover:text-primary transition-colors"
-                >
-                    <X className="w-8 h-8" />
-                </button>
-
-                {/* Content */}
-                <div className="mt-8 flex flex-col gap-10">
-                    {/* Logo Area */}
-                    <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-primary flex items-center justify-center">
-                            <span className="text-white font-bold text-2xl">S</span>
-                        </div>
-                        <span className="text-3xl font-bold text-white">Structonix</span>
-                    </div>
-                    {/* Mobile Only: Navigation Links in Side Panel */}
-                    <div className="lg:hidden pt-8 border-t border-white/10 pb-10">
-                        <div className="flex flex-col gap-5">
-                            {navLinks.map((link) => (
-                                <div key={link.name} className="flex flex-col">
-                                    <div className="flex items-center justify-between">
-                                        <Link
-                                            href={link.href}
-                                            className="text-xl font-medium text-white hover:text-primary transition-colors py-1 flex-1"
+                                        ))}
+                                        {/* Mobile Only: Download Brochure Button in side menu */}
+                                        <a
+                                            href="/structonix-brochure.pdf"
+                                            download
+                                            className="flex lg:hidden items-center justify-center bg-primary hover:bg-primary/90 text-white w-full py-3.5 font-bold uppercase text-sm tracking-wider transition-all duration-300 mt-4 gap-2"
                                             onClick={() => setIsSideMenuOpen(false)}
                                         >
-                                            {link.name}
-                                        </Link>
-                                        {link.subItems ? (
-                                            <button
-                                                onClick={() => toggleMobileMenu(link.name)}
-                                                className="p-2 text-gray-400 hover:text-white transition-colors"
-                                                aria-label={`Toggle ${link.name} menu`}
-                                            >
-                                                <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${openMobileMenu === link.name ? 'rotate-180 text-primary' : ''}`} />
-                                            </button>
-                                        ) : null}
+                                            <Download className="w-4 h-4" /> Download Brochure
+                                        </a>
                                     </div>
-
-                                    {link.subItems ? (
-                                        <div className={`overflow-hidden transition-all duration-300 ${openMobileMenu === link.name ? 'max-h-[800px] opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
-                                            <div className="pl-4 flex flex-col gap-3 border-l-2 border-white/10 ml-2">
-                                                {link.subItems.map(sub => (
-                                                    <Link
-                                                        key={sub.name}
-                                                        href={sub.href}
-                                                        className="text-base text-gray-400 hover:text-primary transition-colors py-1 flex items-center gap-2"
-                                                        onClick={() => setIsSideMenuOpen(false)}
-                                                    >
-                                                        <span className="w-1.5 h-1.5 rounded-full bg-primary/50"></span>
-                                                        {sub.name}
-                                                    </Link>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    ) : null}
                                 </div>
-                            ))}
-                        </div>
-                    </div>
 
-                    {/* About Text */}
-                    <div className="space-y-4">
-                        <p className="text-gray-400 text-lg leading-relaxed">
-                            Wrasse climbing gourami amur pike Arctic char, steelhead sprat sea lamprey grunion. Walleye pollock, &quot;sokeye salmon.&quot;
-                        </p>
-                    </div>
+                                {/* About Text */}
+                                <div className="space-y-4">
+                                    <p className="text-gray-400 text-sm leading-relaxed">
+                                        Wrasse climbing gourami amur pike Arctic char, steelhead sprat sea lamprey grunion. Walleye pollock, &quot;sokeye salmon.&quot;
+                                    </p>
+                                </div>
 
-                    {/* Gallery Grid */}
-                    <div className="grid grid-cols-3 gap-2">
-                        {galleryImages.map((src, index) => (
-                            <div key={index} className="aspect-square relative overflow-hidden group">
-                                <Image
-                                    src={src}
-                                    alt={`Gallery image ${index + 1}`}
-                                    fill
-                                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                                    sizes="(max-width: 768px) 33vw, 20vw"
-                                />
-                                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                {/* Gallery Grid */}
+                                <div className="grid grid-cols-3 gap-2">
+                                    {galleryImages.map((src, index) => (
+                                        <div key={index} className="aspect-square relative overflow-hidden group">
+                                            <Image
+                                                src={src}
+                                                alt={`Gallery image ${index + 1}`}
+                                                fill
+                                                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                                sizes="(max-width: 768px) 33vw, 20vw"
+                                            />
+                                            <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Contact Info */}
+                                <div className="space-y-6">
+                                    <h3 className="text-2xl font-bold text-white">Contacts</h3>
+
+                                    <div className="space-y-4">
+                                        <div className="space-y-1">
+                                            <p className="text-primary font-bold tracking-wider text-sm">LOCATION</p>
+                                            <p className="text-gray-300 text-sm">523 Sylvan Ave, 5th Floor<br />Mountain View, CA 94041 USA</p>
+                                        </div>
+
+                                        <div className="space-y-1">
+                                            <p className="text-primary font-bold tracking-wider text-sm">PHONE</p>
+                                            <p className="text-gray-300 text-sm hover:text-primary transition-colors cursor-pointer">+1 (234) 56789</p>
+                                        </div>
+
+                                        <div className="space-y-1">
+                                            <p className="text-primary font-bold tracking-wider text-sm">EMAIL</p>
+                                            <p className="text-gray-300 text-sm hover:text-primary transition-colors cursor-pointer">info@structonix.com</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        ))}
-                    </div>
-
-                    {/* Contact Info */}
-                    <div className="space-y-6">
-                        <h3 className="text-2xl font-bold text-white">Contacts</h3>
-
-                        <div className="space-y-4">
-                            <div className="space-y-1">
-                                <p className="text-primary font-bold tracking-wider text-sm">LOCATION</p>
-                                <p className="text-gray-300">523 Sylvan Ave, 5th Floor<br />Mountain View, CA 94041USA</p>
-                            </div>
-
-                            <div className="space-y-1">
-                                <p className="text-primary font-bold tracking-wider text-sm">PHONE</p>
-                                <p className="text-gray-300 text-lg hover:text-primary transition-colors cursor-pointer">+1 (234) 56789</p>
-                            </div>
-
-                            <div className="space-y-1">
-                                <p className="text-primary font-bold tracking-wider text-sm">EMAIL</p>
-                                <p className="text-gray-300 hover:text-primary transition-colors cursor-pointer">info@structonix.com</p>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
         </>
     );
 }

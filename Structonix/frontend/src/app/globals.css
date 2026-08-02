@@ -11,16 +11,15 @@
   --font-sans: var(--font-manrope);
   --font-secondary: var(--font-work-sans);
 
-  /* Structonix Brand Colors */
   --color-primary: #FE7F2D;
   --color-secondary: #eaecf0;
   --color-white: #FFFFFF;
   --color-black: #000000;
-  --color-dark-gray: #233D4D;
+  --color-dark-gray: #0B192C;
 
   /* Additional UI Colors (from Industrium reference) */
-  --color-dark-navy: #233D4D;
-  --color-dark-slate: #233D4D;
+  --color-dark-navy: #0B192C;
+  --color-dark-slate: #081627;
   --color-light-gray: #eaecf0;
 }
 

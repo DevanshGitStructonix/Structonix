@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Slider from 'react-slick';
 import Link from 'next/link';
 import { ArrowRight, Play, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Import css files for slick-carousel (must be imported here or in global css)
+// Import css files for slick-carousel
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -48,7 +48,19 @@ const slides = [
 
 export function HomepageBanner() {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const sliderRef = useRef<Slider | null>(null);
+
+    const handleMouseMove = (e: React.MouseEvent) => {
+        const { clientWidth, clientHeight } = e.currentTarget;
+        const x = (e.clientX / clientWidth - 0.5) * 30; // Max 30px translation
+        const y = (e.clientY / clientHeight - 0.5) * 30;
+        setMousePos({ x, y });
+    };
+
+    const handleMouseLeave = () => {
+        setMousePos({ x: 0, y: 0 });
+    };
 
     const settings = {
         dots: false,
@@ -61,25 +73,34 @@ export function HomepageBanner() {
         autoplaySpeed: 6000,
         fade: true,
         beforeChange: (current: number, next: number) => setCurrentSlide(next),
-        cssEase: "cubic-bezier(0.87, 0, 0.13, 1)" // Elegant easing
+        cssEase: "cubic-bezier(0.87, 0, 0.13, 1)"
     };
 
     return (
-        <section className="relative w-full h-[calc(100vh-8rem)] min-h-[650px] overflow-hidden bg-[#0A0A0A] group/banner">
+        <section 
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            className="relative w-full h-[calc(100vh-7rem)] min-h-[650px] overflow-hidden bg-[#0A0A0A] group/banner"
+        >
             <Slider ref={sliderRef} {...settings} className="h-full banner-slider">
                 {slides.map((slide, index) => (
-                    <div key={slide.id} className="relative w-full h-[calc(100vh-8rem)] min-h-[650px] outline-none">
-                        {/* Background Image */}
-                        <div
-                            className="absolute inset-0 bg-cover bg-center transition-transform duration-[8000ms] ease-out"
+                    <div key={slide.id} className="relative w-full h-[calc(100vh-7rem)] min-h-[650px] outline-none">
+                        {/* Background Image Container with Cursor Parallax */}
+                        <motion.div
+                            animate={{
+                                x: mousePos.x,
+                                y: mousePos.y,
+                                scale: index === currentSlide ? 1.08 : 1
+                            }}
+                            transition={{ type: "tween", ease: "easeOut", duration: 0.5 }}
+                            className="absolute inset-0 bg-cover bg-center transition-transform duration-[8000ms]"
                             style={{
-                                backgroundImage: `url(${slide.image})`,
-                                transform: index === currentSlide ? 'scale(1.08)' : 'scale(1)'
+                                backgroundImage: `url(${slide.image})`
                             }}
                         >
                             {/* Refined elegant subtle gradient overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
-                        </div>
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent"></div>
+                        </motion.div>
 
                         {/* Content Container */}
                         <div className="relative z-10 h-full container mx-auto px-6 lg:px-16 flex items-center">
@@ -97,87 +118,96 @@ export function HomepageBanner() {
                                                     hidden: { opacity: 0 },
                                                     visible: {
                                                         opacity: 1,
-                                                        transition: { staggerChildren: 0.15, delayChildren: 0.4 }
+                                                        transition: { staggerChildren: 0.1, delayChildren: 0.2 }
                                                     },
                                                     exit: { opacity: 0, transition: { duration: 0.4 } }
                                                 }}
                                             >
-                                                {/* Sophisticated Subtitle */}
-                                                <motion.div
-                                                    variants={{
-                                                        hidden: { opacity: 0, y: 15 },
-                                                        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
-                                                    }}
-                                                    className="flex items-center gap-4 mb-6"
-                                                >
-                                                    <span className="w-8 h-[1px] bg-primary"></span>
-                                                    <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs md:text-sm">
-                                                        {slide.subtitle}
-                                                    </span>
-                                                </motion.div>
-
-                                                <motion.h1
-                                                    variants={{
-                                                        hidden: { opacity: 0, y: 20 },
-                                                        visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
-                                                    }}
-                                                    className="text-5xl md:text-8xl lg:text-[76px] font-extrabold leading-[1.05] mb-8 font-sans tracking-tight"
-                                                >
-                                                    {slide.title} <br />
-                                                    <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
-                                                        {slide.highlight}
-                                                    </span>
-                                                    {slide.titleEnd}
-                                                </motion.h1>
-
-                                                <motion.p
-                                                    variants={{
-                                                        hidden: { opacity: 0, y: 20 },
-                                                        visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
-                                                    }}
-                                                    className="text-gray-300 text-base md:text-lg leading-relaxed mb-12 max-w-xl font-secondary font-light"
-                                                >
-                                                    {slide.description}
-                                                </motion.p>
-
-                                                <motion.div
-                                                    variants={{
-                                                        hidden: { opacity: 0, y: 20 },
-                                                        visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
-                                                    }}
-                                                >
-                                                    <Link
-                                                        href={slide.link}
-                                                        className="inline-flex items-center gap-6 group"
+                                                {/* Subtitle Mask */}
+                                                <div className="overflow-hidden py-1 mb-6">
+                                                    <motion.div
+                                                        variants={{
+                                                            hidden: { opacity: 0, y: 30 },
+                                                            visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+                                                        }}
+                                                        className="flex items-center gap-4"
                                                     >
-                                                        <span className="relative flex items-center justify-center w-14 h-14 rounded-full border border-white/30 group-hover:border-primary transition-colors duration-500">
-                                                            <ArrowRight className="w-5 h-5 text-white group-hover:text-primary transform group-hover:translate-x-1 transition-all duration-500" strokeWidth={1.5} />
+                                                        <span className="w-8 h-[1px] bg-primary"></span>
+                                                        <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs md:text-sm">
+                                                            {slide.subtitle}
                                                         </span>
-                                                        <span className="text-sm font-bold uppercase tracking-[0.15em] relative overflow-hidden group-hover:text-primary transition-colors duration-500">
-                                                            {slide.cta}
-                                                            {/* Line reveal on hover */}
-                                                            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-primary transform -translate-x-[101%] group-hover:translate-x-0 transition-transform duration-500 ease-out"></span>
+                                                    </motion.div>
+                                                </div>
+
+                                                {/* Title Mask */}
+                                                <div className="overflow-hidden py-1 mb-8">
+                                                    <motion.h1
+                                                        variants={{
+                                                            hidden: { opacity: 0, y: 80 },
+                                                            visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
+                                                        }}
+                                                        className="text-5xl md:text-8xl lg:text-[76px] font-extrabold leading-[1.05] font-sans tracking-tight"
+                                                    >
+                                                        {slide.title} <br />
+                                                        <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
+                                                            {slide.highlight}
                                                         </span>
-                                                    </Link>
-                                                </motion.div>
+                                                        {slide.titleEnd}
+                                                    </motion.h1>
+                                                </div>
+
+                                                {/* Description Mask */}
+                                                <div className="overflow-hidden py-1 mb-12">
+                                                    <motion.p
+                                                        variants={{
+                                                            hidden: { opacity: 0, y: 40 },
+                                                            visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } }
+                                                        }}
+                                                        className="text-gray-300 text-base md:text-lg leading-relaxed max-w-xl font-secondary font-light"
+                                                    >
+                                                        {slide.description}
+                                                    </motion.p>
+                                                </div>
+
+                                                {/* CTA Mask */}
+                                                <div className="overflow-hidden py-1">
+                                                    <motion.div
+                                                        variants={{
+                                                            hidden: { opacity: 0, y: 30 },
+                                                            visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+                                                        }}
+                                                    >
+                                                        <Link
+                                                            href={slide.link}
+                                                            className="inline-flex items-center gap-6 group"
+                                                        >
+                                                            <span className="relative flex items-center justify-center w-14 h-14 rounded-full border border-white/30 group-hover:border-primary transition-colors duration-500">
+                                                                <ArrowRight className="w-5 h-5 text-white group-hover:text-primary transform group-hover:translate-x-1 transition-all duration-500" strokeWidth={1.5} />
+                                                            </span>
+                                                            <span className="text-sm font-bold uppercase tracking-[0.15em] relative overflow-hidden group-hover:text-primary transition-colors duration-500">
+                                                                {slide.cta}
+                                                                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-primary transform -translate-x-[101%] group-hover:translate-x-0 transition-transform duration-500 ease-out"></span>
+                                                            </span>
+                                                        </Link>
+                                                    </motion.div>
+                                                </div>
                                             </motion.div>
                                         ) : null}
                                     </AnimatePresence>
                                 </div>
 
-                                {/* Play Button Area - Thinner, more elegant */}
+                                {/* Video / Audio Play Button Area */}
                                 <div className="w-full lg:w-4/12 flex items-center justify-start lg:justify-end">
                                     <AnimatePresence mode="wait">
                                         {index === currentSlide ? (
                                             <motion.button
                                                 key={`play-${index}`}
                                                 initial={{ opacity: 0, scale: 0.8 }}
-                                                animate={{ opacity: 1, scale: 1, transition: { delay: 1, duration: 1, ease: "easeOut" } }}
+                                                animate={{ opacity: 1, scale: 1, transition: { delay: 0.8, duration: 1, ease: "easeOut" } }}
                                                 exit={{ opacity: 0, transition: { duration: 0.4 } }}
                                                 className="w-24 h-24 md:w-28 md:h-28 rounded-full border-[0.5px] border-white/20 flex items-center justify-center group relative cursor-pointer"
                                                 aria-label="Play Video"
                                             >
-                                                {/* Subtle glowing ring behind */}
                                                 <div className="absolute inset-0 rounded-full border border-white/10 scale-110 group-hover:scale-125 transition-transform duration-700 opacity-50 group-hover:opacity-0"></div>
                                                 <div className="absolute inset-0 rounded-full bg-white/5 backdrop-blur-sm group-hover:bg-white/10 transition-colors duration-500"></div>
                                                 <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-transparent stroke-[1] ml-1 group-hover:scale-110 transition-transform duration-500 relative z-10" />
@@ -191,7 +221,7 @@ export function HomepageBanner() {
                 ))}
             </Slider>
 
-            {/* Elegant Slider Navigation Controls (Bottom Right) */}
+            {/* Slider Navigation Controls (Bottom Right) */}
             <div className="absolute bottom-0 right-0 z-30 flex items-stretch bg-white">
                 {/* Current Slide Display */}
                 <div className="hidden md:flex items-center justify-center px-10 border-l border-gray-100/50">
@@ -218,7 +248,6 @@ export function HomepageBanner() {
                     <ArrowRight className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:translate-x-1 transition-transform duration-300" strokeWidth={1.5} />
                 </button>
             </div>
-
         </section>
     );
 }
