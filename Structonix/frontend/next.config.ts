@@ -23,6 +23,14 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "serbianbuildfund.com",
       },
+      {
+        protocol: "https",
+        hostname: "www.steelwonders.in",
+      },
+      {
+        protocol: "https",
+        hostname: "khushipebinfrastructure.com",
+      },
     ],
   },
 };

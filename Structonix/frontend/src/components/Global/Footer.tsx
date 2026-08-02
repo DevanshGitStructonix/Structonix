@@ -41,7 +41,7 @@ export function Footer() {
 
                     {/* Col 1: Brand */}
                     <div className="space-y-5">
-                        <div className="flex items-center gap-3 relative h-36 w-[250px]">
+                        <div className="flex items-center gap-3 relative h-24 w-[250px]">
                             <Image src="/images/structonix-logo-white.png" alt="Structonix Logo" fill className="object-contain object-left" />
                         </div>
 
