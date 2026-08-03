@@ -106,6 +106,7 @@ export function OurServices() {
                                             fill
                                             className="object-cover transition-transform duration-700 group-hover:scale-110"
                                             sizes="(max-width: 768px) 100vw, 50vw"
+                                            unoptimized
                                         />
                                         <div className="absolute inset-0 bg-dark-navy/30 group-hover:bg-primary/20 transition-colors duration-500"></div>
 

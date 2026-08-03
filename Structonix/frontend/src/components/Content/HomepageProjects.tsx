@@ -165,8 +165,8 @@ export function HomepageProjects() {
                     </motion.div>
                 </div>
 
-                {/* Project Stack - Sticky Container */}
-                <div className="flex flex-col relative pb-[10vh]">
+                {/* Project Stack - Horizontal Scroll on Mobile, Sticky Stack on Desktop */}
+                <div className="flex flex-row md:flex-col overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none gap-6 md:gap-0 pb-8 md:pb-[10vh] px-4 -mx-4 md:px-0 md:mx-0 hide-scrollbar relative">
                     {projects.map((project, index) => {
                         const isSummary = project.isSummaryCard;
 
@@ -177,16 +177,15 @@ export function HomepageProjects() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-100px" }}
                                 transition={{ duration: 0.7, delay: 0.1 }}
-                                className="bg-[#fcfcfc] flex shadow-[0_-5px_25px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden sticky origin-top h-[90vh] md:h-[650px] max-h-[850px] w-full"
+                                className="bg-[#fcfcfc] flex shadow-[0_-5px_25px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden relative md:sticky origin-top h-[660px] md:h-[650px] max-h-[850px] w-[85vw] sm:w-[360px] md:w-full md:max-w-none flex-shrink-0 snap-start md:snap-none md:top-[var(--sticky-top)] mb-0 md:mb-10 last:md:mb-0"
                                 style={{
-                                    top: `calc(140px + ${index * 15}px)`,
-                                    zIndex: index + 1,
-                                    marginBottom: index === projects.length - 1 ? '0' : '40px'
-                                }}
+                                    '--sticky-top': `calc(140px + ${index * 15}px)`,
+                                    zIndex: index + 1
+                                } as React.CSSProperties}
                             >
                                 {isSummary ? (
                                     /* FULL BLEED BACKGROUND IMAGE CARD */
-                                    <div className="w-full h-full relative overflow-hidden flex flex-col justify-between p-6 md:p-12 lg:p-16 select-none">
+                                    <div className="w-full h-full relative overflow-hidden flex flex-col justify-between p-5 md:p-12 lg:p-16 select-none">
                                         <Image
                                             src={project.image}
                                             alt={project.title}
@@ -194,56 +193,57 @@ export function HomepageProjects() {
                                             className="object-cover transition-transform duration-1000 hover:scale-105"
                                             sizes="100vw"
                                             priority
+                                            unoptimized
                                         />
                                         {/* Solid Rich Dark Industrial Gradient Overlay */}
                                         <div className="absolute inset-0 bg-gradient-to-t from-dark-navy via-dark-navy/80 to-dark-navy/30 z-10"></div>
 
                                         <div className="relative z-20 flex flex-col h-full justify-between items-start text-white">
                                             {/* Tag */}
-                                            <div className="flex items-center gap-2 border border-primary/50 bg-primary/10 px-4 py-1.5 text-xs font-bold tracking-widest uppercase text-primary">
+                                            <div className="flex items-center gap-2 border border-primary/50 bg-primary/10 px-3 py-1 text-[10px] md:text-xs font-bold tracking-widest uppercase text-primary">
                                                 ★ STRUCTONIX PORTFOLIO
                                             </div>
 
                                             {/* Main Content Info */}
-                                            <div className="max-w-4xl my-6">
-                                                <h3 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 font-secondary tracking-tight leading-none">
+                                            <div className="max-w-4xl my-4 md:my-6">
+                                                <h3 className="text-2xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 md:mb-6 font-secondary tracking-tight leading-none">
                                                     {project.title}
                                                 </h3>
-                                                <p className="text-sm md:text-base lg:text-lg text-white/80 leading-relaxed max-w-3xl font-medium">
+                                                <p className="text-xs md:text-base lg:text-lg text-white/80 leading-relaxed max-w-3xl font-medium">
                                                     From massive logistics parks and pharmaceutical complexes to advanced multi-storey industrial structures, Structonix has successfully engineered and delivered over 1.5 Million Sq. Ft. of high-strength PEB installations across India.
                                                 </p>
 
                                                 {/* Stats Grid */}
-                                                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 mt-10 border-t border-white/10 pt-8 w-full">
+                                                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-10 mt-6 md:mt-10 border-t border-white/10 pt-6 md:pt-8 w-full">
                                                     <div>
-                                                        <span className="text-[10px] md:text-xs text-white/40 font-bold uppercase tracking-widest block mb-1">
+                                                        <span className="text-[9px] md:text-xs text-white/40 font-bold uppercase tracking-widest block mb-0.5">
                                                             TOTAL FOOTPRINT
                                                         </span>
-                                                        <span className="text-xl md:text-2xl lg:text-3xl font-bold text-primary">
+                                                        <span className="text-lg md:text-2xl lg:text-3xl font-bold text-primary">
                                                             {project.area}
                                                         </span>
                                                     </div>
                                                     <div>
-                                                        <span className="text-[10px] md:text-xs text-white/40 font-bold uppercase tracking-widest block mb-1">
+                                                        <span className="text-[9px] md:text-xs text-white/40 font-bold uppercase tracking-widest block mb-0.5">
                                                             STEEL PROCESSED
                                                         </span>
-                                                        <span className="text-xl md:text-2xl lg:text-3xl font-bold text-primary">
+                                                        <span className="text-lg md:text-2xl lg:text-3xl font-bold text-primary">
                                                             {project.tonnage}
                                                         </span>
                                                     </div>
                                                     <div>
-                                                        <span className="text-[10px] md:text-xs text-white/40 font-bold uppercase tracking-widest block mb-1">
+                                                        <span className="text-[9px] md:text-xs text-white/40 font-bold uppercase tracking-widest block mb-0.5">
                                                             COVERAGE
                                                         </span>
-                                                        <span className="text-xl md:text-2xl lg:text-3xl font-bold text-primary">
+                                                        <span className="text-lg md:text-2xl lg:text-3xl font-bold text-primary">
                                                             {project.location}
                                                         </span>
                                                     </div>
                                                     <div>
-                                                        <span className="text-[10px] md:text-xs text-white/40 font-bold uppercase tracking-widest block mb-1">
+                                                        <span className="text-[9px] md:text-xs text-white/40 font-bold uppercase tracking-widest block mb-0.5">
                                                             ACTIVE SITES
                                                         </span>
-                                                        <span className="text-xl md:text-2xl lg:text-3xl font-bold text-primary">
+                                                        <span className="text-lg md:text-2xl lg:text-3xl font-bold text-primary">
                                                             12+ In-Progress
                                                         </span>
                                                     </div>
@@ -254,7 +254,7 @@ export function HomepageProjects() {
                                             <div>
                                                 <a
                                                     href="/projects"
-                                                    className="bg-primary hover:bg-white hover:text-dark-navy text-white px-8 py-4 font-bold text-sm tracking-wider uppercase transition-all duration-300 flex items-center gap-3 group cursor-pointer"
+                                                    className="bg-primary hover:bg-white hover:text-dark-navy text-white px-6 py-3.5 md:px-8 md:py-4 font-bold text-xs md:text-sm tracking-wider uppercase transition-all duration-300 flex items-center gap-3 group cursor-pointer"
                                                 >
                                                     View All Completed Projects
                                                     <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
@@ -266,16 +266,16 @@ export function HomepageProjects() {
                                     /* STANDARD TWO-COLUMN CARD */
                                     <div className="flex flex-col-reverse md:flex-row w-full h-full">
                                         {/* Left Side: Details */}
-                                        <div className="w-full h-[65%] md:w-[38%] lg:w-[35%] md:h-full p-6 md:p-10 lg:p-12 flex flex-col justify-between relative bg-white overflow-y-auto">
+                                        <div className="w-full h-[68%] md:w-[38%] lg:w-[35%] md:h-full p-5 md:p-10 lg:p-12 flex flex-col justify-between relative bg-white overflow-y-auto hide-scrollbar flex-shrink-0">
                                             {/* Subtle side border effect */}
                                             <div className="hidden md:block absolute top-10 bottom-10 right-0 w-[1px] bg-gradient-to-b from-transparent via-gray-200 to-transparent"></div>
 
                                             <div>
-                                                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-dark-slate mb-6 leading-tight font-secondary">
+                                                <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-dark-slate mb-4 md:mb-6 leading-tight font-secondary">
                                                     {project.title}
                                                 </h3>
 
-                                                <div className="grid grid-cols-2 gap-x-4 gap-y-3 pt-4 border-t border-gray-100">
+                                                <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 pt-4 border-t border-gray-100">
                                                     {/* Area */}
                                                     <div className="border-b border-gray-100 pb-1.5">
                                                         <span className="text-[10px] md:text-xs text-gray-400 font-bold uppercase tracking-widest block mb-0.5">
@@ -321,7 +321,7 @@ export function HomepageProjects() {
                                                         <span className="text-[10px] md:text-xs text-gray-400 font-bold uppercase tracking-widest block mb-0.5">
                                                             SERVICE
                                                         </span>
-                                                        <span className="text-sm md:text-base lg:text-lg text-dark-slate font-bold">
+                                                        <span className="text-xs md:text-sm lg:text-base text-dark-slate font-bold">
                                                             {project.service}
                                                         </span>
                                                     </div>
@@ -331,17 +331,17 @@ export function HomepageProjects() {
                                                         <span className="text-[10px] md:text-xs text-gray-400 font-bold uppercase tracking-widest block mb-0.5">
                                                             INDUSTRY
                                                         </span>
-                                                        <span className="text-sm md:text-base lg:text-lg text-dark-slate font-bold">
+                                                        <span className="text-xs md:text-sm lg:text-base text-dark-slate font-bold">
                                                             {project.industry}
                                                         </span>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div className="mt-6">
+                                            <div className="mt-4 md:mt-6">
                                                 <a
                                                     href={`/projects#project-${project.id}`}
-                                                    className="bg-primary hover:bg-dark-slate text-white px-6 py-3.5 font-bold text-xs md:text-sm tracking-wider uppercase transition-all duration-300 flex items-center gap-3 group cursor-pointer w-full justify-center md:w-auto"
+                                                    className="bg-primary hover:bg-dark-slate text-white px-6 py-3 font-bold text-xs md:text-sm tracking-wider uppercase transition-all duration-300 flex items-center gap-3 group cursor-pointer w-full justify-center md:w-auto"
                                                 >
                                                     Explore More
                                                     <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
@@ -350,7 +350,7 @@ export function HomepageProjects() {
                                         </div>
 
                                         {/* Right Side: Image */}
-                                        <div className="w-full h-[35%] md:w-[62%] lg:w-[65%] md:h-full overflow-hidden relative">
+                                        <div className="w-full h-[32%] md:w-[62%] lg:w-[65%] md:h-full overflow-hidden relative flex-shrink-0">
                                             <div className="absolute inset-0 bg-dark-navy/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
                                             <Image
                                                 src={project.image}
@@ -359,6 +359,7 @@ export function HomepageProjects() {
                                                 className="object-cover transition-transform duration-1000 hover:scale-105"
                                                 sizes="(max-width: 768px) 100vw, 65vw"
                                                 priority={index < 2}
+                                                unoptimized
                                             />
                                         </div>
                                     </div>

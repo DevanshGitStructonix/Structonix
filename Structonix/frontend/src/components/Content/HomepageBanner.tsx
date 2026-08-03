@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Slider from 'react-slick';
 import Link from 'next/link';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
@@ -59,19 +59,12 @@ const slides = [
 
 export function HomepageBanner() {
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+    const [isMounted, setIsMounted] = useState(false);
     const sliderRef = useRef<Slider | null>(null);
 
-    const handleMouseMove = (e: React.MouseEvent) => {
-        const { clientWidth, clientHeight } = e.currentTarget;
-        const x = (e.clientX / clientWidth - 0.5) * 30; // Max 30px translation
-        const y = (e.clientY / clientHeight - 0.5) * 30;
-        setMousePos({ x, y });
-    };
-
-    const handleMouseLeave = () => {
-        setMousePos({ x: 0, y: 0 });
-    };
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
     const settings = {
         dots: false,
@@ -83,24 +76,85 @@ export function HomepageBanner() {
         autoplay: true,
         autoplaySpeed: 6000,
         fade: true,
+        initialSlide: 0,
         beforeChange: (current: number, next: number) => setCurrentSlide(next),
         cssEase: "cubic-bezier(0.87, 0, 0.13, 1)"
     };
 
+    if (!isMounted) {
+        // Render the first slide statically as a fallback to avoid layout shifts and hydration errors
+        const firstSlide = slides[0];
+        return (
+            <section className="relative w-full h-screen min-h-[650px] overflow-hidden bg-[#0A0A0A]">
+                <div className="relative w-full h-screen min-h-[650px] outline-none">
+                    <div className="absolute inset-0 overflow-hidden">
+                        <div
+                            className="absolute inset-0 bg-cover bg-center w-full h-full"
+                            style={{
+                                backgroundImage: `url(${firstSlide.image})`
+                            }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent z-10"></div>
+                    </div>
+                    <div className="relative z-10 h-full container mx-auto px-6 lg:px-16 flex items-center">
+                        <div className="flex flex-col lg:flex-row w-full gap-12 items-center">
+                            <div className="w-full lg:w-10/12 flex flex-col justify-center text-white pt-10">
+                                <div>
+                                    <div className="overflow-hidden py-1 mb-6">
+                                        <div className="flex items-center gap-4">
+                                            <span className="w-8 h-[1px] bg-primary"></span>
+                                            <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs md:text-sm">
+                                                {firstSlide.subtitle}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="overflow-visible py-2 mb-6">
+                                        <h1 className="text-3xl sm:text-5xl lg:text-[68px] font-extrabold leading-[1.25] font-sans tracking-tight pb-4">
+                                            {firstSlide.title} <br />
+                                            <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 pb-3 pr-2">
+                                                {firstSlide.highlight}
+                                            </span>
+                                            {firstSlide.titleEnd}
+                                        </h1>
+                                    </div>
+                                    <div className="overflow-hidden py-1 mb-12">
+                                        <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-xl font-secondary font-light">
+                                            {firstSlide.description}
+                                        </p>
+                                    </div>
+                                    <div className="overflow-hidden py-1">
+                                        <Link
+                                            href={firstSlide.link}
+                                            className="inline-flex items-center gap-6 group"
+                                        >
+                                            <span className="relative flex items-center justify-center w-14 h-14 rounded-full border border-white/30 group-hover:border-primary transition-colors duration-500">
+                                                <ArrowRight className="w-5 h-5 text-white group-hover:text-primary transform group-hover:translate-x-1 transition-all duration-500" strokeWidth={1.5} />
+                                            </span>
+                                            <span className="text-sm font-bold uppercase tracking-[0.15em] relative overflow-hidden group-hover:text-primary transition-colors duration-500">
+                                                {firstSlide.cta}
+                                                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-primary transform -translate-x-[101%] group-hover:translate-x-0 transition-transform duration-500 ease-out"></span>
+                                            </span>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
     return (
         <section 
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
             className="relative w-full h-screen min-h-[650px] overflow-hidden bg-[#0A0A0A] group/banner"
         >
             <Slider ref={sliderRef} {...settings} className="h-full banner-slider">
                 {slides.map((slide, index) => (
                     <div key={slide.id} className="relative w-full h-screen min-h-[650px] outline-none">
-                        {/* Background Container with Cursor Parallax */}
+                        {/* Background Container with Scale Zoom Effect */}
                         <motion.div
                             animate={{
-                                x: mousePos.x,
-                                y: mousePos.y,
                                 scale: index === currentSlide ? 1.08 : 1
                             }}
                             transition={{ type: "tween", ease: "easeOut", duration: 0.5 }}

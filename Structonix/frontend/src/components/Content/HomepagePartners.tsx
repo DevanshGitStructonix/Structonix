@@ -106,6 +106,7 @@ export function HomepagePartners() {
                                 fill
                                 className="object-contain transition-transform duration-500 ease-out group-hover:scale-110 p-4 md:p-6"
                                 sizes="(max-width: 768px) 50vw, 20vw"
+                                unoptimized
                             />
                         </div>
                     ))}
