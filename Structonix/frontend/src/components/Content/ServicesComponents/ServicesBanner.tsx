@@ -69,7 +69,7 @@ export function ServicesBanner() {
                             transition={{ duration: 0.6, delay: 0.4 }}
                             className="font-secondary cursor-pointer font-bold md:pt-0 pt-2"
                         >
-                            PRODUCTS & SERVICES
+                            SERVICES
                         </motion.h1>
                     </div>
                 </div>

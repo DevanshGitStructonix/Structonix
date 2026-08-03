@@ -42,7 +42,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           <div className="flex items-center gap-2 text-primary font-bold tracking-widest text-xs md:text-sm uppercase mb-4">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ChevronRight className="w-4 h-4" />
-            <Link href="/products-and-services" className="hover:text-white transition-colors">Products & Services</Link>
+            <Link href="/services" className="hover:text-white transition-colors">Services</Link>
             <ChevronRight className="w-4 h-4" />
             <span className="text-white bg-white/10 px-2 py-0.5 rounded">{service.title}</span>
           </div>
@@ -73,7 +73,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                   {servicesData.map(s => (
                     <li key={s.id}>
                       <Link 
-                        href={`/products-and-services/${s.slug}`} 
+                        href={`/services/${s.slug}`} 
                         className={`flex items-center justify-between p-4 group transition-all duration-300 font-bold text-sm ${
                           service.slug === s.slug 
                             ? 'bg-primary text-white shadow-md' 

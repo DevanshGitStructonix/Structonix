@@ -45,20 +45,21 @@ export function MainNavbar() {
         },
         { name: 'Projects', href: '/projects' },
         {
-            name: 'Products & Services',
-            href: '/products-and-services',
+            name: 'Services',
+            href: '/services',
             subItems: [
-                { name: 'Pre Engineered Building Systems', href: '/products-and-services/pre-engineered-building-systems' },
-                { name: 'Prefabricated Steel Structures', href: '/products-and-services/prefabricated-steel-structures' },
-                { name: 'Heavy Structural Fabrication', href: '/products-and-services/heavy-structural-fabrication' },
-                { name: 'Turnkey Contractors for PEB', href: '/products-and-services/turnkey-contractors-for-peb' },
-                { name: 'Multi Storey Steel Buildings', href: '/products-and-services/multi-storey-steel-buildings' },
-                { name: 'Industrial Buildings', href: '/products-and-services/industrial-buildings' },
-                { name: 'Standing Seam Roofing Systems', href: '/products-and-services/standing-seam-roofing-systems' },
-                { name: 'PUF & Rockwool Panels', href: '/products-and-services/puf-rockwool-panels' },
-                { name: 'PEB Building Accessories', href: '/products-and-services/peb-building-accessories' }
+                { name: 'Pre Engineered Building Systems', href: '/services/pre-engineered-building-systems' },
+                { name: 'Prefabricated Steel Structures', href: '/services/prefabricated-steel-structures' },
+                { name: 'Heavy Structural Fabrication', href: '/services/heavy-structural-fabrication' },
+                { name: 'Turnkey Contractors for PEB', href: '/services/turnkey-contractors-for-peb' },
+                { name: 'Multi Storey Steel Buildings', href: '/services/multi-storey-steel-buildings' },
+                { name: 'Industrial Buildings', href: '/services/industrial-buildings' },
+                { name: 'Standing Seam Roofing Systems', href: '/services/standing-seam-roofing-systems' },
+                { name: 'PUF & Rockwool Panels', href: '/services/puf-rockwool-panels' },
+                { name: 'PEB Building Accessories', href: '/services/peb-building-accessories' }
             ]
-        }
+        },
+        { name: 'Our Clients', href: '/clients' }
     ];
 
     const galleryImages = [
@@ -83,16 +84,8 @@ export function MainNavbar() {
                 >
                     <div className="container mx-auto h-full relative">
                         <div className="flex items-center justify-between h-full">
-                            {/* Left: Menu Icon (Desktop) & Logo */}
+                            {/* Left: Logo */}
                             <div className="flex items-center gap-2">
-                                <button
-                                    onClick={() => setIsSideMenuOpen(true)}
-                                    className="hidden lg:flex items-center justify-center w-10 h-10 text-white/80 hover:text-primary transition-colors"
-                                    aria-label="Open side menu"
-                                >
-                                    <Menu className="w-6 h-6" />
-                                </button>
-
                                 <Link href="/" className="flex items-center gap-2 group relative w-44 h-20 sm:w-52 sm:h-14 md:w-64 md:h-18 lg:w-80 lg:h-18">
                                     <Image src="/images/structonix-logo-white.png" alt="Structonix Logo" fill className="object-contain object-left" />
                                 </Link>
@@ -133,8 +126,8 @@ export function MainNavbar() {
                                         </Link>
 
                                         {/* Dropdown Menus */}
-                                        {/* Mega Menu for Products & Services */}
-                                        {link.subItems && link.name === 'Products & Services' && (
+                                        {/* Mega Menu for Services */}
+                                        {link.subItems && link.name === 'Services' && (
                                             <AnimatePresence>
                                                 {activeDropdown === link.name && (
                                                     <motion.div
@@ -235,6 +228,14 @@ export function MainNavbar() {
                                 >
                                     <PhoneCall className="w-4 h-4" /> Get In Touch
                                 </Link>
+                                {/* Desktop Hamburger Menu Toggle on Right */}
+                                <button
+                                    onClick={() => setIsSideMenuOpen(true)}
+                                    className="hidden lg:flex items-center justify-center w-10 h-10 text-white/80 hover:text-primary transition-colors"
+                                    aria-label="Open side menu"
+                                >
+                                    <Menu className="w-6 h-6" />
+                                </button>
                                 {/* Mobile Menu Toggle */}
                                 <button
                                     onClick={() => setIsSideMenuOpen(true)}
@@ -264,11 +265,11 @@ export function MainNavbar() {
 
                         {/* Side Panel */}
                         <motion.div
-                            initial={{ x: "-100%" }}
+                            initial={{ x: "100%" }}
                             animate={{ x: 0 }}
-                            exit={{ x: "-100%" }}
+                            exit={{ x: "100%" }}
                             transition={{ type: "spring", damping: 30, stiffness: 200 }}
-                            className="fixed top-0 left-0 h-full w-full md:w-[450px] bg-dark-navy z-[60] text-white p-10 overflow-y-auto pointer-events-auto shadow-2xl"
+                            className="fixed top-0 right-0 h-full w-full md:w-[450px] bg-dark-navy z-[60] text-white p-10 overflow-y-auto pointer-events-auto shadow-2xl"
                         >
                             {/* Close Button */}
                             <button

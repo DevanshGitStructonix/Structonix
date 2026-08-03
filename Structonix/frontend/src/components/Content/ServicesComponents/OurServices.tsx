@@ -79,7 +79,7 @@ export function OurServices() {
                         <span className="text-primary font-bold tracking-widest uppercase text-sm">Services</span>
                     </div>
                     <h2 className="text-4xl md:text-6xl font-extrabold text-dark-slate leading-tight font-secondary tracking-tight">
-                        Products & Services
+                        Services
                     </h2>
                     <p className="mt-4 text-gray-600 max-w-2xl text-lg">
                         Leading solutions tailored to elevate your business in an evolving industrial landscape.

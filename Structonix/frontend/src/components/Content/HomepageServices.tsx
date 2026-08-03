@@ -18,7 +18,7 @@ const services = [
             'Engineering Feasibility Studies'
         ],
         image: 'https://images.pexels.com/photos/3183186/pexels-photo-3183186.jpeg',
-        link: '/products-and-services#design-engineering'
+        link: '/services#design-engineering'
     },
     {
         id: 'primary-steel',
@@ -31,7 +31,7 @@ const services = [
             'High-Tensile Load Durability'
         ],
         image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704882/Primary-Steel-Structure_xa68xr.gif',
-        link: '/products-and-services#primary-steel'
+        link: '/services#primary-steel'
     },
     {
         id: 'secondary-steel',
@@ -44,7 +44,7 @@ const services = [
             'Precision Pre-Punched Holes'
         ],
         image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp',
-        link: '/products-and-services#secondary-steel'
+        link: '/services#secondary-steel'
     },
     {
         id: 'warehousing',
@@ -57,7 +57,7 @@ const services = [
             'Insulated Storage Configurations'
         ],
         image: 'https://images.pexels.com/photos/906494/pexels-photo-906494.jpeg',
-        link: '/products-and-services#warehousing'
+        link: '/services#warehousing'
     },
     {
         id: 'roofing-cladding',
@@ -70,7 +70,7 @@ const services = [
             'Corrosion-Resistant Coatings'
         ],
         image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704406/images_utytsf.webp',
-        link: '/products-and-services#roofing-cladding'
+        link: '/services#roofing-cladding'
     },
     {
         id: 'purlins-downspouts',
@@ -83,7 +83,7 @@ const services = [
             'Rainwater Downspouts & Gutters'
         ],
         image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704405/images_1_vzi3kh.webp',
-        link: '/products-and-services#purlins-downspouts'
+        link: '/services#purlins-downspouts'
     },
     {
         id: 'turnkey-projects',
@@ -96,7 +96,7 @@ const services = [
             'On-Schedule Turnkey Delivery'
         ],
         image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785699772/DJI_0532_fvkw9a.webp',
-        link: '/products-and-services#turnkey-projects'
+        link: '/services#turnkey-projects'
     }
 ];
 
@@ -155,7 +155,7 @@ export function HomepageServices() {
                     </div>
                     <div>
                         <Link
-                            href="/products-and-services"
+                            href="/services"
                             className="inline-flex items-center gap-2 border border-gray-300 px-6 py-3 text-dark-slate font-bold uppercase text-sm hover:bg-dark-slate hover:text-white transition-colors duration-300"
                         >
                             View All Solutions

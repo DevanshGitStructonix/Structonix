@@ -20,7 +20,7 @@ const slides = [
         titleEnd: ' Processes',
         description: 'Delivering unparalleled efficiency and precision across complex industrial manufacturing pipelines. We build the systems that drive global economies forward.',
         cta: 'Explore more',
-        link: '/products-and-services'
+        link: '/services'
     },
     {
         id: 2,
@@ -53,7 +53,7 @@ const slides = [
         titleEnd: ' in Every Project',
         description: 'Integrated design, fabrication, and execution services for complex industrial needs. From concept to completion, we deliver excellence.',
         cta: 'Explore Services',
-        link: '/products-and-services'
+        link: '/services'
     }
 ];
 
