@@ -37,9 +37,9 @@ export function MainNavbar() {
             href: '/about',
             subItems: [
                 { name: 'Who We Are', href: '/about#who-we-are' },
-                { name: 'Vision & Mission', href: '/about#vision-mission' },
-                { name: 'How We Work', href: '/about#who-we-are' },
-                { name: 'Our Team', href: '/about#team' },
+                { name: 'Vision & Mission', href: '/about#mission-vision' },
+                { name: 'How We Work', href: '/about#how-we-work' },
+                { name: 'Key Strengths', href: '/about#key-strengths' },
                 { name: 'Infrastructure & Machines', href: '/machines' }
             ]
         },

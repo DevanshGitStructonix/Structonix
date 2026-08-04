@@ -9,7 +9,8 @@ export function AboutSecondaryNav() {
   const navItems = [
     { label: 'Who We Are', href: '#who-we-are' },
     { label: 'Mission & Vision', href: '#mission-vision' },
-    { label: 'Executive Team', href: '#executive-team' },
+    { label: 'How We Work', href: '#how-we-work' },
+    { label: 'Key Strengths', href: '#key-strengths' },
   ];
  
   useEffect(() => {
@@ -17,10 +18,13 @@ export function AboutSecondaryNav() {
       const scrollPos = window.scrollY + 180;
       const whoWeAre = document.getElementById('who-we-are');
       const missionVision = document.getElementById('mission-vision');
-      const execTeam = document.getElementById('executive-team');
+      const howWeWork = document.getElementById('how-we-work');
+      const keyStrengths = document.getElementById('key-strengths');
  
-      if (execTeam && scrollPos >= execTeam.offsetTop) {
-        setActiveSection('executive-team');
+      if (keyStrengths && scrollPos >= keyStrengths.offsetTop) {
+        setActiveSection('key-strengths');
+      } else if (howWeWork && scrollPos >= howWeWork.offsetTop) {
+        setActiveSection('how-we-work');
       } else if (missionVision && scrollPos >= missionVision.offsetTop) {
         setActiveSection('mission-vision');
       } else if (whoWeAre && scrollPos >= whoWeAre.offsetTop) {
@@ -38,7 +42,7 @@ export function AboutSecondaryNav() {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
-      const offset = 140; // Main navbar (128px) + sub-nav padding padding
+      const offset = 200; // Main navbar (128px) + secondary nav (~56px) + extra margin (16px)
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -56,7 +60,7 @@ export function AboutSecondaryNav() {
  
   return (
     <div className="sticky top-[128px] z-30 bg-white border-b border-gray-100 shadow-sm hidden md:block">
-      <div className="container mx-auto px-4 md:px-16 flex items-center justify-between py-4">
+      <div className="container mx-auto px-4 md:px-16 flex items-center justify-center py-4">
         <div className="flex gap-8">
           {navItems.map((item) => (
             <a
@@ -76,13 +80,6 @@ export function AboutSecondaryNav() {
             </a>
           ))}
         </div>
-        <a
-          href="/structonix-brochure.pdf"
-          download
-          className="bg-primary hover:bg-primary/90 text-white text-xs font-extrabold uppercase tracking-widest px-5 py-2.5 transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow-md"
-        >
-          <Download className="w-3.5 h-3.5" /> Download Brochure
-        </a>
       </div>
     </div>
   );

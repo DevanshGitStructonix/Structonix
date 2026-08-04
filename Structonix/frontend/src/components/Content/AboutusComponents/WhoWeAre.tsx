@@ -19,7 +19,7 @@ export function WhoWeAre() {
     const x = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
 
     return (
-        <section ref={containerRef} className="bg-gray-100 py-20 overflow-hidden relative">
+        <section ref={containerRef} id="who-we-are" className="scroll-mt-[200px] bg-gray-100 py-20 overflow-hidden relative">
             <div className="container mx-auto px-4 md:px-16">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start relative z-10">
 
@@ -42,7 +42,7 @@ export function WhoWeAre() {
                             transition={{ duration: 0.5, delay: 0.2 }}
                             className="text-4xl md:text-5xl lg:text-6xl font-bold text-dark-slate mb-8 font-secondary"
                         >
-                            We work for you since 1980. Industrial around the world.
+                            We engineer for you. Industrial structures built to last.
                         </motion.h2>
 
                         <motion.div
@@ -53,10 +53,10 @@ export function WhoWeAre() {
                             className="space-y-6 text-gray-500 font-secondary text-lg"
                         >
                             <p>
-                                Allan wrasse climbing gourami amur pike Arctic char, steelhead sprat sea lamprey grunion. Walleye poolfish sand goby butterfly ray stream catfish.
+                                At Structonix, we specialize in the design, fabrication, and erection of high-quality Pre-Engineered Buildings (PEB) and heavy structural steel systems. Our engineers utilize advanced CAD/BIM technologies to draft customized structural designs that optimize space, safety, and load parameters.
                             </p>
                             <p>
-                                Spanish mackerel yellow weaver sixgill. Sandperch flyingfish yellowfin cutthroat trout grouper whitebait horsefish bullhead shark California smoothtongue, striped burrfish threadtail saber-toothed blenny Red
+                                By managing the entire supply chain from raw steel sourcing to precision factory fabrication and on-site assembly, we deliver durable, cost-effective infrastructure solutions for manufacturing plants, logistics hubs, cold storages, and commercial facilities.
                             </p>
                         </motion.div>
 
@@ -67,8 +67,8 @@ export function WhoWeAre() {
                             transition={{ duration: 0.5, delay: 0.6 }}
                             className="mt-10"
                         >
-                            <Link href="/about" className="inline-flex items-center gap-2 text-primary font-bold text-sm tracking-widest uppercase hover:opacity-80 transition-opacity font-secondary group">
-                                MORE ABOUT INDUSTRIUM
+                            <Link href="/services" className="inline-flex items-center gap-2 text-primary font-bold text-sm tracking-widest uppercase hover:opacity-80 transition-opacity font-secondary group">
+                                EXPLORE OUR SERVICES
                                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                             </Link>
                         </motion.div>
@@ -103,7 +103,7 @@ export function WhoWeAre() {
                 </div>
             </div>
 
-            {/* Large Background Text "since 1980" */}
+            {/* Large Background Text "STRUCTONIX" */}
             <div className="absolute bottom-20 left-0 w-full z-20 overflow-hidden pointer-events-none select-none hidden md:block">
                 <motion.div
                     style={{ x }}
@@ -113,7 +113,7 @@ export function WhoWeAre() {
                         className="text-[5rem] md:text-[8rem] font-extrabold text-transparent leading-none"
                         style={{ WebkitTextStroke: '3px #FE7F2D' }}
                     >
-                        since 1980
+                        STRUCTONIX
                     </span>
                 </motion.div>
             </div>

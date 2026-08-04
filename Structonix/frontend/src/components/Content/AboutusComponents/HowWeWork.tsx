@@ -6,26 +6,26 @@ import { useRef, useState, useEffect } from 'react';
 const steps = [
     {
         id: '01',
-        title: 'Preparation of project documents',
-        description: 'Allan wrasse climbing gourami amur pike Arctic char, steelhead sprat sea lamprey grunion. Walleye poolfish',
+        title: 'Design & Consultation',
+        description: 'We collaborate with you to outline project goals, drafting custom structural designs utilizing advanced CAD/BIM simulations.',
         active: true,
     },
     {
         id: '02',
-        title: 'Creation of a project with a team on time',
-        description: 'Arctic char, steelhead sprat sea lamprey grunion. Walleye poolfish sand goby butterfly ray stream catfish',
+        title: 'Precision Fabrication',
+        description: 'Using top-grade steel, components are precision-fabricated in a controlled factory environment to ensure maximum quality and fit.',
         active: false,
     },
     {
         id: '03',
-        title: 'Completion of the project and payment',
-        description: 'Sprat sea lamprey grunion. Walleye poolfish sand goby butterfly ray stream catfish jewfish. Spanish mackerel',
+        title: 'Supply Chain & Logistics',
+        description: 'All fabricated members are systematically coded, packed, and transported to the site in sequence, preventing delays.',
         active: false,
     },
     {
         id: '04',
-        title: 'Preparation of project documents',
-        description: 'Allan wrasse climbing gourami amur pike Arctic char, steelhead sprat sea lamprey grunion. Walleye poolfish',
+        title: 'Erection & Site Delivery',
+        description: 'Our expert engineering team supervises the on-site assembly and installation, ensuring compliance with strict safety codes.',
         active: false,
     },
 ];
@@ -48,7 +48,7 @@ export function HowWeWork() {
         target: targetRef,
     });
 
-    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-60%"]);
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
     const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     // On mobile, we use normal flow (not sticky/scrollytelling) to avoid clipping.
@@ -56,7 +56,7 @@ export function HowWeWork() {
 
     if (isMobile) {
         return (
-            <section className="py-16 bg-light-gray overflow-hidden">
+            <section id="how-we-work" className="scroll-mt-[200px] py-16 bg-light-gray overflow-hidden">
                 <div className="container mx-auto px-4">
                     {/* Top Section: Heading */}
                     <div className="w-full text-center mb-10">
@@ -76,7 +76,7 @@ export function HowWeWork() {
                             {steps.map((step) => (
                                 <div
                                     key={step.id}
-                                    className="snap-center relative flex-shrink-0 w-[280px] p-6 bg-white border border-dark-gray shadow-lg"
+                                    className="snap-center relative flex-shrink-0 w-[320px] p-8 bg-white border border-dark-gray shadow-lg"
                                 >
                                     <div className="mb-4 flex justify-between items-start">
                                         <span className={`text-5xl font-bold font-secondary leading-none ${step.active ? 'text-primary' : 'text-primary [-webkit-text-stroke:1px_#FE7F2D]'}`}>
@@ -87,11 +87,11 @@ export function HowWeWork() {
                                         </span>
                                     </div>
 
-                                    <h3 className="text-lg font-bold font-secondary text-dark-navy mb-3 leading-tight">
+                                    <h3 className="text-xl font-bold font-secondary text-dark-navy mb-3 leading-tight">
                                         {step.title}
                                     </h3>
 
-                                    <p className="text-gray-500 text-sm leading-relaxed">
+                                    <p className="text-gray-500 text-sm md:text-base leading-relaxed">
                                         {step.description}
                                     </p>
                                 </div>
@@ -105,7 +105,7 @@ export function HowWeWork() {
 
     // Desktop Implementation (Scrollytelling)
     return (
-        <section ref={targetRef} className="relative h-[400vh] bg-light-gray">
+        <section ref={targetRef} id="how-we-work" className="scroll-mt-[200px] relative h-[220vh] bg-light-gray">
             {/* Sticky container */}
             <div className="sticky top-0 flex items-center h-screen overflow-hidden">
                 <div className="container mx-auto px-4 md:px-16 flex flex-col justify-center h-full relative">
@@ -141,9 +141,9 @@ export function HowWeWork() {
                             {steps.map((step) => (
                                 <div
                                     key={step.id}
-                                    className="relative flex-shrink-0 w-[280px] md:w-[320px] p-6 bg-white border border-dark-gray shadow-lg"
+                                    className="relative flex-shrink-0 w-[380px] md:w-[460px] p-8 md:p-12 bg-white border border-dark-gray shadow-lg hover:shadow-2xl transition-shadow duration-300"
                                 >
-                                    <div className="mb-4 flex justify-between items-start">
+                                    <div className="mb-6 flex justify-between items-start">
                                         <span className={`text-6xl font-bold font-secondary leading-none ${step.active ? 'text-primary' : 'text-primary [-webkit-text-stroke:1px_#FE7F2D]'}`}>
                                             {step.id}
                                         </span>
@@ -152,11 +152,11 @@ export function HowWeWork() {
                                         </span>
                                     </div>
 
-                                    <h3 className="text-lg font-bold font-secondary text-dark-navy mb-3 leading-tight">
+                                    <h3 className="text-xl md:text-2xl font-bold font-secondary text-dark-navy mb-4 leading-tight">
                                         {step.title}
                                     </h3>
 
-                                    <p className="text-gray-500 text-sm leading-relaxed">
+                                    <p className="text-gray-500 text-sm md:text-base leading-relaxed">
                                         {step.description}
                                     </p>
                                 </div>
