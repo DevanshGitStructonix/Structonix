@@ -11,10 +11,8 @@ import {
     Layers, 
     Activity, 
     CheckCircle2, 
-    ChevronRight, 
     Building2,
-    HardHat,
-    CameraOff
+    HardHat
 } from 'lucide-react';
 import { projectsData, ProjectSpec } from './projectsData';
 

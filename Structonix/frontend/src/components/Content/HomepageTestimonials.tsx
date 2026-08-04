@@ -3,7 +3,7 @@
 import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { Quote, ArrowLeft, ArrowRight, ChevronsRight, Building2, User, Landmark } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface Testimonial {
     id: number;
