@@ -3,56 +3,68 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Cpu, Settings, Shield, Award, ChevronRight } from 'lucide-react';
+import { Cpu, Settings, Shield, Award } from 'lucide-react';
  
 const machineList = [
     {
-        id: 'cnc-plasma',
-        name: 'CNC Plasma & Oxy-fuel Cutting Machine',
-        subtitle: 'High Precision Plate Cutting',
-        description: 'Equipped with multi-head cutting torches, our CNC plasma cutting machines provide clean, high-speed edges on steel plates up to 100mm thickness with sub-millimeter precision.',
-        specs: [
-            { label: 'Cutting Width', value: 'Up to 4000 mm' },
-            { label: 'Cutting Thickness', value: 'Plasma: 25mm | Oxy-fuel: 100mm' },
-            { label: 'Positioning Accuracy', value: '±0.1 mm' }
-        ],
-        image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80',
+        id: 'plasma-machine',
+        name: 'Plasma Machine',
+        subtitle: 'High Precision CNC Cutting',
+        description: 'Used for: High precision cutting and shaping of steel plates and profiles with sub-millimeter accuracy.',
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785876201/IMG-20241212-WA0057-scaled.jpg_adbrzf.webp',
     },
     {
-        id: 'beam-welder',
-        name: 'Automatic H-Beam Welding Line',
-        subtitle: 'Heavy Structural Member Production',
-        description: 'Our automated H-beam production line performs flange-to-web assembly, submerged arc welding (SAW), and flange straightening in a continuous, high-efficiency sequence.',
-        specs: [
-            { label: 'Max Beam Height', value: '2000 mm' },
-            { label: 'Max Flange Width', value: '800 mm' },
-            { label: 'Welding Speed', value: 'Up to 1.2 m/min' }
-        ],
-        image: 'https://images.unsplash.com/photo-1581094794329-cd109c0f8a16?auto=format&fit=crop&w=600&q=80',
+        id: 'h-beam-welding',
+        name: 'H-Beam Welding Machine',
+        subtitle: 'Structural Member Welding',
+        description: 'Used for: High-efficiency assembly and automated submerged arc welding (SAW) of heavy structural members.',
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785876964/328_iygukz.jpg',
     },
     {
-        id: 'shot-blast',
-        name: 'Automatic Shot Blasting Machine',
-        subtitle: 'SA 2.5 Surface Preparation',
-        description: 'Ensures absolute surface cleaning, scale removal, and rust stripping of structural parts prior to painting. Helps achieve maximum paint adhesion and structural longevity.',
-        specs: [
-            { label: 'Standard Rating', value: 'ISO 8501-1 SA 2.5' },
-            { label: 'Pass-through Size', value: '1500 x 2200 mm' },
-            { label: 'Turbine Configuration', value: '8 High-speed wheels' }
-        ],
-        image: 'https://images.unsplash.com/photo-1535813547-99c456a41d4a?auto=format&fit=crop&w=600&q=80',
+        id: 'shot-blasting',
+        name: 'Shot Blasting Machine',
+        subtitle: 'Surface Preparation & SA 2.5',
+        description: 'Used for: Absolute surface preparation, scale removal, and rust stripping of structural steel parts prior to painting.',
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785876199/images_2_mjmoh8.jpg',
     },
     {
-        id: 'plate-roll',
-        name: '4-Roll Hydraulic Plate Bending Machine',
-        subtitle: 'Precision Curvature & Rolling',
-        description: 'Allows pre-bending and rolling of medium-to-heavy steel plates into cylindrical and conical shapes, essential for pressure vessel fabrication, ducts, and custom structural shells.',
+        id: 'painting-machine',
+        name: 'Painting Machine',
+        subtitle: 'Corrosion Protection Coating',
+        description: 'Used for: Uniform application of high-durability coatings and protective paints to guard steel structures against corrosion.',
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785876200/peb-spray-painting-service_kjkr5c.jpg',
+    },
+    {
+        id: 'purlin-machine',
+        name: 'Purlin Machine',
+        subtitle: 'C & Z Profile Secondary Members',
+        description: 'Used for: High-speed roll-forming of structural secondary members (purlins) to support roof and wall cladding.',
         specs: [
-            { label: 'Rolling Capacity', value: 'Up to 45mm Thickness' },
-            { label: 'Max Plate Width', value: '3000 mm' },
-            { label: 'Drive System', value: 'Electro-hydraulic direct drive' }
+            { label: 'Shape', value: 'U, C, Z' },
+            { label: 'Coil Thickness', value: '1.5 mm - 3.5 mm' }
         ],
-        image: 'https://images.unsplash.com/photo-1565451634789-9a2503258ee0?auto=format&fit=crop&w=600&q=80',
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785876201/Z-purlin-roll-forming_rzhll2.png',
+    },
+    {
+        id: 'down-spout',
+        name: 'Down-Spout Machine',
+        subtitle: 'Rainwater Downpipe Forming',
+        description: 'Used for: Roll-forming and fabrication of rainwater drainage downspouts and pipes to ensure complete weather protection.',
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785876201/Z-purlin-roll-forming_rzhll2.png',
+    },
+    {
+        id: 'corrugated-roofing',
+        name: 'Corrugated Roofing Machine',
+        subtitle: 'Metal Cladding Roll-Forming',
+        description: 'Used for: Rolling galvanized and color-coated coils into corrugated roofing sheets and wall cladding panels.',
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785876718/Corrugated-Roll-Forming-Machine_lfvi1d.jpg',
+    },
+    {
+        id: 'punching-machine',
+        name: 'Punching Machine',
+        subtitle: 'Precision Hole & Joint Punching',
+        description: 'Used for: Punching connection holes in steel sections, flats, and plates for connection bolts and structural fasteners.',
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785876202/PEB-Punching-Machine_ip2tpd.png',
     }
 ];
  
@@ -65,7 +77,7 @@ const capabilities = [
  
 export default function MachinesPage() {
     return (
-        <main className="bg-[#eaecf0] min-h-screen pt-36 pb-20 font-secondary text-dark-slate">
+        <main className="bg-[#eaecf0] min-h-screen pt-0 pb-20 font-secondary text-dark-slate">
             {/* Banner Header */}
             <div className="bg-dark-navy text-white py-20 px-8 relative overflow-hidden mb-16">
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:40px_40px] opacity-15" />
@@ -172,18 +184,20 @@ export default function MachinesPage() {
                                         {machine.description}
                                     </motion.p>
  
-                                    {/* Tech specs table */}
-                                    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-150 space-y-4">
-                                        <h4 className="text-xs font-black uppercase tracking-wider text-dark-slate border-b pb-2">Technical Specifications</h4>
-                                        <div className="space-y-3">
-                                            {machine.specs.map((spec) => (
-                                                <div key={spec.label} className="flex justify-between text-xs font-semibold">
-                                                    <span className="text-gray-500">{spec.label}</span>
-                                                    <span className="text-dark-slate font-extrabold">{spec.value}</span>
-                                                </div>
-                                            ))}
+                                    {/* Tech specs table - only shown if specs exist */}
+                                    {machine.specs && (
+                                        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-150 space-y-4">
+                                            <h4 className="text-xs font-black uppercase tracking-wider text-dark-slate border-b pb-2">Technical Specifications</h4>
+                                            <div className="space-y-3">
+                                                {machine.specs.map((spec) => (
+                                                    <div key={spec.label} className="flex justify-between text-xs font-semibold">
+                                                        <span className="text-gray-500">{spec.label}</span>
+                                                        <span className="text-dark-slate font-extrabold">{spec.value}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
-                                    </div>
+                                    )}
                                 </div>
                             </div>
                         );
