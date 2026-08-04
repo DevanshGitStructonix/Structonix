@@ -268,7 +268,7 @@ export function MainNavbar() {
                             initial={{ x: "100%" }}
                             animate={{ x: 0 }}
                             exit={{ x: "100%" }}
-                            transition={{ type: "spring", damping: 30, stiffness: 200 }}
+                            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                             className="fixed top-0 right-0 h-full w-full md:w-[450px] bg-dark-navy z-[60] text-white p-10 overflow-y-auto pointer-events-auto shadow-2xl"
                         >
                             {/* Close Button */}
