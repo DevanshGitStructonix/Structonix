@@ -32,7 +32,7 @@ export function MissionVision() {
                             </div>
 
                             <p className="text-gray-300 text-sm leading-relaxed font-secondary">
-                                To become the most trusted global engineering and manufacturing partner in the industrial infrastructure sector, recognized for our commitment to safety, architectural innovation, technical precision, and client success.
+                                To become the most trusted global engineering and manufacturing partner in the industrial infrastructure sector, recognized for our commitment to safety, architectural innovation, technical precision, and client success. We envision a future where our advanced prefabricated steel structures and structural reinforcement solutions empower industries to scale safely and efficiently, setting new global benchmarks for durability, modern design aesthetics, and environmental sustainability.
                             </p>
                         </div>
                     </motion.div>

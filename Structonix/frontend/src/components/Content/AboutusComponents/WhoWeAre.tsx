@@ -85,7 +85,7 @@ export function WhoWeAre() {
                         >
                             <div className="w-full h-[300px] md:h-[700px] relative">
                                 <Image
-                                    src="https://images.pexels.com/photos/34287570/pexels-photo-34287570.jpeg"
+                                    src="https://res.cloudinary.com/dpctlwaam/image/upload/v1785699724/DJI_0529_lkfrav.webp"
                                     alt="Industrial Worker Welding"
                                     fill
                                     className="object-cover shadow-2xl"
