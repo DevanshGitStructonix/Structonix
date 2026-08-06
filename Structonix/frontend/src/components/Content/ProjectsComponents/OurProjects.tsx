@@ -73,7 +73,7 @@ export function OurProjects() {
                 <div className="mb-12">
                     <div className="flex items-center gap-2 mb-3">
                         <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                        <span className="text-primary font-bold tracking-widest uppercase text-xs md:text-sm">Structonix Portfolio</span>
+                        <span className="text-primary font-bold tracking-widest uppercase text-xs md:text-sm">Project Portfolio</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black font-secondary text-dark-navy leading-none tracking-tight">
                         OUR PROJECTS
@@ -214,18 +214,7 @@ export function OurProjects() {
                                             unoptimized
                                         />
                                     )}
-                                    {/* Brand Logo Black Badge (shown on all cards) */}
-                                    <div className="absolute top-0 left-0 bg-[#0e1027] border-r border-b border-white/10 px-4 py-3 shadow-lg flex items-center justify-center min-w-[150px] h-[55px] z-10 rounded-br-xl">
-                                        <div className="relative w-[120px] h-[35px]">
-                                            <Image
-                                                src="/images/structonix-logo-white.png"
-                                                alt="Structonix"
-                                                fill
-                                                className="object-contain"
-                                                unoptimized
-                                            />
-                                        </div>
-                                    </div>
+
                                     {/* Status Badge */}
                                     <div className={`absolute top-4 right-4 text-[10px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-lg text-white shadow-md ${
                                         project.status.includes('Handovered') ? 'bg-green-600' : 'bg-primary'
@@ -335,18 +324,7 @@ export function OurProjects() {
                                         unoptimized
                                     />
                                 )}
-                                {/* Brand Logo Black Badge (shown on all drawers) */}
-                                <div className="absolute top-0 left-0 bg-[#0e1027] border-r border-b border-white/10 px-5 py-4 shadow-lg flex items-center justify-center min-w-[160px] h-[65px] z-10 rounded-br-2xl">
-                                    <div className="relative w-[130px] h-[40px]">
-                                        <Image
-                                            src="/images/structonix-logo-white.png"
-                                            alt="Structonix"
-                                            fill
-                                            className="object-contain"
-                                            unoptimized
-                                        />
-                                    </div>
-                                </div>
+
                                 <div className="absolute inset-0 bg-gradient-to-t from-dark-slate via-dark-slate/20 to-black/40" />
                                 
                                 {/* Close Button */}

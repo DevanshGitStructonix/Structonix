@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useState } from 'react';
 import { HomepagePartners } from '@/components/Content/HomepagePartners';
+import { HomepageTestimonials } from '@/components/Content/HomepageTestimonials';
+import { ClientWhyUs } from '@/components/Content/ClientsComponents/ClientWhyUs';
 
 export default function OurClientsPage() {
     const [isHomeActive, setIsHomeActive] = useState(false);
@@ -102,6 +104,12 @@ export default function OurClientsPage() {
 
             {/* Clients Partners Grid Section */}
             <HomepagePartners />
+
+            {/* Value Proposition & Key Trust Metrics Component */}
+            <ClientWhyUs />
+
+            {/* Client Testimonials and Reviews Component */}
+            <HomepageTestimonials />
         </main>
     );
 }

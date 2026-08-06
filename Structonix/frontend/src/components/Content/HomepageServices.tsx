@@ -17,12 +17,12 @@ const services = [
             'Structural Optimization',
             'Engineering Feasibility Studies'
         ],
-        image: 'https://images.pexels.com/photos/3183186/pexels-photo-3183186.jpeg',
-        link: '/services#design-engineering'
+        image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2070&auto=format&fit=crop',
+        link: '/services/design-engineering'
     },
     {
-        id: 'primary-steel',
-        label: 'Primary Steel Structure',
+        id: 'primary-steel-structure-manufacturing',
+        label: 'Primary Steel Structure Manufacturing',
         title: 'Heavy Industrial Primary Frame Fabrication',
         description: 'Precision manufacturing of built-up sections, columns, and rafter systems engineered to support high-tensile forces and primary structural loads.',
         points: [
@@ -31,11 +31,11 @@ const services = [
             'High-Tensile Load Durability'
         ],
         image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704882/Primary-Steel-Structure_xa68xr.gif',
-        link: '/services#primary-steel'
+        link: '/services/primary-steel-structure-manufacturing'
     },
     {
-        id: 'secondary-steel',
-        label: 'Secondary Steel Structure',
+        id: 'secondary-steel-structure-manufacturing',
+        label: 'Secondary Steel Structure Manufacturing',
         title: 'Framing Supports & Secondary Members',
         description: 'Manufacturing and detailing of structural secondary elements like purlins, girts, eave struts, and bracings critical for layout integrity.',
         points: [
@@ -44,7 +44,7 @@ const services = [
             'Precision Pre-Punched Holes'
         ],
         image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp',
-        link: '/services#secondary-steel'
+        link: '/services/secondary-steel-structure-manufacturing'
     },
     {
         id: 'warehousing',
@@ -56,12 +56,12 @@ const services = [
             'High-Load Ground Panels',
             'Insulated Storage Configurations'
         ],
-        image: 'https://images.pexels.com/photos/906494/pexels-photo-906494.jpeg',
-        link: '/services#warehousing'
+        image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop',
+        link: '/services/warehousing'
     },
     {
-        id: 'roofing-cladding',
-        label: 'Roofing & Cladding Systems',
+        id: 'roofing-and-cladding-systems',
+        label: 'Roofing and Cladding Systems',
         title: 'Weatherproof Protective Insulated Shells',
         description: 'Premium single-skin profile sheets and sandwich panels offering ultimate thermal insulation, leakproof joints, and modern facade finishes.',
         points: [
@@ -70,11 +70,11 @@ const services = [
             'Corrosion-Resistant Coatings'
         ],
         image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704406/images_utytsf.webp',
-        link: '/services#roofing-cladding'
+        link: '/services/roofing-and-cladding-systems'
     },
     {
-        id: 'purlins-downspouts',
-        label: 'C/Z Purlin & Downspouts',
+        id: 'cz-purlin-and-downspout-pipe',
+        label: 'C/Z Purlin and Downspout Pipe',
         title: 'Cold-Formed Sections & Water Drainage',
         description: 'Cold-roll formed C & Z purlins providing lightweight yet heavy-duty support for roof cladding, complemented by rain downspout drainage pipes.',
         points: [
@@ -83,10 +83,10 @@ const services = [
             'Rainwater Downspouts & Gutters'
         ],
         image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704405/images_1_vzi3kh.webp',
-        link: '/services#purlins-downspouts'
+        link: '/services/cz-purlin-and-downspout-pipe'
     },
     {
-        id: 'turnkey-projects',
+        id: 'turnkey-industrial-projects',
         label: 'Turnkey Industrial Projects',
         title: 'Full-Scale End-to-End Industrial Execution',
         description: 'Comprehensive project management covering design, raw material manufacturing, delivery logistics, and safe, fast-track on-site erection.',
@@ -95,8 +95,8 @@ const services = [
             'Rigorous Site Safety Protocols',
             'On-Schedule Turnkey Delivery'
         ],
-        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785699772/DJI_0532_fvkw9a.webp',
-        link: '/services#turnkey-projects'
+        image: 'https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop',
+        link: '/services/turnkey-industrial-projects'
     }
 ];
 

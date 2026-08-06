@@ -3,64 +3,29 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Settings, Factory, ShieldCheck, Zap, Cog, Activity } from 'lucide-react';
+import { ArrowRight, PencilRuler, Factory, Hammer, Warehouse, Shield, Construction, ClipboardCheck } from 'lucide-react';
+import { servicesData } from '@/data/servicesData';
 
-const services = [
-    {
-        id: 1,
-        number: '01',
-        title: 'Industrial Construction',
-        description: 'Comprehensive general contracting services tailored for industrial facilities, manufacturing plants, and warehouses.',
-        image: 'https://images.pexels.com/photos/236698/pexels-photo-236698.jpeg',
-        slug: '/services/industrial',
-        icon: Factory
-    },
-    {
-        id: 2,
-        number: '02',
-        title: 'High Regulation Compliance',
-        description: 'Specialized structural planning and construction ensuring operations meet the strictest international standards.',
-        image: 'https://images.pexels.com/photos/675987/machine-mill-industry-steam-675987.jpeg',
-        slug: '/services/regulation',
-        icon: ShieldCheck
-    },
-    {
-        id: 3,
-        number: '03',
-        title: 'Bridge Engineering',
-        description: 'Advanced engineering design and construction solutions for long-span and complex bridge infrastructure.',
-        image: 'https://images.pexels.com/photos/11701519/pexels-photo-11701519.jpeg',
-        slug: '/services/bridge',
-        icon: Settings
-    },
-    {
-        id: 4,
-        number: '04',
-        title: 'Oil & Gas Infrastructure',
-        description: 'Comprehensive building services for upstream, midstream, and downstream oil and gas sectors.',
-        image: 'https://images.pexels.com/photos/10407684/pexels-photo-10407684.jpeg',
-        slug: '/services/oilgas',
-        icon: Zap
-    },
-    {
-        id: 5,
-        number: '05',
-        title: 'Mechanical Design',
-        description: 'Custom mechanical layout, design, and fabrication for specialized heavy industrial plant applications.',
-        image: 'https://images.pexels.com/photos/19233057/pexels-photo-19233057.jpeg',
-        slug: '/services/mechanical',
-        icon: Cog
-    },
-    {
-        id: 6,
-        number: '06',
-        title: 'Automation & Robotics',
-        description: 'Designing spaces optimized for robotic integration to streamline modern production lines.',
-        image: 'https://images.pexels.com/photos/11951215/pexels-photo-11951215.jpeg',
-        slug: '/services/automation',
-        icon: Activity
+const getServiceIcon = (slug: string) => {
+    switch (slug) {
+        case 'design-engineering':
+            return PencilRuler;
+        case 'primary-steel-structure-manufacturing':
+            return Factory;
+        case 'secondary-steel-structure-manufacturing':
+            return Hammer;
+        case 'warehousing':
+            return Warehouse;
+        case 'roofing-and-cladding-systems':
+            return Shield;
+        case 'cz-purlin-and-downspout-pipe':
+            return Construction;
+        case 'turnkey-industrial-projects':
+            return ClipboardCheck;
+        default:
+            return Factory;
     }
-];
+};
 
 export function OurServices() {
     return (
@@ -87,10 +52,11 @@ export function OurServices() {
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {services.map((service, index) => {
-                        const IconComponent = service.icon;
+                    {servicesData.map((service, index) => {
+                        const IconComponent = getServiceIcon(service.slug);
+                        const displayId = String(index + 1).padStart(2, '0');
                         return (
-                            <Link href={service.slug} key={service.id} className="block h-full">
+                            <Link href={`/services/${service.slug}`} key={service.id} className="block h-full">
                                 <motion.div
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
@@ -123,7 +89,7 @@ export function OurServices() {
                                         </h3>
 
                                         <p className="text-gray-500 group-hover:text-gray-300 mb-8 transition-colors duration-300 text-sm leading-relaxed flex-1">
-                                            {service.description}
+                                            {service.shortDescription}
                                         </p>
 
                                         {/* Footer: Number and Button */}
@@ -133,7 +99,7 @@ export function OurServices() {
                                             <span
                                                 className="text-5xl md:text-6xl font-bold text-gray-200 group-hover:text-transparent transition-colors duration-300 absolute -top-8 left-0 select-none pointer-events-none opacity-100 group-hover:opacity-0"
                                             >
-                                                {service.number}
+                                                {displayId}
                                             </span>
                                             {/* Outline number for hover state */}
                                             <span
@@ -142,7 +108,7 @@ export function OurServices() {
                                                     WebkitTextStroke: '1px rgba(255,255,255,0.15)',
                                                 }}
                                             >
-                                                {service.number}
+                                                {displayId}
                                             </span>
 
                                             <span className="text-sm font-bold tracking-wider uppercase text-dark-slate group-hover:text-white transition-colors duration-300 relative z-10 pl-2">

@@ -6,142 +6,233 @@ export interface ServiceDetail {
   overview: string;
   benefits: string[];
   image: string;
+  technicalSpecs: Record<string, string>;
+  faqs: { question: string; answer: string }[];
 }
 
 export const servicesData: ServiceDetail[] = [
   {
-    id: "1",
-    slug: "pre-engineered-building-systems",
-    title: "Pre Engineered Building Systems",
-    shortDescription: "High-quality, durable, and highly customized PEB solutions for rapid industrial construction.",
-    overview: "Our Pre Engineered Building (PEB) Systems represent the pinnacle of modern structural design and efficiency. We specialize in designing, fabricating, and erecting factory-built steel buildings that are shipped to site and bolted together. This method drastically reduces construction time, architectural costs, and overall project overhead while offering supreme structural integrity capable of withstanding severe industrial demands. From vast warehousing complexes to cutting-edge manufacturing facilities, our PEB systems offer versatile, column-free floor spans that maximize usable space and streamline your operational workflow.",
+    id: "design-engineering",
+    slug: "design-engineering",
+    title: "Design & Engineering",
+    shortDescription: "Structural engineering, detailing, and architectural planning with advanced 3D CAD and Tekla modeling.",
+    overview: "Our Design & Engineering division uses state-of-the-art modeling software (including Tekla Structures and STAAD.Pro) to deliver optimized, value-engineered solutions for complex steel structures. We transform architectural concepts into precise fabrication drawings, ensuring structural safety, compliance with IS/AISC codes, and seamless site execution. By planning every beam, column, and connection in 3D, we identify and eliminate design conflicts before fabrication starts, ensuring high efficiency and cost savings.",
     benefits: [
-      "Accelerated construction timeline (saving up to 50% vs traditional methods)",
-      "Highly scalable and easily expandable future-proof designs",
-      "Superior energy efficiency and minimal maintenance requirements",
-      "Exceptional architectural flexibility for complex aesthetic requirements",
-      "Optimized material usage leading to significant cost savings"
+      "Advanced 3D modeling with Tekla Structures for error-free fabrication",
+      "Strictest compliance with IS (Indian Standards), AISC, and MBMA guidelines",
+      "Value engineering to optimize steel weight without compromising safety",
+      "High-speed generation of accurate shop drawings and bill of materials (BOM)",
+      "Comprehensive structural analysis and load testing under extreme conditions"
     ],
-    image: "https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2070&auto=format&fit=crop",
+    technicalSpecs: {
+      "Modeling Software": "Tekla Structures, AutoCAD, STAAD.Pro",
+      "Design Standard Codes": "IS 800:2007, AISC 360, MBMA 2010",
+      "Deliverables": "3D Models, GA Drawings, Shop Detailing Sheets, Anchor Bolt Plans",
+      "Turnaround Time": "2-4 Weeks (depending on project scale)",
+      "Quality Assurance": "Double-peer review by certified structural engineers"
+    },
+    faqs: [
+      {
+        question: "What modeling software do you use for structural steel design?",
+        answer: "We primarily use Tekla Structures for detailed 3D structural modeling and detailing, STAAD.Pro for structural analysis and load calculations, and AutoCAD for 2D drafting and planning."
+      },
+      {
+        question: "How do you optimize the steel weight of a building?",
+        answer: "Through value engineering, we perform advanced stress analysis and customize member shapes (tapered vs. straight columns/rafters) to place steel exactly where needed, reducing overall steel tonnage while keeping full safety factors."
+      }
+    ]
   },
   {
-    id: "2",
-    slug: "prefabricated-steel-structures",
-    title: "Prefabricated Steel Structures",
-    shortDescription: "Precision-engineered steel frameworks manufactured off-site for seamless and rapid assembly.",
-    overview: "Structonix provides robust Prefabricated Steel Structures built precisely to your architectural specifications in our controlled manufacturing facility. By fabricating components off-site, we eliminate weather dependencies, ensure rigorous quality control, and dramatically reduce on-site bottlenecks. Our prefabricated solutions span a wide array of applications, including commercial high-rises, expansive industrial sheds, modular facilities, and complex infrastructure frameworks. Every steel member is expertly detailed, cut, welded, and coated before arriving at your site seamlessly ready for rapid assembly.",
+    id: "primary-steel-structure-manufacturing",
+    slug: "primary-steel-structure-manufacturing",
+    title: "Primary Steel Structure Manufacturing",
+    shortDescription: "Precision fabrication of built-up sections, columns, rafters, and heavy frames for primary structural loads.",
+    overview: "We manufacture heavy-duty primary steel components—including columns, rafter sections, crane beams, and portal frames—in our state-of-the-art fabrication facility. Using high-tensile steel plates and automated submerged arc welding (SAW), we create built-up members that deliver superior load-bearing capacity and seismic resistance. Every member undergoes strict quality control, non-destructive testing (NDT), and surface preparation before delivery.",
     benefits: [
-      "Precision manufacturing ensures perfect alignment and rapid site erection",
-      "Strict in-house quality control testing and material certification",
-      "Significant reduction in on-site noise, waste, and environmental impact",
-      "High strength-to-weight ratio ideal for extreme load-bearing",
-      "Corrosion-resistant finishes guaranteeing long-term durability"
+      "Automated plate cutting and Submerged Arc Welding (SAW) for deep penetration",
+      "Use of high-grade steel plates (E250/E350 Grade) with mill test certificates",
+      "Custom fabrication of tapered and straight built-up sections to match structural plans",
+      "Rigorous Non-Destructive Testing (NDT) including Ultrasonic and Dye Penetrant testing",
+      "High-performance anti-corrosive primer and finish paint systems"
     ],
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop",
+    technicalSpecs: {
+      "Material Grade": "IS 2062 E250 / E350 BR/BO, ASTM A572 Grade 50",
+      "Welding Standards": "AWS D1.1 / ASNT Level II certified welders",
+      "Surface Treatment": "Shot blasting to Sa 2.5 standard, epoxy-based primers",
+      "Section Types": "Built-up H-beams, I-beams, Box columns, crane runway beams",
+      "Testing Protocols": "Ultrasonic Testing (UT), Magnetic Particle Testing (MPT), Visual Inspection"
+    },
+    faqs: [
+      {
+        question: "What steel grades do you use for primary columns and rafters?",
+        answer: "We use high-tensile steel plates complying with IS 2062 E250 and E350 grades, as well as ASTM standards, depending on the client's specifications and load requirements."
+      },
+      {
+        question: "How do you ensure the quality of welds in primary members?",
+        answer: "All our welders are certified to AWS D1.1 standards. We perform Ultrasonic Testing (UT) on 100% of full-penetration butt joints, alongside daily visual and dye-penetrant testing."
+      }
+    ]
   },
   {
-    id: "3",
-    slug: "heavy-structural-fabrication",
-    title: "Heavy Structural Fabrication",
-    shortDescription: "Massive scale steel fabrication for power plants, refineries, bridges, and heavy industries.",
-    overview: "For massive industrial undertakings, our Heavy Structural Fabrication division takes the lead. We possess the cutting machinery, heavy-lift capabilities, and welding expertise required to manufacture extraordinarily massive steel members and intricate lattice frameworks. From thermal power plants and petrochemical refineries to enormous overhead crane girders and bridge components, we handle tons of steel with unparalleled precision. Our engineering team meticulously complies with the strictest international welding and structural codes, ensuring the utmost safety and reliability for mission-critical infrastructure.",
+    id: "secondary-steel-structure-manufacturing",
+    slug: "secondary-steel-structure-manufacturing",
+    title: "Secondary Steel Structure Manufacturing",
+    shortDescription: "Fabrication of secondary members including purlins, girts, eave struts, bracing, and connection plates.",
+    overview: "Secondary structural members provide essential stability and support for roofing and wall cladding. We manufacture high-precision purlins, girts, eave struts, sag rods, flange bracings, and anchor bolts. By utilizing cold-formed steel and advanced CNC punching machines, we guarantee perfect hole alignment and dimensions. This ensures that the secondary framework connects flawlessly to the primary columns and rafters on site, accelerating the erection process.",
     benefits: [
-      "Capacity to handle extremely heavy and over-dimensional steel members",
-      "Advanced submerged arc welding and non-destructive testing (NDT)",
-      "Strict compliance with international seismic and load-bearing codes",
-      "End-to-end management spanning detailing to protective coating",
-      "Uncompromising safety protocols for mission-critical infrastructure"
+      "CNC cold-formed fabrication for precise dimensions and pre-punched holes",
+      "High corrosion resistance with pre-galvanized coils (zinc coating options)",
+      "Perfect compatibility with main steel frame, reducing on-site modifications",
+      "Lightweight yet structurally strong profiles to handle roof loads",
+      "Rapid delivery of complete accessories including bracings, sag rods, and clips"
     ],
-    image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=2070&auto=format&fit=crop",
+    technicalSpecs: {
+      "Component Profiles": "C & Z Purlins, Eave Struts, Sag Rods, Wall Girts, Bracings",
+      "Material Standards": "IS 277 / IS 10748 (High-tensile pre-galvanized coils)",
+      "Zinc Coating GSM": "120 GSM to 275 GSM options",
+      "Thickness Range": "1.5 mm to 3.2 mm cold-formed profiles",
+      "Connection Methods": "Grade 8.8 High-Strength bolts, custom connection plates"
+    },
+    faqs: [
+      {
+        question: "What is the role of secondary steel structures in a PEB?",
+        answer: "Secondary structures (like purlins and girts) act as the support framework for wall and roof panels, transfer lateral loads to the primary frame, and provide essential bracing to prevent primary frame buckling."
+      },
+      {
+        question: "Do you offer pre-galvanized secondary members?",
+        answer: "Yes, we offer secondary members fabricated from pre-galvanized high-tensile steel coils, typically ranging from 120 GSM to 275 GSM, ensuring long-term protection against rust."
+      }
+    ]
   },
   {
-    id: "4",
-    slug: "turnkey-contractors-for-peb",
-    title: "Turnkey Contractors for PEB",
-    shortDescription: "End-to-end execution of PEB projects from conceptual design through complete civil handover.",
-    overview: "As premier Turnkey Contractors for PEB, Structonix offers a seamless, single-point-of-contact solution for your entire industrial construction project. Rather than juggling multiple vendors, we handle everything—from initial structural engineering and foundation civil works, right through to PEB manufacturing, erection, roofing, cladding, and final MEP (Mechanical, Electrical, and Plumbing) integration. This comprehensive approach eliminates coordination delays, heavily minimizes cost overruns, and ensures that the final facility aligns perfectly with your original vision and operational timelines.",
+    id: "warehousing",
+    slug: "warehousing",
+    title: "Warehousing",
+    shortDescription: "Design, fabrication, and erection of large-span commercial warehouses and logistics parks.",
+    overview: "We design and deliver large-span, column-free steel warehouses optimized for modern logistics and supply chain operations. Our warehousing structures accommodate heavy dynamic loads, high storage heights, crane integrations, and multiple docking bays. With advanced thermal insulation (PUF/Rockwool) and passive ventilation systems, our warehouses provide safe, climate-controlled spaces for inventory storage.",
     benefits: [
-      "Single-point accountability eliminates vendor friction and delays",
-      "Seamless integration of civil foundations with structural steel",
-      "Transparent project tracking and dedicated site management",
-      "Complete MEP and finishing integration for immediate operational readiness",
-      "Guaranteed schedule adherence and budget predictability"
+      "Large clear-spans up to 60+ meters for maximum storage and aisle flexibility",
+      "Multi-tier mezzanine integrations for office spaces or pick-pack stations",
+      "Climate control options with insulated sandwich panels and ventilation systems",
+      "Fast erection times allowing logistics parks to start operations quickly",
+      "Durable, low-maintenance design with modern fire-resistance features"
     ],
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2069&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop",
+    technicalSpecs: {
+      "Clear Span Range": "20 m to 80 m (without interior columns)",
+      "Mezzanine Decking": "Composite steel decks with concrete overlays",
+      "Ventilation Systems": "Continuous ridge monitors, turbo ventilators, gravity louvers",
+      "Bay Spacings": "6 m to 9 m standard (custom spacing available)",
+      "Design Loadings": "Wind loads up to 50 m/s, seismic zones I-V compliance"
+    },
+    faqs: [
+      {
+        question: "What is the maximum clear-span you can achieve without columns?",
+        answer: "We can design clear-spans up to 80 meters without internal columns, providing maximum usable space for pallet racks, forklifts, and staging areas."
+      },
+      {
+        question: "Can you integrate multi-story offices inside a warehouse?",
+        answer: "Yes, we regularly design warehouses with integrated multi-level mezzanines using composite floor decks to house administrative offices, electrical control rooms, or high-value inventory."
+      }
+    ]
   },
   {
-    id: "5",
-    slug: "multi-storey-steel-buildings",
-    title: "Multi Storey Steel Buildings",
-    shortDescription: "Innovative, rapid-build multi-storey framework solutions for commercial and residential verticals.",
-    overview: "Structonix redefines vertical construction with our Multi Storey Steel Building solutions. Leveraging high-grade structural steel instead of traditional concrete drastically decreases the dead weight of the building, allowing for lighter foundations and exceptionally fast erection speeds. Ideal for corporate office towers, multi-level parking structures, shopping malls, and institutional buildings, our composite floor decking and clear-span steel construction permit incredibly flexible interior layouts. Our multi-storey solutions are mathematically optimized for superb seismic resistance and modern aesthetic integration.",
+    id: "roofing-and-cladding-systems",
+    slug: "roofing-and-cladding-systems",
+    title: "Roofing and Cladding Systems",
+    shortDescription: "Leak-proof metal roof panels, insulated sandwich panels, wall sheeting, and trims.",
+    overview: "We manufacture and install premium roofing and wall cladding sheets designed to withstand extreme weather. From 100% leak-proof standing seam roofing systems with concealed clips, to standard screw-down profile sheets and insulated PUF/Rockwool sandwich panels, we provide complete, weatherproof skins. Our roofing solutions reduce energy bills through high thermal reflectance and keep structures protected for decades.",
     benefits: [
-      "Vastly reduced foundation loads due to lighter overall structure weight",
-      "Unmatched speed of erection compared to traditional RCC buildings",
-      "Column-free expansive floor plans offering total interior design freedom",
-      "Exceptional adaptability for future vertical expansions or modifications",
-      "Superior earthquake and wind-shear resistance"
+      "Concealed standing seam roofing systems with 100% leak-proof guarantees",
+      "Insulated PUF and Rockwool sandwich panels for thermal and acoustic regulation",
+      "High UV resistance and color retention using Galvalume sheets with AZ150 coatings",
+      "Sleek aesthetics with customized trims, flashings, bargeboards, and gutters",
+      "Excellent wind uplift resistance tested for cyclonic storm conditions"
     ],
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1508209867540-02bd9456dcce?q=80&w=2070&auto=format&fit=crop",
+    technicalSpecs: {
+      "Material Sheets": "Alu-Zinc alloy coated steel (Galvalume) AZ150",
+      "Roofing Profiles": "Standing Seam (concealed clips), Trapezoidal (screw-down)",
+      "Thickness Range": "0.45 mm to 0.60 mm sheet thickness",
+      "Thermal Insulation": "PUF (Polyurethane Foam), Rockwool, Glasswool",
+      "Color Options": "Standard RAL shades with premium polyester paints (SMP/PVDF)"
+    },
+    faqs: [
+      {
+        question: "What is a standing seam roof, and why is it leak-proof?",
+        answer: "A standing seam roof uses double-locked vertical seams that fold together to connect panels, using concealed clips under the panels instead of screws. Without exposed screw holes, it is 100% leak-proof."
+      },
+      {
+        question: "How do insulated sandwich panels help save energy?",
+        answer: "Insulated panels have a core of high-density PUF or Rockwool, which keeps heat out of the building. This reduces internal temperatures and cuts down air conditioning/HVAC energy usage."
+      }
+    ]
   },
   {
-    id: "6",
-    slug: "industrial-buildings",
-    title: "Industrial Buildings",
-    shortDescription: "Purpose-built, heavy-duty industrial structures optimized for workflow and machinery housing.",
-    overview: "We construct robust Industrial Buildings tailored exactly to the operational flow of your manufacturing or processing business. Understanding that an industrial building is more than just a shelter, we engineer structures that accommodate exceptionally heavy dynamic loads, integrated gantry cranes, wide bay spacings, and stringent environmental controls. Whether it's an automotive assembly plant, an aerospace hangar, or a heavy-machinery workshop, our industrial buildings are designed to maximize your production efficiency, ensure worker safety, and provide a resilient home for your capital equipment for decades.",
+    id: "cz-purlin-and-downspout-pipe",
+    slug: "cz-purlin-and-downspout-pipe",
+    title: "C/Z Purlin and Downspout Pipe",
+    shortDescription: "High-tensile cold-formed structural C/Z purlins, eave struts, and rainwater drainage systems.",
+    overview: "We manufacture premium-grade, cold-formed C and Z purlins alongside rectangular and circular downspout pipes. Our purlins are custom-fabricated from high-tensile galvanized steel to support heavy roof and wall loads. Z-purlins are designed with unequal flanges, allowing them to overlap seamlessly for continuous structural beams, which increases overall frame rigidity and load capacity.",
     benefits: [
-      "Tailored structural designs to accommodate heavy gantry cranes (EOT)",
-      "Optimized interior layouts ensuring lean manufacturing workflows",
-      "Integration with complex HVAC, piping, and industrial exhaust systems",
-      "Built with highly durable, impact-resistant materials",
-      "Designed for maximum natural lighting to reduce operational energy costs"
+      "Overlapping Z-purlin designs for continuous beam strength",
+      "High-tensile steel coils providing maximum bending resistance",
+      "Accurate pre-punched hole patterns on CNC lines for fast assembly",
+      "Heavy-duty galvanized finishes protecting parts from moisture",
+      "Custom downspouts and gutters designed for rapid rainwater drainage"
     ],
-    image: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop",
+    technicalSpecs: {
+      "Profile Shapes": "C-purlins, Z-purlins, nested shapes, custom struts",
+      "Material Grade Range": "ASTM A653 Grade 50, IS 10748 Grade 340",
+      "Punched Holes": "Pre-punched elongated slot holes for adjustment",
+      "Rainwater Systems": "Seamless rectangular downspouts, galvanized steel gutters",
+      "Purlin Heights": "150 mm, 200 mm, 250 mm, 300 mm web depth sizes"
+    },
+    faqs: [
+      {
+        question: "What is the benefit of overlapping Z-purlins?",
+        answer: "Overlapping Z-purlins creates a continuous support system over columns, doubling the steel thickness at high-stress points. This allows for lighter sections to span longer distances, saving steel weight."
+      },
+      {
+        question: "Are your purlins pre-punched for fast installation?",
+        answer: "Yes, our purlins are pre-punched to exact spacing on automated roll-forming lines, so they can be bolted directly to cleats without any on-site drilling."
+      }
+    ]
   },
   {
-    id: "7",
-    slug: "standing-seam-roofing-systems",
-    title: "Standing Seam Roofing Systems",
-    shortDescription: "100% leak-proof, highly durable continuous roofing systems for vast industrial spans.",
-    overview: "Our Standing Seam Roofing Systems provide the ultimate weatherproof shield for spanning large commercial and industrial buildings. Utilizing continuously interlocked metal panels with concealed fasteners, this innovative system completely eliminates the risk of water leakage through screw holes. The unique sliding clip mechanism allows the massive roof to thermally expand and contract freely under extreme weather without structural buckling. Coupled with superior wind uplift resistance and sleek aesthetics, our standing seam roofs guarantee decades of zero-maintenance performance.",
+    id: "turnkey-industrial-projects",
+    slug: "turnkey-industrial-projects",
+    title: "Turnkey Industrial Projects",
+    shortDescription: "Complete EPC services for manufacturing units, factories, refineries, and chemical plants.",
+    overview: "We provide complete end-to-end (EPC) execution for complex industrial facilities. Our turnkey solutions span from architectural concepts, civil foundations, structural design, and steel fabrication to cladding, MEP utility piping, flooring, and final handover. With a single point of accountability, we ensure that your manufacturing plant, process building, or industrial shed is delivered on time, within budget, and ready for immediate operation.",
     benefits: [
-      "100% leak-proof design featuring entirely concealed fastening clips",
-      "Allows for thermal expansion and contraction without damaging panels",
-      "Exceptional resistance against severe wind uplift and torrential rain",
-      "Aesthetically pleasing, continuous clean lines for modern facilities",
-      "Incredibly long lifespan with virtually zero ongoing maintenance required"
+      "Single-point contract management for civil, structural, MEP, and architecture",
+      "Smooth coordination between foundation civil engineering and steel erection",
+      "Expert integration of heavy gantry cranes, machinery foundations, and utility lines",
+      "Optimized construction schedules saving months of project coordination",
+      "Strict safety systems and quality audits throughout the project timeline"
     ],
-    image: "https://images.unsplash.com/photo-1508209867540-02bd9456dcce?q=80&w=2070&auto=format&fit=crop"
-  },
-  {
-    id: "8",
-    slug: "puf-rockwool-panels",
-    title: "PUF & Rockwool Panels",
-    shortDescription: "High-performance insulated sandwich panels for superior thermal and acoustic regulation.",
-    overview: "Structonix supplies and installs premium PUF (Polyurethane Foam) and Rockwool Sandwich Panels to ensure critical thermal and acoustic insulation. Our composite panels consist of high-density insulating cores sandwiched between galvanized steel profiles. These are essential for temperature-controlled environments such as cold storage rooms, pharmaceutical cleanrooms, food processing units, and sound-proofed auditoriums. The Rockwool variant specifically offers unparalleled fire retardancy, adding a critical layer of safety while aggressively driving down HVAC energy consumption across the facility.",
-    benefits: [
-      "Drastically reduces HVAC energy consumption via superior thermal insulation",
-      "Rockwool cores provide excellent fire-resistance ratings (up to 4 hours)",
-      "High acoustic dampening for noisy industrial or testing environments",
-      "Quick and joint-less installation ensuring highly hygienic surfaces",
-      "Lightweight yet possessing high structural rigidity and load-bearing capacity"
-    ],
-    image: "https://images.unsplash.com/photo-1587204910398-75b25bedceb9?q=80&w=1964&auto=format&fit=crop"
-  },
-  {
-    id: "9",
-    slug: "peb-building-accessories",
-    title: "PEB Building Accessories",
-    shortDescription: "Comprehensive trims, gutters, ventilators, and translucent sheets to complete your structure.",
-    overview: "A Pre-Engineered Building is only as effective as the components that finish it. We offer a comprehensive suite of high-quality PEB Building Accessories designed to perfectly integrate with your main structure. From aerodynamically efficient turbo ventilators and ridge monitors that ensure passive airflow, to polycarbonate sky-lighting sheets that invite natural sunlight, our accessories optimize building performance. We also manufacture precision-formed flashings, heavy-duty eave gutters, downspouts, and automated louvers, ensuring your building is fully functional, weather-tight, and visually complete.",
-    benefits: [
-      "Precision-engineered flashings and trims for 100% weather-tight sealing",
-      "Turbo ventilators and ridge exhaust systems for zero-energy cooling",
-      "High-transmission polycarbonate skylights reducing daytime lighting costs",
-      "Heavy-duty customized guttering systems for rapid rainwater drainage",
-      "Seamless aesthetic integration with the main PEB exterior"
-    ],
-    image: "https://images.unsplash.com/photo-1621647959074-ce440dcb2bba?q=80&w=2070&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop",
+    technicalSpecs: {
+      "Execution Scope": "Engineering, Procurement, Civil Construction, Steel Erection, MEP",
+      "Civil Integration": "Heavy machine foundations, pile/raft footings, industrial flooring",
+      "Utility Support": "Compressed air piping, electrical trays, chemical drainages",
+      "Project Management": "MS Project/Primavera scheduling, dedicated QA/QC managers",
+      "Regulatory Approvals": "MIDC, fire safety, factory inspectorate compliance documentation support"
+    },
+    faqs: [
+      {
+        question: "What does turnkey industrial project management include?",
+        answer: "Our turnkey service covers the entire life of the project: design/engineering, site grading, pile foundations, steel frame fabrication and erection, roofing, wall sheeting, industrial flooring, electrical systems, and plumbing, delivering a ready-to-use factory."
+      },
+      {
+        question: "How do you coordinate civil foundations with structural steel frames?",
+        answer: "Since our in-house engineering team designs both the civil foundations and the steel structure, we verify every anchor bolt position and foundation load early on, eliminating fitment errors on site."
+      }
+    ]
   }
 ];

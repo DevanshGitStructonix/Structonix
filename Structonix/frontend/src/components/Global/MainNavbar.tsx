@@ -48,15 +48,13 @@ export function MainNavbar() {
             name: 'Services',
             href: '/services',
             subItems: [
-                { name: 'Pre Engineered Building Systems', href: '/services/pre-engineered-building-systems' },
-                { name: 'Prefabricated Steel Structures', href: '/services/prefabricated-steel-structures' },
-                { name: 'Heavy Structural Fabrication', href: '/services/heavy-structural-fabrication' },
-                { name: 'Turnkey Contractors for PEB', href: '/services/turnkey-contractors-for-peb' },
-                { name: 'Multi Storey Steel Buildings', href: '/services/multi-storey-steel-buildings' },
-                { name: 'Industrial Buildings', href: '/services/industrial-buildings' },
-                { name: 'Standing Seam Roofing Systems', href: '/services/standing-seam-roofing-systems' },
-                { name: 'PUF & Rockwool Panels', href: '/services/puf-rockwool-panels' },
-                { name: 'PEB Building Accessories', href: '/services/peb-building-accessories' }
+                { name: 'Design & Engineering', href: '/services/design-engineering' },
+                { name: 'Warehousing', href: '/services/warehousing' },
+                { name: 'Primary Steel Structure Manufacturing', href: '/services/primary-steel-structure-manufacturing' },
+                { name: 'Secondary Steel Structure Manufacturing', href: '/services/secondary-steel-structure-manufacturing' },
+                { name: 'Roofing and Cladding Systems', href: '/services/roofing-and-cladding-systems' },
+                { name: 'C/Z Purlin and Downspout Pipe', href: '/services/cz-purlin-and-downspout-pipe' },
+                { name: 'Turnkey Industrial Projects', href: '/services/turnkey-industrial-projects' }
             ]
         },
         { name: 'Our Clients', href: '/clients' }
@@ -135,20 +133,20 @@ export function MainNavbar() {
                                                         animate={{ opacity: 1, y: 0, scale: 1 }}
                                                         exit={{ opacity: 0, y: 10, scale: 0.98 }}
                                                         transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                                                        className="absolute left-1/2 -translate-x-1/2 w-[85vw] max-w-5xl bg-dark-navy backdrop-blur-md shadow-2xl border border-white/10 rounded-2xl z-50 overflow-hidden top-full mt-1"
+                                                        className="absolute left-1/2 -translate-x-1/2 w-[90vw] max-w-6xl bg-dark-navy backdrop-blur-md shadow-2xl border border-white/10 rounded-2xl z-50 overflow-hidden top-full mt-1"
                                                     >
                                                         <div className="flex">
-                                                            {/* Left: Title & Desc (30%) */}
-                                                            <div className="w-[30%] py-10 px-8 bg-white/[0.02] border-r border-white/10 flex flex-col justify-center">
+                                                            {/* Left: Title & Desc (22%) */}
+                                                            <div className="w-[22%] py-10 px-6 bg-white/[0.02] border-r border-white/10 flex flex-col justify-center">
                                                                 <h3 className="text-lg font-bold text-white mb-3 uppercase tracking-wider">{link.name}</h3>
                                                                 <p className="text-xs text-white/60 leading-relaxed font-medium">
                                                                     Discover our wide range of innovative and durable PEB products, from prefabricated structures to turnkey solutions.
                                                                 </p>
                                                             </div>
 
-                                                            {/* Middle: Links Grid (45%) */}
-                                                            <div className="w-[45%] py-10 px-10">
-                                                                <div className="grid grid-cols-2 gap-y-6 gap-x-6">
+                                                            {/* Middle: Links Grid (58%) */}
+                                                            <div className="w-[58%] py-10 px-8">
+                                                                <div className="grid grid-cols-2 gap-y-6 gap-x-8">
                                                                     {link.subItems.map((subItem) => (
                                                                         <Link
                                                                             key={subItem.name}
@@ -156,7 +154,7 @@ export function MainNavbar() {
                                                                             className="flex items-center gap-2 group/sublink"
                                                                         >
                                                                             <ArrowRight className="w-3.5 h-3.5 text-white/30 group-hover/sublink:text-primary shrink-0 transition-colors" />
-                                                                            <span className="text-xs font-bold text-white/80 group-hover/sublink:text-primary transition-colors leading-tight uppercase tracking-wider">
+                                                                            <span className="text-xs font-bold text-white/80 group-hover/sublink:text-primary transition-colors leading-normal uppercase tracking-wider">
                                                                                 {subItem.name}
                                                                             </span>
                                                                         </Link>
@@ -164,8 +162,8 @@ export function MainNavbar() {
                                                                 </div>
                                                             </div>
 
-                                                            {/* Right: Featured Image (25%) */}
-                                                            <div className="w-[25%] p-6 flex items-center justify-center">
+                                                            {/* Right: Featured Image (20%) */}
+                                                            <div className="w-[20%] p-6 flex items-center justify-center">
                                                                 <div className="w-full h-full min-h-[160px] rounded-xl overflow-hidden relative shadow-sm">
                                                                     <Image
                                                                         src="https://res.cloudinary.com/dpctlwaam/image/upload/v1785704882/Primary-Steel-Structure_xa68xr.gif"
