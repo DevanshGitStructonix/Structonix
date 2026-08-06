@@ -3,7 +3,6 @@ import { AboutSecondaryNav } from "@/components/Content/AboutusComponents/AboutS
 import { WhoWeAre } from "@/components/Content/AboutusComponents/WhoWeAre";
 import { MissionVision } from "@/components/Content/AboutusComponents/MissionVision";
 import { StructonixTextMask } from "@/components/Content/AboutusComponents/StructonixTextMask";
-import { HowWeWork } from "@/components/Content/AboutusComponents/HowWeWork";
 import { KeyStrengths } from "@/components/Content/AboutusComponents/KeyStrengths";
 import { HomepagePartners } from "@/components/Content/HomepagePartners";
 
@@ -15,7 +14,6 @@ export default function AboutPage() {
             <WhoWeAre />
             <MissionVision />
             <StructonixTextMask />
-            <HowWeWork />
             <KeyStrengths />
             <HomepagePartners />
         </div>

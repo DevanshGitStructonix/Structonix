@@ -86,7 +86,7 @@ export function MainNavbar() {
                         <div className="flex items-center justify-between h-full">
                             {/* Left: Logo */}
                             <div className="flex items-center gap-2">
-                                <Link href="/" className="flex items-center gap-2 group relative w-44 h-20 sm:w-52 sm:h-14 md:w-64 md:h-18 lg:w-80 lg:h-18">
+                                <Link href="/" className="flex items-center gap-2 group relative w-28 h-10 sm:w-40 sm:h-12 md:w-56 md:h-14 lg:w-72 lg:h-16">
                                     <Image src="/images/structonix-logo-white.png" alt="Structonix Logo" fill className="object-contain object-left" />
                                 </Link>
                             </div>

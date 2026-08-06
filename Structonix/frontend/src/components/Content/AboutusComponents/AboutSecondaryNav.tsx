@@ -8,7 +8,6 @@ export function AboutSecondaryNav() {
   const navItems = [
     { label: 'Who We Are', href: '#who-we-are' },
     { label: 'Mission & Vision', href: '#mission-vision' },
-    { label: 'How We Work', href: '#how-we-work' },
     { label: 'Key Strengths', href: '#key-strengths' },
   ];
  
@@ -17,13 +16,10 @@ export function AboutSecondaryNav() {
       const scrollPos = window.scrollY + 180;
       const whoWeAre = document.getElementById('who-we-are');
       const missionVision = document.getElementById('mission-vision');
-      const howWeWork = document.getElementById('how-we-work');
       const keyStrengths = document.getElementById('key-strengths');
  
       if (keyStrengths && scrollPos >= keyStrengths.offsetTop) {
         setActiveSection('key-strengths');
-      } else if (howWeWork && scrollPos >= howWeWork.offsetTop) {
-        setActiveSection('how-we-work');
       } else if (missionVision && scrollPos >= missionVision.offsetTop) {
         setActiveSection('mission-vision');
       } else if (whoWeAre && scrollPos >= whoWeAre.offsetTop) {
