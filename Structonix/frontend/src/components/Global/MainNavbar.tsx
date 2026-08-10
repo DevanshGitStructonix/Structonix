@@ -16,6 +16,7 @@ export function MainNavbar() {
     const [openMobileMenu, setOpenMobileMenu] = useState<string | null>(null);
     const [hoveredLink, setHoveredLink] = useState<string | null>(null);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const [hoveredSubItemImage, setHoveredSubItemImage] = useState<string | null>(null);
 
     const toggleMobileMenu = (name: string) => {
         setOpenMobileMenu(openMobileMenu === name ? null : name);
@@ -30,7 +31,19 @@ export function MainNavbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const navLinks = [
+    interface SubItem {
+        name: string;
+        href: string;
+        image?: string;
+    }
+
+    interface NavLink {
+        name: string;
+        href: string;
+        subItems?: SubItem[];
+    }
+
+    const navLinks: NavLink[] = [
         { name: 'Home', href: '/' },
         {
             name: 'About',
@@ -47,13 +60,13 @@ export function MainNavbar() {
             name: 'Services',
             href: '/services',
             subItems: [
-                { name: 'Design & Engineering', href: '/services/design-engineering' },
-                { name: 'Warehousing', href: '/services/warehousing' },
-                { name: 'Primary Steel Structure Manufacturing', href: '/services/primary-steel-structure-manufacturing' },
-                { name: 'Secondary Steel Structure Manufacturing', href: '/services/secondary-steel-structure-manufacturing' },
-                { name: 'Roofing and Cladding Systems', href: '/services/roofing-and-cladding-systems' },
-                { name: 'C/Z Purlin and Downspout Pipe', href: '/services/cz-purlin-and-downspout-pipe' },
-                { name: 'Turnkey Industrial Projects', href: '/services/turnkey-industrial-projects' }
+                { name: 'Design & Engineering', href: '/services/design-engineering', image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2070&auto=format&fit=crop' },
+                { name: 'Warehousing', href: '/services/warehousing', image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop' },
+                { name: 'Primary Steel Structure Manufacturing', href: '/services/primary-steel-structure-manufacturing', image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704882/Primary-Steel-Structure_xa68xr.gif' },
+                { name: 'Secondary Steel Structure Manufacturing', href: '/services/secondary-steel-structure-manufacturing', image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp' },
+                { name: 'Roofing and Cladding Systems', href: '/services/roofing-and-cladding-systems', image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704406/images_utytsf.webp' },
+                { name: 'C/Z Purlin and Downspout Pipe', href: '/services/cz-purlin-and-downspout-pipe', image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704405/images_1_vzi3kh.webp' },
+                { name: 'Turnkey Industrial Projects', href: '/services/turnkey-industrial-projects', image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786395394/DJI_0513_fg1lw1.jpg' }
             ]
         },
         { name: 'Our Clients', href: '/clients' }
@@ -119,7 +132,10 @@ export function MainNavbar() {
                                         key={link.name}
                                         className="group h-full flex items-center relative"
                                         onMouseEnter={() => setActiveDropdown(link.name)}
-                                        onMouseLeave={() => setActiveDropdown(null)}
+                                        onMouseLeave={() => {
+                                            setActiveDropdown(null);
+                                            setHoveredSubItemImage(null);
+                                        }}
                                     >
                                         <Link
                                             href={link.href}
@@ -168,13 +184,18 @@ export function MainNavbar() {
                                                             </div>
 
                                                             {/* Middle: Links Grid (58%) */}
-                                                            <div className="w-[58%] py-10 px-8">
+                                                            <div className="w-[58%] py-10 px-8" onMouseLeave={() => setHoveredSubItemImage(null)}>
                                                                 <div className="grid grid-cols-2 gap-y-6 gap-x-8">
                                                                     {link.subItems.map((subItem) => (
                                                                         <Link
                                                                             key={subItem.name}
                                                                             href={subItem.href}
                                                                             className="flex items-center gap-2 group/sublink"
+                                                                            onMouseEnter={() => {
+                                                                                if (subItem.image) {
+                                                                                    setHoveredSubItemImage(subItem.image);
+                                                                                }
+                                                                            }}
                                                                         >
                                                                             <ArrowRight className="w-3.5 h-3.5 text-white/30 group-hover/sublink:text-primary shrink-0 transition-colors" />
                                                                             <span className="text-xs font-bold text-white/80 group-hover/sublink:text-primary transition-colors leading-normal uppercase tracking-wider">
@@ -189,11 +210,12 @@ export function MainNavbar() {
                                                             <div className="w-[20%] p-6 flex items-center justify-center">
                                                                 <div className="w-full h-full min-h-[160px] rounded-xl overflow-hidden relative shadow-sm">
                                                                     <Image
-                                                                        src="https://res.cloudinary.com/dpctlwaam/image/upload/v1785704882/Primary-Steel-Structure_xa68xr.gif"
+                                                                        src={hoveredSubItemImage || "https://res.cloudinary.com/dpctlwaam/image/upload/v1785704882/Primary-Steel-Structure_xa68xr.gif"}
                                                                         alt="Featured Service"
                                                                         fill
                                                                         className="absolute inset-0 object-cover hover:scale-105 transition-transform duration-700"
                                                                         sizes="(max-width: 768px) 100vw, 25vw"
+                                                                        unoptimized={hoveredSubItemImage ? hoveredSubItemImage.endsWith('.gif') : true}
                                                                     />
                                                                 </div>
                                                             </div>

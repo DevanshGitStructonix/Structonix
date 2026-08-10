@@ -16,7 +16,7 @@ export function WhatsAppButton() {
             transition={{ delay: 1, duration: 0.5 }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="fixed bottom-20 right-8 z-[999] bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center cursor-pointer group"
+            className="fixed bottom-20 md:bottom-28 right-8 z-[999] bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center cursor-pointer group"
             aria-label="Chat on WhatsApp"
         >
             {/* Pulsing ring animation */}

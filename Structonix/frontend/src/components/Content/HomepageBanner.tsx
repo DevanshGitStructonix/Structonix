@@ -13,6 +13,17 @@ import 'slick-carousel/slick/slick-theme.css';
 const slides = [
     {
         id: 1,
+        image: 'https://res.cloudinary.com/dpctlwaam/video/upload/v1786398131/DJI_0471_2_1_qdgdxi.mp4',
+        subtitle: 'Pre-Engineered Buildings',
+        title: 'Pre-Engineered Building',
+        highlight: 'Pioneers',
+        titleEnd: ' & Heavy Fabrication',
+        description: 'Designing, fabricating, and executing high-tensile steel structures, warehouses, and turnkey industrial spaces built to last.',
+        cta: 'Explore Solutions',
+        link: '/services'
+    },
+    {
+        id: 2,
         image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785699707/DJI_0516_ckoi6s.webp',
         subtitle: 'Production & Logistics',
         title: 'Special Industrial',
@@ -23,7 +34,7 @@ const slides = [
         link: '/services'
     },
     {
-        id: 2,
+        id: 3,
         image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785699778/DJI_0534_lejaf3.webp',
         subtitle: 'Engineering Excellence',
         title: 'Innovative Engineering',
@@ -34,7 +45,7 @@ const slides = [
         link: '/projects'
     },
     {
-        id: 3,
+        id: 4,
         image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785699777/DJI_0542_psoyfg.webp',
         subtitle: 'Modern Industry',
         title: 'Sustainable',
@@ -45,7 +56,7 @@ const slides = [
         link: '/contact'
     },
     {
-        id: 4,
+        id: 5,
         image: 'https://res.cloudinary.com/dpctlwaam/video/upload/v1785701188/NAIK7897_1_tqkjnv.mp4',
         subtitle: 'Comprehensive Services',
         title: 'Engineering & Manufacturing',
@@ -88,12 +99,23 @@ export function HomepageBanner() {
             <section className="relative w-full h-screen min-h-[550px] sm:min-h-[650px] overflow-hidden bg-[#0A0A0A]">
                 <div className="relative w-full h-screen min-h-[550px] sm:min-h-[650px] outline-none">
                     <div className="absolute inset-0 overflow-hidden">
-                        <div
-                            className="absolute inset-0 bg-cover bg-center w-full h-full"
-                            style={{
-                                backgroundImage: `url(${firstSlide.image})`
-                            }}
-                        />
+                        {firstSlide.image.endsWith('.mp4') || firstSlide.image.includes('/video/') ? (
+                            <video
+                                src={firstSlide.image}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className="absolute inset-0 w-full h-full object-cover"
+                            />
+                        ) : (
+                            <div
+                                className="absolute inset-0 bg-cover bg-center w-full h-full"
+                                style={{
+                                    backgroundImage: `url(${firstSlide.image})`
+                                }}
+                            />
+                        )}
                         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent z-10"></div>
                     </div>
                     <div className="relative z-10 h-full container mx-auto px-6 lg:px-16 flex items-center">
@@ -163,6 +185,11 @@ export function HomepageBanner() {
                             {slide.image.endsWith('.mp4') || slide.image.includes('/video/') ? (
                                 <video
                                     src={slide.image}
+                                    ref={(el) => {
+                                        if (el && slide.id === 1) {
+                                            el.playbackRate = 1.25;
+                                        }
+                                    }}
                                     autoPlay
                                     loop
                                     muted

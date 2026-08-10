@@ -165,7 +165,7 @@ export function HomepageServices() {
                 </div>
 
                 {/* --- TABS SECTION --- */}
-                <div className="flex flex-col lg:flex-row gap-8 mb-32">
+                <div className="flex flex-col lg:flex-row gap-8 mb-32 items-stretch">
 
                     {/* Sidebar Tabs */}
                     <div className="w-full lg:w-1/4 flex flex-col gap-2">
@@ -186,7 +186,7 @@ export function HomepageServices() {
                     </div>
 
                     {/* Content Area */}
-                    <div className="w-full lg:w-3/4 flex flex-col md:flex-row gap-8 lg:gap-16">
+                    <div className="w-full lg:w-3/4 flex flex-col md:flex-row gap-8 lg:gap-16 items-stretch">
                         {/* Image */}
                         <motion.div
                             key={`img-${activeTab}`}
@@ -194,7 +194,7 @@ export function HomepageServices() {
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: 20 }}
                             transition={{ duration: 0.4 }}
-                            className="w-full md:w-1/2 h-[300px] md:h-[450px] relative rounded-sm overflow-hidden"
+                            className="w-full md:w-1/2 min-h-[300px] md:min-h-[450px] md:h-auto relative rounded-sm overflow-hidden self-stretch"
                         >
                             <div className="absolute top-0 right-0 w-24 h-24 bg-primary transform translate-x-12 -translate-y-12 rotate-45 z-10 hidden md:block"></div>
                             <Image
