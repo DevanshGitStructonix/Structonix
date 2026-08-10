@@ -45,19 +45,19 @@ export function Footer() {
                             <Image src="/images/structonix-logo-white.png" alt="Structonix Logo" fill className="object-contain object-left" />
                         </div>
 
-                        <p className="text-white/60 font-semibold tracking-wider text-xs uppercase max-w-xs font-secondary">
+                        <p className="text-white/60 font-semibold tracking-wider text-sm uppercase max-w-xs font-secondary">
                             Engineering tomorrow’s <span className="text-primary">Horizon</span>
                         </p>
 
-                        {/* "since 1980" - Smaller Outline Text Style */}
+                        {/* "since 2016" - Smaller Outline Text Style */}
                         <h3
                             className="text-3xl font-bold text-transparent"
                             style={{ WebkitTextStroke: '1px var(--color-primary)' }}
                         >
-                            since 1980
+                            since 2016
                         </h3>
 
-                        <p className="text-gray-500 text-xs mt-6">
+                        <p className="text-gray-500 text-sm mt-6">
                             © 2026 Structonix. All Rights Reserved.
                         </p>
                     </div>
@@ -65,10 +65,10 @@ export function Footer() {
                     {/* Col 2: Location & Socials */}
                     <div className="space-y-6">
                         <div>
-                            <h4 className="text-white font-bold text-base mb-3">New York</h4>
-                            <p className="text-gray-400 text-xs leading-relaxed">
-                                523 Sylvan Ave, 5th Floor<br />
-                                Mountain View, CA 94041 USA
+                            <h4 className="text-white font-bold text-base mb-3">Mumbai</h4>
+                            <p className="text-gray-400 text-sm leading-relaxed">
+                                Fut 445/446/447, At post Dinkarpada,<br />
+                                Pratibha Colony, Wada, Palghar, 421312
                             </p>
                         </div>
 
@@ -87,16 +87,16 @@ export function Footer() {
                     <div className="space-y-6">
                         <div>
                             <h4 className="text-white font-bold text-base mb-3">Phone</h4>
-                            <div className="text-gray-400 text-xs space-y-1">
-                                <p className="text-primary">+1 234 719 8948</p>
-                                <p>+1 987 654 3210</p>
+                            <div className="text-gray-400 text-sm space-y-1">
+                                <p className="text-primary">+91 99130 56994</p>
+                                <p>+91 97267 67331</p>
                             </div>
                         </div>
 
                         <div>
                             <h4 className="text-white font-bold text-base mb-3">Email</h4>
-                            <p className="text-gray-400 text-xs mb-1">Interested in working with us?</p>
-                            <a href="mailto:info@structonix.com" className="text-primary text-xs hover:underline">
+                            <p className="text-gray-400 text-sm mb-1">Interested in working with us?</p>
+                            <a href="mailto:info@structonix.com" className="text-primary text-sm hover:underline">
                                 info@structonix.com
                             </a>
                         </div>
@@ -111,13 +111,13 @@ export function Footer() {
                                 <li><FooterLink href="/about">About Us</FooterLink></li>
                                 <li><FooterLink href="/services">Services</FooterLink></li>
                                 <li><FooterLink href="/projects">Our Projects</FooterLink></li>
-                                <li><FooterLink href="/products">Products</FooterLink></li>
+                                <li><FooterLink href="/clients">Our Clients</FooterLink></li>
                             </ul>
                             <ul className="space-y-2">
-                                <li><FooterLink href="/careers">Careers</FooterLink></li>
-                                <li><FooterLink href="/team">Team</FooterLink></li>
-                                <li><FooterLink href="/blog">Blog</FooterLink></li>
-                                <li><FooterLink href="/contact">Contacts</FooterLink></li>
+                                <li><FooterLink href="/machines">Machines</FooterLink></li>
+                                <li><FooterLink href="/contact">Contact Us</FooterLink></li>
+                                <li><FooterLink href="/privacy-policy">Privacy Policy</FooterLink></li>
+                                <li><FooterLink href="/terms-of-service">Terms of Service</FooterLink></li>
                             </ul>
                         </div>
                     </div>
@@ -141,7 +141,7 @@ function SocialIcon({ icon, href }: { icon: React.ReactNode, href: string }) {
 
 function FooterLink({ href, children }: { href: string, children: React.ReactNode }) {
     return (
-        <Link href={href} className="text-gray-400 text-xs hover:text-primary transition-colors duration-200 block">
+        <Link href={href} className="text-gray-400 text-sm hover:text-primary transition-colors duration-200 block">
             {children}
         </Link>
     )

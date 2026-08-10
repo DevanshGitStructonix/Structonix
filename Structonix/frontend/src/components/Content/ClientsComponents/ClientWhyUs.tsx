@@ -37,7 +37,7 @@ const stats = [
 const pillars = [
     {
         title: 'Concurrent Engineering Model',
-        description: 'Our 50+ in-house estimation, design, and detail engineers work in tandem with manufacturing teams to reduce overall project lead times by up to 30% without sacrificing design margins.'
+        description: 'Our 25+ in-house estimation, design, and detail engineers work in tandem with manufacturing teams to reduce overall project lead times by up to 30% without sacrificing design margins.'
     },
     {
         title: 'Rigorous Quality Gates',

@@ -142,7 +142,7 @@ export const projectsData: ProjectSpec[] = [
         kgPerSqft: 40.39,
         location: 'Nichole, Wada',
         status: 'Handovered',
-        image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop'
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp'
     },
     {
         id: '11',
@@ -206,7 +206,7 @@ export const projectsData: ProjectSpec[] = [
         kgPerSqft: undefined,
         location: 'Vadpe, Bhiwandi',
         status: 'Handovered',
-        image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop'
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp'
     },
     {
         id: '17',
@@ -302,7 +302,7 @@ export const projectsData: ProjectSpec[] = [
         kgPerSqft: undefined,
         location: 'RK Logi Yewai Naka',
         status: 'Handovered',
-        image: 'https://images.unsplash.com/photo-1553413719-8758737db7c2?q=80&w=800&auto=format&fit=crop'
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp'
     },
     {
         id: '25',
@@ -318,7 +318,7 @@ export const projectsData: ProjectSpec[] = [
         kgPerSqft: 3.80,
         location: 'Pali Phata, Wada',
         status: 'Erection',
-        image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop'
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp'
     },
     {
         id: '26',
@@ -430,7 +430,7 @@ export const projectsData: ProjectSpec[] = [
         kgPerSqft: 0.00,
         location: 'Abitghar, Wada',
         status: 'Handovered + Lean too in progress',
-        image: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=800&auto=format&fit=crop'
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp'
     },
     {
         id: '38',
@@ -446,7 +446,7 @@ export const projectsData: ProjectSpec[] = [
         kgPerSqft: 5.53,
         location: 'Bhiwandi',
         status: 'At Handover',
-        image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=800&auto=format&fit=crop'
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp'
     },
     {
         id: '39',
@@ -462,7 +462,7 @@ export const projectsData: ProjectSpec[] = [
         kgPerSqft: 8.47,
         location: 'Navapur, Nandurbar',
         status: 'Anchor Bolting',
-        image: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=800&auto=format&fit=crop'
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp'
     },
     {
         id: '42',
@@ -478,7 +478,7 @@ export const projectsData: ProjectSpec[] = [
         kgPerSqft: 3.39,
         location: 'Ahmedabad, Gujarat',
         status: 'Handovered',
-        image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800&auto=format&fit=crop'
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp'
     },
     {
         id: '43',
@@ -510,7 +510,7 @@ export const projectsData: ProjectSpec[] = [
         kgPerSqft: 3.28,
         location: 'Sawad Naka, Bhiwandi',
         status: 'GA in Progress',
-        image: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?q=80&w=800&auto=format&fit=crop'
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp'
     },
     {
         id: '46',
@@ -526,7 +526,7 @@ export const projectsData: ProjectSpec[] = [
         kgPerSqft: 3.47,
         location: 'Sawad Naka, Bhiwandi',
         status: 'Anchor Bolting',
-        image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop'
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp'
     },
     {
         id: '47',
@@ -542,7 +542,7 @@ export const projectsData: ProjectSpec[] = [
         kgPerSqft: 8.18,
         location: 'Wada',
         status: 'Erection',
-        image: 'https://images.unsplash.com/photo-1581091870627-ce440dcb2bba?q=80&w=800&auto=format&fit=crop'
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp'
     },
     {
         id: '49',
@@ -590,7 +590,7 @@ export const projectsData: ProjectSpec[] = [
         kgPerSqft: 3.13,
         location: 'Bhiwandi',
         status: 'Civil in Progress',
-        image: 'https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=800&auto=format&fit=crop'
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp'
     },
     {
         id: '54',
@@ -606,7 +606,7 @@ export const projectsData: ProjectSpec[] = [
         kgPerSqft: 3.24,
         location: 'Sawad Naka, Bhiwandi',
         status: 'GA in Progress',
-        image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop'
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp'
     },
     {
         id: '55b',
@@ -622,7 +622,7 @@ export const projectsData: ProjectSpec[] = [
         kgPerSqft: 50.71,
         location: 'Worli, Mumbai',
         status: 'Anchor Bolting',
-        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop'
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp'
     },
     {
         id: '56',
@@ -638,6 +638,6 @@ export const projectsData: ProjectSpec[] = [
         kgPerSqft: 67.74,
         location: 'Kalyan East',
         status: 'Anchor Bolting',
-        image: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?q=80&w=800&auto=format&fit=crop'
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp'
     }
 ];

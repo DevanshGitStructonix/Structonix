@@ -5,21 +5,28 @@ import Image from 'next/image';
 
 // Expanded mock data for the grid
 const partners = [
-    { id: 1, name: 'Tata Group', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Tata_logo.svg/330px-Tata_logo.svg.png' },
-    { id: 2, name: 'Aditya Birla Group', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/75/Aditya_Birla_Group_Logo.svg/500px-Aditya_Birla_Group_Logo.svg.png' },
-    { id: 3, name: 'Adani Group', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Adani_logo_2012.svg/500px-Adani_logo_2012.svg.png' },
-    { id: 4, name: 'Reliance Industries', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/0/0e/Reliance_Industries.svg/500px-Reliance_Industries.svg.png' },
-    { id: 5, name: 'Mahindra Group', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Mahindra_logo.svg/500px-Mahindra_logo.svg.png' },
-    { id: 6, name: 'Larsen & Toubro', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a1/Larsen%26Toubro_logo.svg/330px-Larsen%26Toubro_logo.svg.png' },
-    { id: 7, name: 'JSW Group', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/JSW_Group_logo.svg/500px-JSW_Group_logo.svg.png' },
-    { id: 8, name: 'Godrej Group', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/1/1d/Godrej_Enterprises_Group.svg/500px-Godrej_Enterprises_Group.svg.png' },
-    { id: 9, name: 'Siemens', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Siemens-logo.svg/500px-Siemens-logo.svg.png' },
-    { id: 10, name: 'Bosch', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Bosch-logo.svg/500px-Bosch-logo.svg.png' },
-    { id: 11, name: 'General Electric', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/General_Electric_logo.svg/500px-General_Electric_logo.svg.png' },
-    { id: 12, name: 'ABB', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/ABB_logo.svg/500px-ABB_logo.svg.png' },
-    { id: 13, name: 'Caterpillar', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Caterpillar_logo.svg/500px-Caterpillar_logo.svg.png' },
-    { id: 14, name: 'Komatsu', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Komatsu_company_logos.svg/500px-Komatsu_company_logos.svg.png' },
-    { id: 15, name: 'Hitachi', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Hitachi_2025_logo.svg/500px-Hitachi_2025_logo.svg.png' },
+    { id: 1, name: 'Client 1', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786396762/Screenshot_2026-08-11_at_2.48.42_AM_xsgx0y.png' },
+    { id: 2, name: 'Client 2', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786396761/Screenshot_2026-08-11_at_2.48.35_AM_ngrksf.png' },
+    { id: 3, name: 'Client 3', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786396761/Screenshot_2026-08-11_at_2.48.26_AM_aw8twu.png' },
+    { id: 4, name: 'Client 4', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786396760/Screenshot_2026-08-11_at_2.48.17_AM_zohg0q.png' },
+    { id: 5, name: 'Client 5', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786396759/Screenshot_2026-08-11_at_2.48.07_AM_t5hwxs.png' },
+    { id: 6, name: 'Client 6', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786396758/Screenshot_2026-08-11_at_2.47.57_AM_sinycc.png' },
+    { id: 7, name: 'Client 7', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786396758/Screenshot_2026-08-11_at_2.47.48_AM_fzhah4.png' },
+    { id: 8, name: 'Client 8', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786396758/Screenshot_2026-08-11_at_2.47.41_AM_ggimrs.png' },
+    { id: 9, name: 'Client 9', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786397038/Screenshot_2026-08-11_at_2.53.26_AM_jignvh.png' },
+    { id: 10, name: 'Client 10', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786396756/Screenshot_2026-08-11_at_2.47.00_AM_rp83pw.png' },
+    { id: 11, name: 'Client 11', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786396756/Screenshot_2026-08-11_at_2.47.09_AM_s3ke7q.png' },
+    { id: 12, name: 'Client 12', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786396756/Screenshot_2026-08-11_at_2.47.23_AM_ltvnqw.png' },
+    { id: 13, name: 'Client 13', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786396754/Screenshot_2026-08-11_at_2.46.49_AM_rskayx.png' },
+    { id: 14, name: 'Client 14', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786396754/Screenshot_2026-08-11_at_2.46.41_AM_znpsce.png' },
+    { id: 15, name: 'Client 15', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786396753/Screenshot_2026-08-11_at_2.46.30_AM_vktemt.png' },
+    { id: 16, name: 'Client 16', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786396753/Screenshot_2026-08-11_at_2.45.51_AM_wopggw.png' },
+    { id: 17, name: 'Client 17', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786396753/Screenshot_2026-08-11_at_2.46.17_AM_fb0c56.png' },
+    { id: 18, name: 'Torrent Pharma', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785873910/Torrent-Pharma-logo_x9rul9.png' },
+    { id: 19, name: 'Client 19', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785873907/logo_hdoaoi.png' },
+    { id: 20, name: 'Keystone', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785873905/key-white_ib3slc.png' },
+    { id: 21, name: 'Birla Estates', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785873901/birla-estates_oyrkr3.svg' },
+    { id: 22, name: 'Client 22', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785873901/images_1_sarzap.jpg' }
 ];
 
 export function HomepagePartners() {
@@ -67,7 +74,7 @@ export function HomepagePartners() {
 
                             <div className="grid grid-cols-2 gap-y-8 gap-x-4 md:flex md:flex-row md:items-center md:gap-16 pt-6 border-t border-gray-200 w-full">
                                 <div className="col-span-1">
-                                    <span className="block text-4xl md:text-5xl font-bold text-dark-slate mb-1">50<span className="text-primary">+</span></span>
+                                    <span className="block text-4xl md:text-5xl font-bold text-dark-slate mb-1">25<span className="text-primary">+</span></span>
                                     <span className="text-xs md:text-sm text-gray-500 font-bold uppercase tracking-widest">Global Brands</span>
                                 </div>
                                 <div className="hidden md:block w-px h-12 bg-gray-200"></div>
@@ -77,7 +84,7 @@ export function HomepagePartners() {
                                 </div>
                                 <div className="hidden md:block w-px h-12 bg-gray-200"></div>
                                 <div className="col-span-2 md:col-span-1 md:block">
-                                    <span className="block text-4xl md:text-5xl font-bold text-dark-slate mb-1">20<span className="text-primary">+</span></span>
+                                    <span className="block text-4xl md:text-5xl font-bold text-dark-slate mb-1">10<span className="text-primary">+</span></span>
                                     <span className="text-xs md:text-sm text-gray-500 font-bold uppercase tracking-widest">Years Trust</span>
                                 </div>
                             </div>

@@ -24,7 +24,7 @@ export const servicesData: ServiceDetail[] = [
       "High-speed generation of accurate shop drawings and bill of materials (BOM)",
       "Comprehensive structural analysis and load testing under extreme conditions"
     ],
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2070&auto=format&fit=crop",
     technicalSpecs: {
       "Modeling Software": "Tekla Structures, AutoCAD, STAAD.Pro",
       "Design Standard Codes": "IS 800:2007, AISC 360, MBMA 2010",
@@ -56,7 +56,7 @@ export const servicesData: ServiceDetail[] = [
       "Rigorous Non-Destructive Testing (NDT) including Ultrasonic and Dye Penetrant testing",
       "High-performance anti-corrosive primer and finish paint systems"
     ],
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop",
+    image: "https://res.cloudinary.com/dpctlwaam/image/upload/v1785704882/Primary-Steel-Structure_xa68xr.gif",
     technicalSpecs: {
       "Material Grade": "IS 2062 E250 / E350 BR/BO, ASTM A572 Grade 50",
       "Welding Standards": "AWS D1.1 / ASNT Level II certified welders",
@@ -88,7 +88,7 @@ export const servicesData: ServiceDetail[] = [
       "Lightweight yet structurally strong profiles to handle roof loads",
       "Rapid delivery of complete accessories including bracings, sag rods, and clips"
     ],
-    image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=2070&auto=format&fit=crop",
+    image: "https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp",
     technicalSpecs: {
       "Component Profiles": "C & Z Purlins, Eave Struts, Sag Rods, Wall Girts, Bracings",
       "Material Standards": "IS 277 / IS 10748 (High-tensile pre-galvanized coils)",
@@ -152,7 +152,7 @@ export const servicesData: ServiceDetail[] = [
       "Sleek aesthetics with customized trims, flashings, bargeboards, and gutters",
       "Excellent wind uplift resistance tested for cyclonic storm conditions"
     ],
-    image: "https://images.unsplash.com/photo-1508209867540-02bd9456dcce?q=80&w=2070&auto=format&fit=crop",
+    image: "https://res.cloudinary.com/dpctlwaam/image/upload/v1785704406/images_utytsf.webp",
     technicalSpecs: {
       "Material Sheets": "Alu-Zinc alloy coated steel (Galvalume) AZ150",
       "Roofing Profiles": "Standing Seam (concealed clips), Trapezoidal (screw-down)",
@@ -184,7 +184,7 @@ export const servicesData: ServiceDetail[] = [
       "Heavy-duty galvanized finishes protecting parts from moisture",
       "Custom downspouts and gutters designed for rapid rainwater drainage"
     ],
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop",
+    image: "https://res.cloudinary.com/dpctlwaam/image/upload/v1785704405/images_1_vzi3kh.webp",
     technicalSpecs: {
       "Profile Shapes": "C-purlins, Z-purlins, nested shapes, custom struts",
       "Material Grade Range": "ASTM A653 Grade 50, IS 10748 Grade 340",
@@ -216,7 +216,7 @@ export const servicesData: ServiceDetail[] = [
       "Optimized construction schedules saving months of project coordination",
       "Strict safety systems and quality audits throughout the project timeline"
     ],
-    image: "https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop",
+    image: "https://res.cloudinary.com/dpctlwaam/image/upload/v1786395394/DJI_0513_fg1lw1.jpg",
     technicalSpecs: {
       "Execution Scope": "Engineering, Procurement, Civil Construction, Steel Erection, MEP",
       "Civil Integration": "Heavy machine foundations, pile/raft footings, industrial flooring",

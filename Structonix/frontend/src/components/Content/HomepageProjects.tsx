@@ -177,7 +177,7 @@ export function HomepageProjects() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-100px" }}
                                 transition={{ duration: 0.7, delay: 0.1 }}
-                                className="bg-[#fcfcfc] flex shadow-[0_-5px_25px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden relative md:sticky origin-top h-[660px] md:h-[650px] max-h-[850px] w-[85vw] sm:w-[360px] md:w-full md:max-w-none flex-shrink-0 snap-start md:snap-none md:top-[var(--sticky-top)] mb-0 md:mb-10 last:md:mb-0"
+                                className="bg-[#fcfcfc] flex shadow-[0_-5px_25px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden relative md:sticky origin-top h-[660px] md:h-[650px] max-h-[850px] w-[80vw] sm:w-[360px] md:w-full md:max-w-none flex-shrink-0 snap-start md:snap-none md:top-[var(--sticky-top)] mb-0 md:mb-10 last:md:mb-0"
                                 style={{
                                     '--sticky-top': `calc(140px + ${index * 15}px)`,
                                     zIndex: index + 1

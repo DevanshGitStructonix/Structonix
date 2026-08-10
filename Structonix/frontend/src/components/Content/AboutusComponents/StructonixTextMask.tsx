@@ -24,7 +24,7 @@ export function StructonixTextMask() {
                     transition={{ duration: 1, ease: "easeOut" }}
                 >
                     <motion.h1
-                        className="text-[12vw] md:text-[150px] font-black leading-none tracking-normal uppercase font-secondary"
+                        className="text-[18vw] sm:text-[14vw] md:text-[150px] font-black leading-none tracking-normal uppercase font-secondary"
                         style={{
                             backgroundImage: `url('https://images.pexels.com/photos/16045267/pexels-photo-16045267.jpeg')`, // Industrial structure image
                             backgroundSize: 'cover',

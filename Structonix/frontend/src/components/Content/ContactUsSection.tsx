@@ -32,12 +32,12 @@ export const ContactUsSection = () => {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-6">
-                            {/* New York */}
+                            {/* Mumbai */}
                             <div>
-                                <h3 className="font-bold text-lg mb-2">New York</h3>
+                                <h3 className="font-bold text-lg mb-2">Mumbai</h3>
                                 <p className="text-gray-600 text-sm leading-relaxed">
-                                    523 Sylvan Ave, 5th Floor<br />
-                                    Mountain View, CA 94041 USA
+                                    Fut 445/446/447, At post Dinkarpada,<br />
+                                    Pratibha Colony, Wada, Palghar, 421312
                                 </p>
                             </div>
 
@@ -45,8 +45,8 @@ export const ContactUsSection = () => {
                             <div>
                                 <h3 className="font-bold text-lg mb-2">Phone</h3>
                                 <p className="text-gray-600 text-sm leading-relaxed">
-                                    +1 234 719 8948<br />
-                                    +1 987 654 3210
+                                    +91 99130 56994<br />
+                                    +91 97267 67331
                                 </p>
                             </div>
 
@@ -69,14 +69,14 @@ export const ContactUsSection = () => {
                             </div>
                         </div>
 
-                        {/* Large "since 1980" text */}
+                        {/* Large "since 2016" text */}
                         <div className="pt-8">
                             <span className="text-5xl md:text-7xl font-bold text-transparent opacity-30 select-none"
                                 style={{
                                     WebkitTextStroke: '1px var(--color-primary)'
                                 }}
                             >
-                                since 1980
+                                since 2016
                             </span>
                         </div>
 

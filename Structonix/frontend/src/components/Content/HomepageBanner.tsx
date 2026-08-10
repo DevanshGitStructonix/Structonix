@@ -85,8 +85,8 @@ export function HomepageBanner() {
         // Render the first slide statically as a fallback to avoid layout shifts and hydration errors
         const firstSlide = slides[0];
         return (
-            <section className="relative w-full h-screen min-h-[650px] overflow-hidden bg-[#0A0A0A]">
-                <div className="relative w-full h-screen min-h-[650px] outline-none">
+            <section className="relative w-full h-screen min-h-[550px] sm:min-h-[650px] overflow-hidden bg-[#0A0A0A]">
+                <div className="relative w-full h-screen min-h-[550px] sm:min-h-[650px] outline-none">
                     <div className="absolute inset-0 overflow-hidden">
                         <div
                             className="absolute inset-0 bg-cover bg-center w-full h-full"
@@ -147,11 +147,11 @@ export function HomepageBanner() {
 
     return (
         <section 
-            className="relative w-full h-screen min-h-[650px] overflow-hidden bg-[#0A0A0A] group/banner"
+            className="relative w-full h-screen min-h-[550px] sm:min-h-[650px] overflow-hidden bg-[#0A0A0A] group/banner"
         >
             <Slider ref={sliderRef} {...settings} className="h-full banner-slider">
                 {slides.map((slide, index) => (
-                    <div key={slide.id} className="relative w-full h-screen min-h-[650px] outline-none">
+                    <div key={slide.id} className="relative w-full h-screen min-h-[550px] sm:min-h-[650px] outline-none">
                         {/* Background Container with Scale Zoom Effect */}
                         <motion.div
                             animate={{
@@ -281,7 +281,7 @@ export function HomepageBanner() {
             </Slider>
 
             {/* Slider Navigation Controls (Bottom Right) */}
-            <div className="absolute bottom-0 right-0 z-30 flex items-stretch bg-white">
+            <div className="absolute bottom-4 right-4 md:bottom-0 md:right-0 z-30 flex items-stretch bg-white shadow-lg md:shadow-none">
                 {/* Current Slide Display */}
                 <div className="hidden md:flex items-center justify-center px-10 border-l border-gray-100/50">
                     <span className="text-dark-navy font-bold text-lg font-secondary leading-none">0{currentSlide + 1}</span>
@@ -291,20 +291,20 @@ export function HomepageBanner() {
 
                 {/* Previous Arrow */}
                 <button
-                    className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center hover:bg-gray-50 transition-all duration-300 group border-l border-gray-100 cursor-pointer active:scale-95"
+                    className="w-12 h-12 md:w-20 md:h-20 flex items-center justify-center hover:bg-gray-50 transition-all duration-300 group border-l border-gray-100 cursor-pointer active:scale-95"
                     onClick={() => sliderRef.current?.slickPrev()}
                     aria-label="Previous Slide"
                 >
-                    <ArrowLeft className="w-5 h-5 md:w-6 md:h-6 text-dark-slate group-hover:-translate-x-1 transition-transform duration-300" strokeWidth={1.5} />
+                    <ArrowLeft className="w-4 h-4 md:w-6 md:h-6 text-dark-slate group-hover:-translate-x-1 transition-transform duration-300" strokeWidth={1.5} />
                 </button>
 
                 {/* Next Arrow */}
                 <button
-                    className="w-16 h-16 md:w-20 md:h-20 bg-primary flex items-center justify-center hover:bg-[#e06a1c] transition-all duration-300 group cursor-pointer active:scale-95"
+                    className="w-12 h-12 md:w-20 md:h-20 bg-primary flex items-center justify-center hover:bg-[#e06a1c] transition-all duration-300 group cursor-pointer active:scale-95"
                     onClick={() => sliderRef.current?.slickNext()}
                     aria-label="Next Slide"
                 >
-                    <ArrowRight className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:translate-x-1 transition-transform duration-300" strokeWidth={1.5} />
+                    <ArrowRight className="w-4 h-4 md:w-6 md:h-6 text-white group-hover:translate-x-1 transition-transform duration-300" strokeWidth={1.5} />
                 </button>
             </div>
         </section>

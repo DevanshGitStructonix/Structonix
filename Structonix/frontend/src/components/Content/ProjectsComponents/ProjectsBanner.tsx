@@ -1,13 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-
 import Link from 'next/link';
-import { useState } from 'react';
 
 export function ProjectsBanner() {
-    const [isHomeActive, setIsHomeActive] = useState(false);
-
     return (
         <section className="relative h-[50vh] min-h-[400px] w-full overflow-hidden flex items-center">
             {/* Background Image */}
@@ -39,45 +35,12 @@ export function ProjectsBanner() {
                         <span className="font-bold text-lg tracking-wide">Structonix</span>
                     </motion.div>
 
-                    <div className="flex items-baseline gap-2 mb-4">
-                        <Link
-                            href="/"
-                            onMouseEnter={() => setIsHomeActive(true)}
-                            onMouseLeave={() => setIsHomeActive(false)}
-                        >
-                            <motion.h1
-                                animate={{
-                                    fontSize: isHomeActive ? "3rem" : "1.5rem",
-                                    opacity: isHomeActive ? 1 : 0.6,
-                                    color: isHomeActive ? "#ffffff" : "#e2e8f0",
-                                    fontWeight: isHomeActive ? "bold" : "normal"
-                                }}
-                                className="font-secondary font-bold cursor-pointer hover:text-primary transition-colors duration-300"
-                                style={{
-                                    fontSize: "1.5rem"
-                                }}
-                            >
-                                HOME
-                            </motion.h1>
+                    <div className="flex flex-wrap items-center gap-2 mb-4 font-secondary font-bold text-lg md:text-xl">
+                        <Link href="/" className="text-white/60 hover:text-primary transition-colors duration-300">
+                            HOME
                         </Link>
-
-                        <span className="text-2xl text-primary font-bold">/</span>
-
-                        <motion.h1
-                            animate={{
-                                fontSize: !isHomeActive ? "3rem" : "1.5rem",
-                                opacity: !isHomeActive ? 1 : 0.6,
-                                color: !isHomeActive ? "#ffffff" : "#e2e8f0",
-                                fontWeight: !isHomeActive ? "bold" : "normal"
-                            }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                            className="font-secondary cursor-pointer font-bold"
-                            style={{
-                                fontSize: "3rem"
-                            }}
-                        >
-                            PROJECTS
-                        </motion.h1>
+                        <span className="text-primary font-bold">/</span>
+                        <span className="text-white">PROJECTS</span>
                     </div>
                 </div>
             </div>

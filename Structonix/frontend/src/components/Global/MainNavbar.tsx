@@ -38,7 +38,6 @@ export function MainNavbar() {
             subItems: [
                 { name: 'Who We Are', href: '/about#who-we-are' },
                 { name: 'Vision & Mission', href: '/about#mission-vision' },
-                { name: 'How We Work', href: '/about#how-we-work' },
                 { name: 'Key Strengths', href: '/about#key-strengths' },
                 { name: 'Infrastructure & Machines', href: '/machines' }
             ]
@@ -60,13 +59,37 @@ export function MainNavbar() {
         { name: 'Our Clients', href: '/clients' }
     ];
 
-    const galleryImages = [
-        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=400&q=80",
-        "https://images.unsplash.com/photo-1581094794329-cd109c0f8a16?auto=format&fit=crop&w=400&q=80",
-        "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=400&q=80",
-        "https://images.unsplash.com/photo-1535732759880-bbd5c7265e3f?auto=format&fit=crop&w=400&q=80",
-        "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=400&q=80",
-        "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=400&q=80"
+    const galleryServices = [
+        {
+            name: "Design & Engineering",
+            href: "/services/design-engineering",
+            image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2070&auto=format&fit=crop"
+        },
+        {
+            name: "Primary Steel Manufacturing",
+            href: "/services/primary-steel-structure-manufacturing",
+            image: "https://res.cloudinary.com/dpctlwaam/image/upload/v1785704882/Primary-Steel-Structure_xa68xr.gif"
+        },
+        {
+            name: "Secondary Steel Manufacturing",
+            href: "/services/secondary-steel-structure-manufacturing",
+            image: "https://res.cloudinary.com/dpctlwaam/image/upload/v1785704409/Steel_frame_structure_k0v326.webp"
+        },
+        {
+            name: "Warehousing",
+            href: "/services/warehousing",
+            image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop"
+        },
+        {
+            name: "Roofing & Cladding Systems",
+            href: "/services/roofing-and-cladding-systems",
+            image: "https://res.cloudinary.com/dpctlwaam/image/upload/v1785704406/images_utytsf.webp"
+        },
+        {
+            name: "Turnkey Industrial Projects",
+            href: "/services/turnkey-industrial-projects",
+            image: "https://res.cloudinary.com/dpctlwaam/image/upload/v1786395394/DJI_0513_fg1lw1.jpg"
+        }
     ];
 
     return (
@@ -353,23 +376,33 @@ export function MainNavbar() {
                                 {/* About Text */}
                                 <div className="space-y-4">
                                     <p className="text-gray-400 text-sm leading-relaxed">
-                                        Wrasse climbing gourami amur pike Arctic char, steelhead sprat sea lamprey grunion. Walleye pollock, &quot;sokeye salmon.&quot;
+                                        At Structonix, we specialize in high-quality structural steel fabrication, Pre-Engineered Buildings (PEB), and turnkey industrial construction. Our expert engineers utilize advanced BIM/CAD technologies to deliver safe, resilient, and fast-track industrial infrastructure.
                                     </p>
                                 </div>
 
                                 {/* Gallery Grid */}
                                 <div className="grid grid-cols-3 gap-2">
-                                    {galleryImages.map((src, index) => (
-                                        <div key={index} className="aspect-square relative overflow-hidden group">
+                                    {galleryServices.map((service, index) => (
+                                        <Link
+                                            key={index}
+                                            href={service.href}
+                                            onClick={() => setIsSideMenuOpen(false)}
+                                            className="aspect-square relative overflow-hidden group block"
+                                            title={service.name}
+                                        >
                                             <Image
-                                                src={src}
-                                                alt={`Gallery image ${index + 1}`}
+                                                src={service.image}
+                                                alt={service.name}
                                                 fill
                                                 className="object-cover transition-transform duration-500 group-hover:scale-110"
                                                 sizes="(max-width: 768px) 33vw, 20vw"
                                             />
-                                            <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                        </div>
+                                            <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-1 text-center">
+                                                <span className="text-[10px] font-bold text-white uppercase tracking-wider leading-tight">
+                                                    {service.name}
+                                                </span>
+                                            </div>
+                                        </Link>
                                     ))}
                                 </div>
 
@@ -380,12 +413,12 @@ export function MainNavbar() {
                                     <div className="space-y-4">
                                         <div className="space-y-1">
                                             <p className="text-primary font-bold tracking-wider text-sm">LOCATION</p>
-                                            <p className="text-gray-300 text-sm">523 Sylvan Ave, 5th Floor<br />Mountain View, CA 94041 USA</p>
+                                            <p className="text-gray-300 text-sm">Fut 445/446/447, At post Dinkarpada,<br />Pratibha Colony, Wada, Palghar, 421312</p>
                                         </div>
 
                                         <div className="space-y-1">
                                             <p className="text-primary font-bold tracking-wider text-sm">PHONE</p>
-                                            <p className="text-gray-300 text-sm hover:text-primary transition-colors cursor-pointer">+1 (234) 56789</p>
+                                            <p className="text-gray-300 text-sm hover:text-primary transition-colors cursor-pointer">+91 99130 56994<br />+91 97267 67331</p>
                                         </div>
 
                                         <div className="space-y-1">

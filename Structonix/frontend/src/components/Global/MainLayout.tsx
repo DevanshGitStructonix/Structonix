@@ -53,17 +53,17 @@ export function MainLayout({ children }: MainLayoutProps) {
                         transition={{ duration: 0.6, ease: 'easeInOut' }}
                         className="fixed inset-0 z-[99999] bg-[#0b192c] flex flex-col items-center justify-center pointer-events-auto select-none"
                     >
-                        <div className="flex flex-col items-center">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ 
+                                opacity: [0, 1, 1, 0],
+                                scale: [0.9, 1.02, 1, 0.98]
+                            }}
+                            transition={{ duration: 3.2, ease: 'easeInOut' }}
+                            className="flex flex-col items-center"
+                        >
                             {/* Centered Brand Logo popping out */}
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.85 }}
-                                animate={{ 
-                                    opacity: [0, 1, 1, 0],
-                                    scale: [0.85, 1.05, 1, 0.95]
-                                }}
-                                transition={{ duration: 3.2, ease: 'easeInOut' }}
-                                className="relative w-48 h-18 sm:w-56 sm:h-22 md:w-64 md:h-24 mb-2"
-                            >
+                            <div className="relative w-60 h-15 sm:w-72 sm:h-18 md:w-80 md:h-20 mb-2">
                                 <Image
                                     src="/images/structonix-logo-white.png"
                                     alt="Structonix Logo"
@@ -71,7 +71,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                                     className="object-contain"
                                     priority
                                 />
-                            </motion.div>
+                            </div>
 
                             {/* Subtle Horizontal Horizon Line (Yellow) */}
                             <motion.div
@@ -82,18 +82,10 @@ export function MainLayout({ children }: MainLayoutProps) {
                             />
                             
                             {/* Brand Tagline */}
-                            <motion.p
-                                initial={{ opacity: 0, y: 8 }}
-                                animate={{ 
-                                    opacity: [0, 1, 1, 0],
-                                    y: [8, 0, 0, -4]
-                                }}
-                                transition={{ delay: 0.4, duration: 2.8, ease: 'easeInOut' }}
-                                className="text-white/80 text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase text-center mt-2"
-                            >
+                            <p className="text-white/80 text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase text-center mt-2">
                                 Engineering Tomorrow's <span className="text-primary font-bold">Horizon</span>
-                            </motion.p>
-                        </div>
+                            </p>
+                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>

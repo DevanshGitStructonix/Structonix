@@ -60,7 +60,7 @@ export function HomepageAboutUs() {
 
                         <div className="space-y-4 text-gray-600 text-[15px] md:text-[16px] leading-relaxed font-light">
                             <p>
-                                With over <span className="text-primary font-semibold">7+ years of experience</span>, we bring together engineering expertise, manufacturing strength, and execution capability under one roof. We specialize in complete turnkey PEB solutions, covering design, detailing, manufacturing, and on-site erection.
+                                With over <span className="text-primary font-semibold">10+ years of experience</span>, we bring together engineering expertise, manufacturing strength, and execution capability under one roof. We specialize in complete turnkey PEB solutions, covering design, detailing, manufacturing, and on-site erection.
                             </p>
                             <p>
                                 Our integrated approach ensures seamless coordination across every stage of the project, minimizing delays, optimizing costs, and delivering consistent quality. From primary steel frames to cold-formed secondary members, every component is engineered to meet the highest global standards.
@@ -103,7 +103,7 @@ export function HomepageAboutUs() {
                         {/* Experience Badge */}
                         <div className="absolute bottom-10 left-6 md:left-16 bg-white p-8 md:p-10 shadow-2xl z-20 max-w-[200px] md:max-w-[280px] rounded-lg border border-gray-100">
                             <div className="flex flex-col gap-2">
-                                <span className="text-6xl md:text-7xl font-extrabold text-primary leading-none">7+</span>
+                                <span className="text-6xl md:text-7xl font-extrabold text-primary leading-none">10+</span>
                                 <span className="text-primary font-bold uppercase tracking-wider text-sm md:text-base leading-snug">
                                     Years of Experience in Industry
                                 </span>

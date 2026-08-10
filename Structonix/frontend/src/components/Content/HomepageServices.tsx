@@ -95,7 +95,7 @@ const services = [
             'Rigorous Site Safety Protocols',
             'On-Schedule Turnkey Delivery'
         ],
-        image: 'https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop',
+        image: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786395394/DJI_0513_fg1lw1.jpg',
         link: '/services/turnkey-industrial-projects'
     }
 ];

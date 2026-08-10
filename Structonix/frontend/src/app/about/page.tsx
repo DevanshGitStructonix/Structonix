@@ -1,6 +1,7 @@
 import { AboutUsBanner } from "@/components/Content/AboutusComponents/AboutusBanner";
 import { AboutSecondaryNav } from "@/components/Content/AboutusComponents/AboutSecondaryNav";
 import { WhoWeAre } from "@/components/Content/AboutusComponents/WhoWeAre";
+import { PebProcess } from "@/components/Content/AboutusComponents/PebProcess";
 import { MissionVision } from "@/components/Content/AboutusComponents/MissionVision";
 import { StructonixTextMask } from "@/components/Content/AboutusComponents/StructonixTextMask";
 import { KeyStrengths } from "@/components/Content/AboutusComponents/KeyStrengths";
@@ -12,6 +13,7 @@ export default function AboutPage() {
             <AboutUsBanner />
             <AboutSecondaryNav />
             <WhoWeAre />
+            <PebProcess />
             <MissionVision />
             <StructonixTextMask />
             <KeyStrengths />

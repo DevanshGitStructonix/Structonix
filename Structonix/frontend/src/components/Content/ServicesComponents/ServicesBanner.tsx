@@ -2,11 +2,8 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { useState } from 'react';
 
 export function ServicesBanner() {
-    const [isHomeActive, setIsHomeActive] = useState(false);
-
     return (
         <section className="relative h-[50vh] min-h-[400px] w-full overflow-hidden flex items-center">
             {/* Background Image */}
@@ -38,39 +35,12 @@ export function ServicesBanner() {
                         <span className="font-bold text-lg tracking-wide">Structonix</span>
                     </motion.div>
 
-                    <div className="flex flex-wrap items-baseline gap-2 mb-4">
-                        <Link
-                            href="/"
-                            onMouseEnter={() => setIsHomeActive(true)}
-                            onMouseLeave={() => setIsHomeActive(false)}
-                        >
-                            <motion.h1
-                                animate={{
-                                    fontSize: isHomeActive ? "2rem" : "1.25rem",
-                                    opacity: isHomeActive ? 1 : 0.6,
-                                    color: isHomeActive ? "#ffffff" : "#e2e8f0",
-                                    fontWeight: isHomeActive ? "bold" : "normal"
-                                }}
-                                className="font-secondary font-bold cursor-pointer hover:text-primary transition-colors duration-300"
-                            >
-                                HOME
-                            </motion.h1>
+                    <div className="flex flex-wrap items-center gap-2 mb-4 font-secondary font-bold text-lg md:text-xl">
+                        <Link href="/" className="text-white/60 hover:text-primary transition-colors duration-300">
+                            HOME
                         </Link>
-
-                        <span className="text-xl md:text-2xl text-primary font-bold">/</span>
-
-                        <motion.h1
-                            animate={{
-                                fontSize: !isHomeActive ? "2rem" : "1.25rem",
-                                opacity: !isHomeActive ? 1 : 0.6,
-                                color: !isHomeActive ? "#ffffff" : "#e2e8f0",
-                                fontWeight: !isHomeActive ? "bold" : "normal"
-                            }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                            className="font-secondary cursor-pointer font-bold md:pt-0 pt-2"
-                        >
-                            SERVICES
-                        </motion.h1>
+                        <span className="text-primary font-bold">/</span>
+                        <span className="text-white">SERVICES</span>
                     </div>
                 </div>
             </div>
