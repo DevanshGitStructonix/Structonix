@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
@@ -130,6 +131,26 @@ const projects = [
 ];
 
 export function HomepageProjects() {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [scrollProgress, setScrollProgress] = useState(0);
+
+    const handleScroll = () => {
+        if (!containerRef.current) return;
+        const { scrollLeft, scrollWidth, clientWidth } = containerRef.current;
+        const maxScroll = scrollWidth - clientWidth;
+        if (maxScroll <= 0) return;
+        const progress = (scrollLeft / maxScroll) * 100;
+        setScrollProgress(progress);
+    };
+
+    useEffect(() => {
+        // Run initial calculation after mount
+        handleScroll();
+        // Recalculate on resize
+        window.addEventListener('resize', handleScroll);
+        return () => window.removeEventListener('resize', handleScroll);
+    }, []);
+
     return (
         <section className="py-20 md:py-32 bg-[#f4f4f4] relative">
             <div className="px-4 lg:px-8">
@@ -166,7 +187,11 @@ export function HomepageProjects() {
                 </div>
 
                 {/* Project Stack - Horizontal Scroll on Mobile, Sticky Stack on Desktop */}
-                <div className="flex flex-row md:flex-col overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none gap-6 md:gap-0 pb-8 md:pb-[10vh] px-4 -mx-4 md:px-0 md:mx-0 hide-scrollbar relative">
+                <div 
+                    ref={containerRef}
+                    onScroll={handleScroll}
+                    className="flex flex-row md:flex-col overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none gap-6 md:gap-0 pb-8 md:pb-[10vh] px-4 -mx-4 md:px-0 md:mx-0 hide-scrollbar relative"
+                >
                     {projects.map((project, index) => {
                         const isSummary = project.isSummaryCard;
 
@@ -369,6 +394,18 @@ export function HomepageProjects() {
                     })}
                 </div>
 
+                {/* Mobile Scroll Indicator & Swipe Highlight Hint */}
+                <div className="flex md:hidden flex-col items-center gap-3 mt-4 px-4 w-full">
+                    <div className="w-48 h-1 bg-gray-200 rounded-full overflow-hidden relative">
+                        <div 
+                            className="absolute top-0 left-0 h-full bg-primary transition-all duration-150 rounded-full"
+                            style={{ width: `${Math.max(8, scrollProgress)}%` }}
+                        />
+                    </div>
+                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] flex items-center gap-2 animate-pulse">
+                        Swipe left to view more projects ➔
+                    </span>
+                </div>
             </div>
         </section>
     );

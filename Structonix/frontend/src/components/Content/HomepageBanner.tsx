@@ -77,6 +77,9 @@ export function HomepageBanner() {
         setIsMounted(true);
     }, []);
 
+    const activeSlide = slides[currentSlide];
+    const isVideo = activeSlide?.image.endsWith('.mp4') || activeSlide?.image.includes('/video/');
+
     const settings = {
         dots: false,
         arrows: false,
@@ -85,7 +88,7 @@ export function HomepageBanner() {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 6000,
+        autoplaySpeed: isVideo ? 35000 : 6000,
         fade: true,
         initialSlide: 0,
         beforeChange: (current: number, next: number) => setCurrentSlide(next),
@@ -96,8 +99,8 @@ export function HomepageBanner() {
         // Render the first slide statically as a fallback to avoid layout shifts and hydration errors
         const firstSlide = slides[0];
         return (
-            <section className="relative w-full h-screen min-h-[550px] sm:min-h-[650px] overflow-hidden bg-[#0A0A0A]">
-                <div className="relative w-full h-screen min-h-[550px] sm:min-h-[650px] outline-none">
+            <section className="relative w-full h-[100dvh] sm:min-h-[650px] overflow-hidden bg-[#0A0A0A]">
+                <div className="relative w-full h-[100dvh] sm:min-h-[650px] outline-none">
                     <div className="absolute inset-0 overflow-hidden">
                         {firstSlide.image.endsWith('.mp4') || firstSlide.image.includes('/video/') ? (
                             <video
@@ -120,17 +123,17 @@ export function HomepageBanner() {
                     </div>
                     <div className="relative z-10 h-full container mx-auto px-6 lg:px-16 flex items-center">
                         <div className="flex flex-col lg:flex-row w-full gap-12 items-center">
-                            <div className="w-full lg:w-10/12 flex flex-col justify-center text-white pt-10">
+                            <div className="w-full lg:w-10/12 flex flex-col justify-center text-white pt-6 md:pt-10">
                                 <div>
-                                    <div className="overflow-hidden py-1 mb-6">
+                                    <div className="overflow-hidden py-1 mb-3 md:mb-6">
                                         <div className="flex items-center gap-4">
                                             <span className="w-8 h-[1px] bg-primary"></span>
-                                            <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs md:text-sm">
+                                            <span className="text-primary font-bold tracking-[0.25em] uppercase text-xs md:text-sm">
                                                 {firstSlide.subtitle}
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="overflow-visible py-2 mb-6">
+                                    <div className="overflow-visible py-2 mb-3 md:mb-6">
                                         <h1 className="text-3xl sm:text-5xl lg:text-[68px] font-extrabold leading-[1.25] font-sans tracking-tight pb-4">
                                             {firstSlide.title} <br />
                                             <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 pb-3 pr-2">
@@ -139,7 +142,7 @@ export function HomepageBanner() {
                                             {firstSlide.titleEnd}
                                         </h1>
                                     </div>
-                                    <div className="overflow-hidden py-1 mb-12">
+                                    <div className="overflow-hidden py-1 mb-6 md:mb-12">
                                         <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-xl font-secondary font-light">
                                             {firstSlide.description}
                                         </p>
@@ -169,11 +172,11 @@ export function HomepageBanner() {
 
     return (
         <section 
-            className="relative w-full h-screen min-h-[550px] sm:min-h-[650px] overflow-hidden bg-[#0A0A0A] group/banner"
+            className="relative w-full h-[100dvh] sm:min-h-[650px] overflow-hidden bg-[#0A0A0A] group/banner"
         >
             <Slider ref={sliderRef} {...settings} className="h-full banner-slider">
                 {slides.map((slide, index) => (
-                    <div key={slide.id} className="relative w-full h-screen min-h-[550px] sm:min-h-[650px] outline-none">
+                    <div key={slide.id} className="relative w-full h-[100dvh] sm:min-h-[650px] outline-none">
                         {/* Background Container with Scale Zoom Effect */}
                         <motion.div
                             animate={{
@@ -212,7 +215,7 @@ export function HomepageBanner() {
                         <div className="relative z-10 h-full container mx-auto px-6 lg:px-16 flex items-center">
                             <div className="flex flex-col lg:flex-row w-full gap-12 items-center">
                                 {/* Main Text Content */}
-                                <div className="w-full lg:w-10/12 flex flex-col justify-center text-white pt-10">
+                                <div className="w-full lg:w-10/12 flex flex-col justify-center text-white pt-6 md:pt-10">
                                     <AnimatePresence mode="wait">
                                         {index === currentSlide ? (
                                             <motion.div

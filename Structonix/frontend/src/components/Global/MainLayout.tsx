@@ -63,7 +63,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                             className="flex flex-col items-center"
                         >
                             {/* Centered Brand Logo popping out */}
-                            <div className="relative w-60 h-15 sm:w-72 sm:h-18 md:w-80 md:h-20 mb-2">
+                            <div className="relative w-80 h-20 sm:w-[440px] sm:h-[110px] md:w-[560px] md:h-[140px] mb-4">
                                 <Image
                                     src="/images/structonix-logo-white.png"
                                     alt="Structonix Logo"
@@ -75,10 +75,10 @@ export function MainLayout({ children }: MainLayoutProps) {
 
                             {/* Subtle Horizontal Horizon Line (Yellow) */}
                             <motion.div
-                                initial={{ width: 0 }}
-                                animate={{ width: "300px" }}
+                                initial={{ scaleX: 0 }}
+                                animate={{ scaleX: 1 }}
                                 transition={{ duration: 1.2, ease: 'easeOut', delay: 0.3 }}
-                                className="h-[2px] bg-primary mt-2 mb-4 rounded-full"
+                                className="h-[2px] bg-primary mt-2 mb-4 rounded-full w-48 sm:w-80 md:w-96 origin-center"
                             />
                             
                             {/* Brand Tagline */}
