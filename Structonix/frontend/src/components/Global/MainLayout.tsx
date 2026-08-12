@@ -13,15 +13,16 @@ interface MainLayoutProps {
 }
 
 export function MainLayout({ children }: MainLayoutProps) {
-    const [showFirstLoadTransition, setShowFirstLoadTransition] = useState(false);
+    const [showFirstLoadTransition, setShowFirstLoadTransition] = useState(true);
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
         setIsMounted(true);
         // Check if this is the first page load in the user session
         const firstLoadDone = sessionStorage.getItem('structonix_first_load_done');
-        if (!firstLoadDone) {
-            setShowFirstLoadTransition(true);
+        if (firstLoadDone) {
+            setShowFirstLoadTransition(false);
+        } else {
             const timer = setTimeout(() => {
                 setShowFirstLoadTransition(false);
                 sessionStorage.setItem('structonix_first_load_done', 'true');
@@ -44,14 +45,31 @@ export function MainLayout({ children }: MainLayoutProps) {
 
     return (
         <div className="flex flex-col min-h-screen">
+            {/* Inline script to prevent preloader flashing on subsequent visits */}
+            <script dangerouslySetInnerHTML={{ __html: `
+                try {
+                    if (sessionStorage.getItem('structonix_first_load_done')) {
+                        document.documentElement.classList.add('first-load-done');
+                    }
+                } catch (e) {}
+            `}} />
+            <style dangerouslySetInnerHTML={{ __html: `
+                html:not(.first-load-done) .first-load-overlay {
+                    display: flex !important;
+                }
+                html.first-load-done .first-load-overlay {
+                    display: none !important;
+                }
+            `}} />
+
             {/* First Page Load Transition Overlay */}
             <AnimatePresence>
-                {isMounted && showFirstLoadTransition && (
+                {showFirstLoadTransition && (
                     <motion.div
                         initial={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.6, ease: 'easeInOut' }}
-                        className="fixed inset-0 z-[99999] bg-[#0b192c] flex flex-col items-center justify-center pointer-events-auto select-none"
+                        className="first-load-overlay fixed inset-0 z-[99999] bg-[#0b192c] flex flex-col items-center justify-center pointer-events-auto select-none"
                     >
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
