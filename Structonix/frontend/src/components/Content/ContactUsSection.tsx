@@ -36,7 +36,7 @@ export const ContactUsSection = () => {
                             <div>
                                 <h3 className="font-bold text-lg mb-2">Mumbai</h3>
                                 <p className="text-gray-600 text-sm leading-relaxed">
-                                    Fut 445/446/447, At post Dinkarpada,<br />
+                                    Gut 445/446, At post Dinkarpada,<br />
                                     Pratibha Colony, Wada, Palghar, 421312
                                 </p>
                             </div>
@@ -46,8 +46,7 @@ export const ContactUsSection = () => {
                                 <h3 className="font-bold text-lg mb-2">Phone</h3>
                                 <p className="text-gray-600 text-sm leading-relaxed">
                                     Anand Vora: +91 99130 56994<br />
-                                    Zeel Shah: +91 94280 09562<br />
-                                    Uday Shah: +91 98252 07001
+                                    Zeel Shah: +91 94280 09562
                                 </p>
                             </div>
 

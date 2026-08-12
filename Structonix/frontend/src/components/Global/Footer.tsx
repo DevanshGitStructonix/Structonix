@@ -67,7 +67,7 @@ export function Footer() {
                         <div>
                             <h4 className="text-white font-bold text-base mb-3">Mumbai</h4>
                             <p className="text-gray-400 text-sm leading-relaxed">
-                                Fut 445/446/447, At post Dinkarpada,<br />
+                                Gut 445/446, At post Dinkarpada,<br />
                                 Pratibha Colony, Wada, Palghar, 421312
                             </p>
                         </div>
@@ -90,7 +90,6 @@ export function Footer() {
                             <div className="text-gray-400 text-sm space-y-1">
                                 <p className="text-primary font-medium">Anand Vora: +91 99130 56994</p>
                                 <p>Zeel Shah: +91 94280 09562</p>
-                                <p>Uday Shah: +91 98252 07001</p>
                             </div>
                         </div>
 

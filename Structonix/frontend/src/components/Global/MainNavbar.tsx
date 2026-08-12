@@ -435,15 +435,14 @@ export function MainNavbar() {
                                     <div className="space-y-4">
                                         <div className="space-y-1">
                                             <p className="text-primary font-bold tracking-wider text-sm">LOCATION</p>
-                                            <p className="text-gray-300 text-sm">Fut 445/446/447, At post Dinkarpada,<br />Pratibha Colony, Wada, Palghar, 421312</p>
+                                            <p className="text-gray-300 text-sm">Gut 445/446, At post Dinkarpada,<br />Pratibha Colony, Wada, Palghar, 421312</p>
                                         </div>
 
                                         <div className="space-y-1">
                                             <p className="text-primary font-bold tracking-wider text-sm">PHONE</p>
                                             <p className="text-gray-300 text-sm hover:text-primary transition-colors">
                                                 Anand Vora: +91 99130 56994<br />
-                                                Zeel Shah: +91 94280 09562<br />
-                                                Uday Shah: +91 98252 07001
+                                                Zeel Shah: +91 94280 09562
                                             </p>
                                         </div>
 

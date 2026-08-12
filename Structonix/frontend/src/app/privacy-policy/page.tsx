@@ -90,7 +90,7 @@ export default function PrivacyPolicyPage() {
                         <div className="bg-gray-50 p-6 md:p-8 rounded-sm border border-gray-200 mb-8">
                             <h4 className="font-bold text-dark-slate mb-2">Structonix Office</h4>
                             <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                                Fut 445/446/447, At post Dinkarpada,<br />
+                                Gut 445/446, At post Dinkarpada,<br />
                                 Pratibha Colony, Wada, Palghar,<br />
                                 Maharashtra, 421312
                             </p>
