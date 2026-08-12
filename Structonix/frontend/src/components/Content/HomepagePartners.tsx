@@ -26,7 +26,9 @@ const partners = [
     { id: 19, name: 'Client 19', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785873907/logo_hdoaoi.png' },
     { id: 20, name: 'Keystone', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785873905/key-white_ib3slc.png' },
     { id: 21, name: 'Birla Estates', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785873901/birla-estates_oyrkr3.svg' },
-    { id: 22, name: 'Client 22', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785873901/images_1_sarzap.jpg' }
+    { id: 22, name: 'Client 22', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1785873901/images_1_sarzap.jpg' },
+    { id: 23, name: 'Orbittal Electromech', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786532251/orbittal_electromech_engg_projects_pvt_ltd_logo_uqu19w.jpg' },
+    { id: 24, name: 'Reliance Industries', logo: 'https://res.cloudinary.com/dpctlwaam/image/upload/v1786532251/Reliance_Industries_jlkdcr.svg' }
 ];
 
 // Split partners into two rows for dynamic opposite scroll animations
