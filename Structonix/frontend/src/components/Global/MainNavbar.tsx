@@ -440,12 +440,16 @@ export function MainNavbar() {
 
                                         <div className="space-y-1">
                                             <p className="text-primary font-bold tracking-wider text-sm">PHONE</p>
-                                            <p className="text-gray-300 text-sm hover:text-primary transition-colors cursor-pointer">+91 99130 56994<br />+91 97267 67331</p>
+                                            <p className="text-gray-300 text-sm hover:text-primary transition-colors">
+                                                Anand Vora: +91 99130 56994<br />
+                                                Zeel Shah: +91 94280 09562<br />
+                                                Uday Shah: +91 98252 07001
+                                            </p>
                                         </div>
 
                                         <div className="space-y-1">
                                             <p className="text-primary font-bold tracking-wider text-sm">EMAIL</p>
-                                            <p className="text-gray-300 text-sm hover:text-primary transition-colors cursor-pointer">info@structonix.com</p>
+                                            <a href="mailto:anand.structonix@gmail.com" className="text-gray-300 text-sm hover:text-primary transition-colors block">anand.structonix@gmail.com</a>
                                         </div>
                                     </div>
                                 </div>

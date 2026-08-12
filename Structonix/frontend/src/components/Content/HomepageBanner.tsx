@@ -123,18 +123,18 @@ export function HomepageBanner() {
                     </div>
                     <div className="relative z-10 h-full container mx-auto px-6 lg:px-16 flex items-center">
                         <div className="flex flex-col lg:flex-row w-full gap-12 items-center">
-                            <div className="w-full lg:w-10/12 flex flex-col justify-center text-white pt-6 md:pt-10">
+                            <div className="w-full lg:w-10/12 flex flex-col justify-center text-white pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-20 sm:pb-24">
                                 <div>
-                                    <div className="overflow-hidden py-1 mb-3 md:mb-6">
+                                    <div className="overflow-hidden py-1 mb-3 md:mb-4">
                                         <div className="flex items-center gap-4">
                                             <span className="w-8 h-[1px] bg-primary"></span>
-                                            <span className="text-primary font-bold tracking-[0.25em] uppercase text-xs md:text-sm">
+                                            <span className="text-primary font-bold tracking-[0.2em] uppercase text-xs md:text-sm">
                                                 {firstSlide.subtitle}
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="overflow-visible py-2 mb-3 md:mb-6">
-                                        <h1 className="text-3xl sm:text-5xl lg:text-[68px] font-extrabold leading-[1.25] font-sans tracking-tight pb-4">
+                                    <div className="overflow-visible py-2 mb-3 md:mb-4">
+                                        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.5rem] 2xl:text-[64px] font-extrabold leading-[1.2] font-sans tracking-tight pb-2">
                                             {firstSlide.title} <br />
                                             <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 pb-3 pr-2">
                                                 {firstSlide.highlight}
@@ -142,8 +142,8 @@ export function HomepageBanner() {
                                             {firstSlide.titleEnd}
                                         </h1>
                                     </div>
-                                    <div className="overflow-hidden py-1 mb-6 md:mb-12">
-                                        <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-xl font-secondary font-light">
+                                    <div className="overflow-hidden py-1 mb-6 md:mb-8">
+                                        <p className="text-gray-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-xl font-secondary font-light">
                                             {firstSlide.description}
                                         </p>
                                     </div>
@@ -215,7 +215,7 @@ export function HomepageBanner() {
                         <div className="relative z-10 h-full container mx-auto px-6 lg:px-16 flex items-center">
                             <div className="flex flex-col lg:flex-row w-full gap-12 items-center">
                                 {/* Main Text Content */}
-                                <div className="w-full lg:w-10/12 flex flex-col justify-center text-white pt-6 md:pt-10">
+                                <div className="w-full lg:w-10/12 flex flex-col justify-center text-white pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-20 sm:pb-24">
                                     <AnimatePresence mode="wait">
                                         {index === currentSlide ? (
                                             <motion.div
@@ -233,7 +233,7 @@ export function HomepageBanner() {
                                                 }}
                                             >
                                                 {/* Subtitle Mask */}
-                                                <div className="overflow-hidden py-1 mb-6">
+                                                <div className="overflow-hidden py-1 mb-3 md:mb-4">
                                                     <motion.div
                                                         variants={{
                                                             hidden: { opacity: 0, y: 30 },
@@ -249,13 +249,13 @@ export function HomepageBanner() {
                                                 </div>
 
                                                 {/* Title Mask - overflow-visible to prevent clipping descenders/ascenders */}
-                                                <div className="overflow-visible py-2 mb-6">
+                                                <div className="overflow-visible py-2 mb-3 md:mb-4">
                                                     <motion.h1
                                                         variants={{
                                                             hidden: { opacity: 0, y: 50 },
                                                             visible: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
                                                         }}
-                                                        className="text-3xl sm:text-5xl lg:text-[68px] font-extrabold leading-[1.25] font-sans tracking-tight pb-4"
+                                                        className="text-2xl sm:text-4xl md:text-5xl lg:text-[2.75rem] xl:text-[3.5rem] 2xl:text-[64px] font-extrabold leading-[1.2] font-sans tracking-tight pb-2"
                                                     >
                                                         {slide.title} <br />
                                                         <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 pb-3 pr-2">
@@ -266,13 +266,13 @@ export function HomepageBanner() {
                                                 </div>
 
                                                 {/* Description Mask */}
-                                                <div className="overflow-hidden py-1 mb-12">
+                                                <div className="overflow-hidden py-1 mb-6 md:mb-8">
                                                     <motion.p
                                                         variants={{
                                                             hidden: { opacity: 0, y: 40 },
                                                             visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } }
                                                         }}
-                                                        className="text-gray-300 text-base md:text-lg leading-relaxed max-w-xl font-secondary font-light"
+                                                        className="text-gray-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-xl font-secondary font-light"
                                                     >
                                                         {slide.description}
                                                     </motion.p>

@@ -73,7 +73,7 @@ export default function OurClientsPage() {
             </section>
 
             {/* Clients Partners Grid Section */}
-            <HomepagePartners />
+            <HomepagePartners isClientsPage={true} />
 
             {/* Value Proposition & Key Trust Metrics Component */}
             <ClientWhyUs />

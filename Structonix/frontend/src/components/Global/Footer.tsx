@@ -88,16 +88,17 @@ export function Footer() {
                         <div>
                             <h4 className="text-white font-bold text-base mb-3">Phone</h4>
                             <div className="text-gray-400 text-sm space-y-1">
-                                <p className="text-primary">+91 99130 56994</p>
-                                <p>+91 97267 67331</p>
+                                <p className="text-primary font-medium">Anand Vora: +91 99130 56994</p>
+                                <p>Zeel Shah: +91 94280 09562</p>
+                                <p>Uday Shah: +91 98252 07001</p>
                             </div>
                         </div>
 
                         <div>
                             <h4 className="text-white font-bold text-base mb-3">Email</h4>
                             <p className="text-gray-400 text-sm mb-1">Interested in working with us?</p>
-                            <a href="mailto:info@structonix.com" className="text-primary text-sm hover:underline">
-                                info@structonix.com
+                            <a href="mailto:anand.structonix@gmail.com" className="text-primary text-sm hover:underline">
+                                anand.structonix@gmail.com
                             </a>
                         </div>
                     </div>

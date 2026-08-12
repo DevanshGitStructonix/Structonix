@@ -45,8 +45,9 @@ export const ContactUsSection = () => {
                             <div>
                                 <h3 className="font-bold text-lg mb-2">Phone</h3>
                                 <p className="text-gray-600 text-sm leading-relaxed">
-                                    +91 99130 56994<br />
-                                    +91 97267 67331
+                                    Anand Vora: +91 99130 56994<br />
+                                    Zeel Shah: +91 94280 09562<br />
+                                    Uday Shah: +91 98252 07001
                                 </p>
                             </div>
 
@@ -65,7 +66,7 @@ export const ContactUsSection = () => {
                             <div>
                                 <h3 className="font-bold text-lg mb-2">Email</h3>
                                 <p className="text-gray-600 text-sm mb-1">Interested in working with us?</p>
-                                <a href="mailto:info@structonix.com" className="text-[var(--color-primary)] text-sm hover:underline">info@structonix.com</a>
+                                <a href="mailto:anand.structonix@gmail.com" className="text-[var(--color-primary)] text-sm hover:underline">anand.structonix@gmail.com</a>
                             </div>
                         </div>
 

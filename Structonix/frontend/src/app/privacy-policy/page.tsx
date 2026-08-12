@@ -95,7 +95,7 @@ export default function PrivacyPolicyPage() {
                                 Maharashtra, 421312
                             </p>
                             <p className="text-primary font-bold mt-4 text-sm md:text-base">
-                                Email: info@structonix.com | Tel: +91 99130 56994
+                                Email: anand.structonix@gmail.com | Tel: +91 99130 56994
                             </p>
                         </div>
                     </div>
