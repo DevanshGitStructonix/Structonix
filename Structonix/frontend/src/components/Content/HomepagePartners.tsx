@@ -52,7 +52,7 @@ export function HomepagePartners({ isClientsPage = false }: HomepagePartnersProp
                     <span className="text-[28vw] md:text-[18vw] font-black whitespace-nowrap text-dark-slate leading-none">TRUSTED</span>
                 </div>
 
-                <div className="container mx-auto px-4 lg:px-8 max-w-7xl relative z-10">
+                <div className="container mx-auto px-4 lg:px-8 max-w-[1500px] relative z-10">
                     {/* Header Sequence */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -110,18 +110,18 @@ export function HomepagePartners({ isClientsPage = false }: HomepagePartnersProp
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2, duration: 0.8 }}
-                        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 border-l border-t border-gray-200"
+                        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 border-l border-t border-gray-200"
                     >
                         {partners.map((partner) => (
                             <div
                                 key={partner.id}
-                                className="bg-white border-r border-b border-gray-200 aspect-[3/2] flex items-center justify-center p-6 md:p-8 group cursor-pointer transition-all duration-300 hover:bg-white hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] relative z-0 hover:z-10 overflow-hidden animate-none"
+                                className="bg-white border-r border-b border-gray-200 aspect-[16/10] flex items-center justify-center p-8 md:p-10 group cursor-pointer transition-all duration-300 hover:bg-white hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] relative z-0 hover:z-10 overflow-hidden animate-none"
                             >
                                 <Image
                                     src={partner.logo}
                                     alt={partner.name}
                                     fill
-                                    className="object-contain transition-transform duration-500 ease-out group-hover:scale-110 p-4 md:p-6"
+                                    className="object-contain transition-transform duration-500 ease-out group-hover:scale-110 p-6 md:p-8"
                                     sizes="(max-width: 768px) 50vw, 20vw"
                                     unoptimized
                                 />
@@ -165,7 +165,7 @@ export function HomepagePartners({ isClientsPage = false }: HomepagePartnersProp
                 <span className="text-[28vw] md:text-[18vw] font-black whitespace-nowrap text-dark-slate leading-none">TRUSTED</span>
             </div>
 
-            <div className="container mx-auto px-6 md:px-12 lg:px-24 max-w-7xl relative z-10">
+            <div className="container mx-auto px-6 md:px-12 lg:px-24 max-w-[1500px] relative z-10">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-20">
                     
                     {/* Left Column (42% Width): Text Content & View All Clients Button */}
@@ -210,26 +210,26 @@ export function HomepagePartners({ isClientsPage = false }: HomepagePartnersProp
                     </div>
 
                     {/* Right Column (58% Width): Double-Row Marquee Carousel */}
-                    <div className="w-full lg:w-[58%] relative overflow-hidden py-4 flex flex-col gap-6 bg-[#fafafa]/50 border border-gray-100 p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+                    <div className="w-full lg:w-[58%] relative overflow-hidden py-6 flex flex-col gap-8 bg-[#fafafa]/50 border border-gray-100 p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
                         {/* Elegant edge fading overlays */}
-                        <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#f8f9fa] to-transparent z-10 pointer-events-none" />
-                        <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#f8f9fa] to-transparent z-10 pointer-events-none" />
+                        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#f8f9fa] to-transparent z-10 pointer-events-none" />
+                        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#f8f9fa] to-transparent z-10 pointer-events-none" />
 
                         {/* Row 1: Scrolls Left (Full Color & Big Logos) */}
                         <div className="overflow-hidden w-full">
-                            <div className="animate-marquee-left gap-4 items-center">
+                            <div className="animate-marquee-left gap-6 items-center">
                                 {duplicatedRow1.map((partner, index) => (
                                     <div
                                         key={`row1-${partner.id}-${index}`}
-                                        className="flex-shrink-0 w-40 sm:w-44 md:w-48 h-20 sm:h-24 md:h-28 bg-white border border-gray-150 rounded-xl flex items-center justify-center p-3.5 shadow-[0_4px_12px_rgba(0,0,0,0.02)] transition-all duration-300 hover:shadow-[0_8px_20px_rgba(0,0,0,0.06)] hover:border-primary/20 relative"
+                                        className="flex-shrink-0 w-52 sm:w-56 md:w-60 h-28 sm:h-32 md:h-36 bg-white border border-gray-150 rounded-2xl flex items-center justify-center p-5 shadow-[0_4px_12px_rgba(0,0,0,0.02)] transition-all duration-300 hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] hover:border-primary/20 relative"
                                     >
                                         <div className="relative w-full h-full">
                                             <Image
                                                 src={partner.logo}
                                                 alt={partner.name}
                                                 fill
-                                                className="object-contain p-0.5"
-                                                sizes="(max-width: 768px) 160px, 200px"
+                                                className="object-contain p-1"
+                                                sizes="(max-width: 768px) 200px, 240px"
                                                 unoptimized
                                             />
                                         </div>
@@ -240,19 +240,19 @@ export function HomepagePartners({ isClientsPage = false }: HomepagePartnersProp
 
                         {/* Row 2: Scrolls Right (Full Color & Big Logos) */}
                         <div className="overflow-hidden w-full">
-                            <div className="animate-marquee-right gap-4 items-center">
+                            <div className="animate-marquee-right gap-6 items-center">
                                 {duplicatedRow2.map((partner, index) => (
                                     <div
                                         key={`row2-${partner.id}-${index}`}
-                                        className="flex-shrink-0 w-40 sm:w-44 md:w-48 h-20 sm:h-24 md:h-28 bg-white border border-gray-150 rounded-xl flex items-center justify-center p-3.5 shadow-[0_4px_12px_rgba(0,0,0,0.02)] transition-all duration-300 hover:shadow-[0_8px_20px_rgba(0,0,0,0.06)] hover:border-primary/20 relative"
+                                        className="flex-shrink-0 w-52 sm:w-56 md:w-60 h-28 sm:h-32 md:h-36 bg-white border border-gray-150 rounded-2xl flex items-center justify-center p-5 shadow-[0_4px_12px_rgba(0,0,0,0.02)] transition-all duration-300 hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] hover:border-primary/20 relative"
                                     >
                                         <div className="relative w-full h-full">
                                             <Image
                                                 src={partner.logo}
                                                 alt={partner.name}
                                                 fill
-                                                className="object-contain p-0.5"
-                                                sizes="(max-width: 768px) 160px, 200px"
+                                                className="object-contain p-1"
+                                                sizes="(max-width: 768px) 200px, 240px"
                                                 unoptimized
                                             />
                                         </div>
